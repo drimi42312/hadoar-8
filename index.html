@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Hadoar 8 — Tel Aviv-Jaffa</title>
+<meta name="description" content="Twenty-five private residences, fully designed and furnished, in Tel Aviv-Jaffa's first post office. Architecture by Yaniv Pardo. Interiors by Yaron Eldad. A LVNT — Gabso Group development." />
+<link rel="icon" href="assets/company logo/L'VNT logotype.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#FAF7F1;
+  --paper-2:#F2EDE2;
+  --sand:#E5DBC8;
+  --bone:#D9CFB9;
+  --ink:#2A2520;
+  --ink-soft:#5C544B;
+  --mute:#8A8378;
+  --sea:#7CA7B6;
+  --sea-deep:#4F7E91;
+  --line:rgba(42,37,32,.10);
+  --line-2:rgba(42,37,32,.18);
+  --serif:'Cormorant Garamond', Garamond, serif;
+  --sans:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:15px;line-height:1.6;font-weight:300;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--sea);color:#fff}
+
+/* Type */
+.serif{font-family:var(--serif);font-weight:300}
+.italic{font-family:var(--serif);font-style:italic}
+h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-height:1.05}
+.label{font-family:var(--sans);font-size:10px;font-weight:400;letter-spacing:.32em;text-transform:uppercase;color:var(--mute)}
+.lead{font-size:16px;line-height:1.7;color:var(--ink-soft);font-weight:300;max-width:54ch}
+.eyebrow{display:flex;align-items:center;gap:14px;margin-bottom:24px}
+.eyebrow .bar{display:inline-block;width:32px;height:1px;background:var(--sea-deep)}
+.eyebrow .label{color:var(--sea-deep);font-weight:500}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:24px 44px;transition:padding .35s, background .35s, border-color .35s;mix-blend-mode:difference}
+.nav.solid{background:rgba(250,247,241,.94);backdrop-filter:blur(14px) saturate(1.2);mix-blend-mode:normal;border-bottom:1px solid var(--line);padding:14px 44px}
+.nav .brand{display:flex;align-items:baseline;gap:10px;color:#fff}
+.nav.solid .brand{color:var(--ink)}
+.nav .brand .word{font-family:var(--serif);font-size:21px;letter-spacing:.18em}
+.nav .brand .num{font-family:var(--serif);font-style:italic;font-size:18px;color:#fff;opacity:.75}
+.nav.solid .brand .num{color:var(--sea-deep);opacity:1}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#fff;transition:opacity .25s}
+.nav.solid .nav-links a{color:var(--ink)}
+.nav-links a:hover{opacity:.55}
+.nav .cta{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:#fff;border-bottom:1px solid #fff;padding-bottom:4px;transition:color .25s, border-color .25s}
+.nav.solid .cta{color:var(--ink);border-bottom-color:var(--ink)}
+.nav .cta:hover{color:var(--sea-deep);border-bottom-color:var(--sea-deep)}
+@media(max-width:900px){.nav{padding:16px 22px}.nav.solid{padding:12px 22px}.nav-links{display:none}}
+
+/* HERO */
+.hero{position:relative;height:100vh;min-height:680px;overflow:hidden;background:#0c0c0a}
+.hero-bg{position:absolute;inset:-2%;background-image:url('assets/renders/exterioir%201.jpg');background-size:cover;background-position:center 55%;filter:brightness(.78) saturate(.95);transform:scale(1.06);animation:slowZoom 22s ease-out forwards}
+@keyframes slowZoom{from{transform:scale(1.14)}to{transform:scale(1.02)}}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,0) 35%,rgba(0,0,0,.05) 60%,rgba(0,0,0,.55) 100%)}
+.hero-content{position:relative;z-index:2;height:100%;max-width:1480px;margin:0 auto;padding:0 44px 90px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
+.hero h1{color:#fff;font-size:clamp(56px,8.4vw,128px);font-weight:300;line-height:.95;letter-spacing:-.005em}
+.hero h1 .num{font-style:italic;color:#cee0e6}
+.hero h1 .small{display:block;font-size:.13em;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:24px;font-style:normal;font-family:var(--sans);font-weight:400}
+.hero-sub{margin-top:24px;color:rgba(255,255,255,.82);font-size:15px;font-weight:300;max-width:48ch}
+.hero-sub em{font-style:italic;color:#e6efe8}
+.hero-base{position:absolute;left:44px;right:44px;bottom:30px;z-index:3;display:flex;justify-content:space-between;align-items:flex-end;color:rgba(255,255,255,.6);font-size:10px;letter-spacing:.3em;text-transform:uppercase;pointer-events:none}
+.hero-scroll{display:flex;align-items:center;gap:14px}
+.hero-scroll .line{display:inline-block;width:46px;height:1px;background:rgba(255,255,255,.5);position:relative;overflow:hidden}
+.hero-scroll .line::after{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:#fff;animation:scrollLine 2.4s ease-in-out infinite}
+@keyframes scrollLine{0%{left:-100%}100%{left:100%}}
+.hero h1, .hero-sub{opacity:0;transform:translateY(18px);animation:hin 1.4s cubic-bezier(.2,.8,.2,1) forwards}
+.hero h1{animation-delay:.6s}
+.hero-sub{animation-delay:1s}
+@keyframes hin{to{opacity:1;transform:translateY(0)}}
+
+/* SHELL */
+.wrap{max-width:1280px;margin:0 auto;padding:0 44px}
+.wrap-wide{max-width:1480px;margin:0 auto;padding:0 44px}
+.section{padding:160px 0;position:relative}
+@media(max-width:900px){.wrap,.wrap-wide{padding:0 22px}.section{padding:90px 0}}
+
+/* REVEAL */
+.fade{opacity:0;transform:translateY(28px);transition:opacity 1.2s cubic-bezier(.2,.8,.2,1),transform 1.2s cubic-bezier(.2,.8,.2,1)}
+.fade.in{opacity:1;transform:translateY(0)}
+.fade[data-d="1"]{transition-delay:.1s}
+.fade[data-d="2"]{transition-delay:.22s}
+.fade[data-d="3"]{transition-delay:.34s}
+
+/* INTRO */
+.intro{padding:200px 0 140px}
+.intro-grid{max-width:1080px;margin:0 auto}
+.intro h2{font-size:clamp(36px,4.6vw,72px);max-width:18ch;line-height:1.04}
+.intro h2 em{font-style:italic;color:var(--sea-deep)}
+.intro p{font-size:17px;line-height:1.65;color:var(--ink-soft);max-width:60ch;margin-top:22px}
+.intro-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:64px;padding-top:30px;border-top:1px solid var(--line)}
+.intro-meta .v{font-family:var(--serif);font-size:24px;font-weight:400;display:block}
+.intro-meta .v em{font-style:italic;color:var(--sea-deep)}
+.intro-meta .k{display:block;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute);margin-top:4px}
+@media(max-width:700px){.intro-meta{grid-template-columns:repeat(2,1fr);gap:24px}}
+
+/* PROMISE BANNER */
+.promise{padding:120px 44px;background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.promise-inner{max-width:1080px;margin:0 auto;text-align:center}
+.promise h2{font-size:clamp(34px,4.2vw,60px);line-height:1.08}
+.promise h2 em{font-style:italic;color:var(--sea-deep)}
+.promise p{margin:30px auto 0;font-size:16px;color:var(--ink-soft);max-width:54ch}
+.promise-line{margin-top:48px;display:flex;justify-content:center;gap:60px;flex-wrap:wrap}
+.promise-line .item{display:flex;flex-direction:column;align-items:center;gap:6px}
+.promise-line .item .v{font-family:var(--serif);font-style:italic;font-size:22px;color:var(--sea-deep)}
+.promise-line .item .k{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute)}
+
+/* SPLIT */
+.split{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:760px}
+.split-img{position:relative;overflow:hidden;background:#000}
+.split-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 1.6s cubic-bezier(.2,.8,.2,1)}
+.split-img.in img{transform:scale(1)}
+.split-text{padding:130px 80px;display:flex;flex-direction:column;justify-content:center}
+.split-text h2{font-size:clamp(36px,4.4vw,64px);max-width:14ch}
+.split-text h2 em{font-style:italic;color:var(--sea-deep)}
+.split-text p{margin-top:24px;font-size:15px;line-height:1.7;color:var(--ink-soft);max-width:48ch}
+.split-text ul{margin-top:32px;list-style:none}
+.split-text li{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px solid var(--line);font-size:13px}
+.split-text li span:first-child{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute)}
+.split-text li span:last-child{font-family:var(--serif);font-size:17px}
+.split.reverse .split-img{order:2}
+@media(max-width:900px){.split{grid-template-columns:1fr;min-height:auto}.split-img{aspect-ratio:4/3;order:1!important}.split-text{padding:70px 22px}}
+
+/* FULL BLEED */
+.fullbleed{position:relative;height:100vh;min-height:620px;overflow:hidden;background:#0a0a0a}
+.fullbleed-img{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.06);transition:transform 14s ease-out}
+.fullbleed.in .fullbleed-img{transform:scale(1)}
+.fullbleed::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.6) 100%)}
+.fullbleed-cap{position:absolute;left:44px;right:44px;bottom:54px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;color:#fff;gap:30px}
+.fullbleed-cap .ttl{font-family:var(--serif);font-size:clamp(28px,3vw,44px);font-weight:300;line-height:1.08;max-width:18ch}
+.fullbleed-cap .ttl em{font-style:italic;color:#cee0e6}
+.fullbleed-cap .meta{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.7);text-align:right}
+@media(max-width:700px){.fullbleed-cap{flex-direction:column;align-items:flex-start}.fullbleed-cap .meta{text-align:left}}
+
+/* GALLERY GRID (bedrooms / bathrooms) */
+.gallery{padding:120px 0}
+.gallery-head{max-width:760px;margin:0 auto 70px;text-align:center}
+.gallery-head h2{font-size:clamp(34px,4.2vw,60px)}
+.gallery-head h2 em{font-style:italic;color:var(--sea-deep)}
+.gallery-head p{margin-top:20px;color:var(--ink-soft);font-size:16px}
+.gal-2{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:1480px;margin:0 auto;padding:0 44px}
+.gal-img{aspect-ratio:5/4;overflow:hidden;background:#222}
+.gal-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.05);transition:transform 1.5s cubic-bezier(.2,.8,.2,1)}
+.gal-img.in img{transform:scale(1)}
+@media(max-width:700px){.gal-2{grid-template-columns:1fr;padding:0 22px}}
+
+/* FLOOR PLANS */
+.plans{padding:160px 0;background:var(--paper-2)}
+.plans-head{max-width:880px;margin:0 auto 70px;text-align:center}
+.plans-head h2{font-size:clamp(34px,4.4vw,68px)}
+.plans-head h2 em{font-style:italic;color:var(--sea-deep)}
+.plans-head p{margin-top:22px;color:var(--ink-soft);font-size:16px;max-width:60ch;margin-left:auto;margin-right:auto}
+.plan-tabs{display:flex;justify-content:center;gap:0;margin-bottom:40px;border-bottom:1px solid var(--line)}
+.plan-tab{background:transparent;border:none;padding:18px 36px;font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mute);cursor:pointer;font-weight:500;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .3s}
+.plan-tab.active{color:var(--ink);border-bottom-color:var(--sea-deep)}
+.plan-tab:hover:not(.active){color:var(--ink-soft)}
+.plan-stage{max-width:1480px;margin:0 auto;padding:0 44px;position:relative}
+.plan-frame{background:var(--paper);padding:40px;border:1px solid var(--line);position:relative;min-height:420px}
+.plan-pic{display:none}
+.plan-pic.show{display:block}
+.plan-pic img{width:100%;height:auto}
+.plan-info{margin-top:36px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+.plan-info .item{padding:24px 28px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.plan-info .item:last-child{border-right:none}
+.plan-info .v{font-family:var(--serif);font-size:22px;font-weight:300}
+.plan-info .v em{font-style:italic;color:var(--sea-deep)}
+.plan-info .k{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute)}
+@media(max-width:900px){.plan-tabs{flex-wrap:wrap}.plan-info{grid-template-columns:repeat(2,1fr)}.plan-info .item{border-right:none;border-bottom:1px solid var(--line)}}
+
+/* LOCATION — illustrated map */
+.location{padding:180px 0;background:var(--paper)}
+.loc-head{max-width:1080px;margin:0 auto 70px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;padding:0 44px}
+.loc-head h2{font-size:clamp(36px,4.6vw,72px);max-width:14ch;line-height:1.05}
+.loc-head h2 em{font-style:italic;color:var(--sea-deep)}
+.loc-head p{font-size:15px;color:var(--ink-soft);line-height:1.75;max-width:48ch}
+@media(max-width:900px){.loc-head{grid-template-columns:1fr;gap:24px}}
+
+.illmap-wrap{max-width:1280px;margin:0 auto;padding:0 44px;position:relative}
+.illmap{width:100%;height:auto;background:linear-gradient(180deg,#F2EDE2 0%, #E8DECF 100%);border:1px solid var(--line);display:block}
+.poi-grid{margin-top:50px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);max-width:1280px;margin-left:auto;margin-right:auto;padding:0 44px}
+.poi{padding:24px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
+.poi:last-child{border-right:none}
+.poi .name{font-family:var(--serif);font-size:19px;font-weight:400}
+.poi .meta{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute)}
+@media(max-width:900px){.poi-grid{grid-template-columns:repeat(2,1fr)}.poi:nth-child(2n){border-right:none}.poi:nth-child(odd){border-right:1px solid var(--line)}}
+
+/* TEAM */
+.team{padding:180px 0;background:var(--paper-2)}
+.team-head{max-width:1080px;margin:0 auto 80px;padding:0 44px}
+.team-head h2{font-size:clamp(36px,4.6vw,72px);max-width:14ch;line-height:1.05}
+.team-head h2 em{font-style:italic;color:var(--sea-deep)}
+.team-head p{margin-top:22px;font-size:15px;color:var(--ink-soft);max-width:54ch;line-height:1.75}
+.team-grid{max-width:1480px;margin:0 auto;padding:0 44px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.tcard{background:var(--paper);border:1px solid var(--line);overflow:hidden}
+.tcard-img{aspect-ratio:4/5;overflow:hidden;background:#ddd}
+.tcard-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(.35);transition:filter .5s, transform 1.6s cubic-bezier(.2,.8,.2,1);transform:scale(1.04)}
+.tcard:hover .tcard-img img{filter:grayscale(0);transform:scale(1.0)}
+.tcard-body{padding:30px 28px 36px}
+.tcard-role{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--sea-deep);font-weight:500}
+.tcard-name{font-family:var(--serif);font-size:30px;font-weight:300;margin-top:10px;line-height:1.05}
+.tcard-name em{font-style:italic}
+.tcard-bio{margin-top:12px;font-size:14px;line-height:1.65;color:var(--ink-soft)}
+@media(max-width:900px){.team-grid{grid-template-columns:1fr}}
+
+/* CONTACT */
+.contact{padding:200px 0;background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
+.contact::before{content:"";position:absolute;top:-30%;right:-15%;width:60%;height:160%;background:radial-gradient(ellipse at center,rgba(124,167,182,.18) 0%,transparent 65%);pointer-events:none}
+.contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:120px;align-items:start;position:relative;z-index:1}
+.contact .eyebrow .label{color:#cee0e6}
+.contact .eyebrow .bar{background:#cee0e6}
+.contact h2{font-size:clamp(40px,5vw,80px);color:var(--paper);max-width:12ch}
+.contact h2 em{font-style:italic;color:#cee0e6}
+.contact .lead{color:rgba(250,247,241,.72);max-width:46ch;margin-top:32px}
+.contact .info{margin-top:60px;display:flex;flex-direction:column}
+.contact .row{display:flex;justify-content:space-between;padding:18px 0;border-bottom:1px solid rgba(250,247,241,.14);font-size:14px}
+.contact .row .k{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(250,247,241,.5);align-self:center}
+.contact .row .v{font-family:var(--serif);font-size:18px}
+form{display:flex;flex-direction:column}
+form label{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(250,247,241,.5);margin-top:18px}
+form input,form select,form textarea{background:transparent;color:var(--paper);border:0;border-bottom:1px solid rgba(250,247,241,.18);padding:10px 0;font-family:var(--sans);font-size:15px;font-weight:300;outline:none;transition:border-color .3s}
+form input:focus,form select:focus,form textarea:focus{border-bottom-color:#cee0e6}
+form textarea{resize:vertical;min-height:60px}
+form option{background:var(--ink);color:var(--paper)}
+form button{margin-top:36px;align-self:flex-start;background:transparent;color:var(--paper);border:1px solid var(--paper);padding:18px 38px;font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:400;cursor:pointer;transition:all .3s}
+form button:hover{background:var(--sea-deep);border-color:var(--sea-deep);letter-spacing:.42em}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:60px}}
+
+/* FOOTER */
+footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-top:1px solid rgba(250,247,241,.1)}
+.foot{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;align-items:start}
+.foot h4{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#cee0e6;font-weight:400;margin-bottom:18px}
+.foot a,.foot p{font-size:13px;line-height:1.7;color:rgba(250,247,241,.65);font-weight:300}
+.foot a{display:block;transition:color .25s}
+.foot a:hover{color:var(--paper)}
+.foot-mark{font-family:var(--serif);font-size:24px;letter-spacing:.18em;color:var(--paper)}
+.foot-mark .num{font-style:italic;color:#cee0e6}
+.foot-bot{max-width:1280px;margin:60px auto 0;padding-top:24px;border-top:1px solid rgba(250,247,241,.1);display:flex;justify-content:space-between;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(250,247,241,.4)}
+@media(max-width:900px){.foot{grid-template-columns:1fr 1fr;gap:30px}.foot-bot{flex-direction:column;gap:14px}footer{padding:48px 22px 30px}}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <a href="#top" class="brand">
+    <span class="word">HADOAR</span>
+    <span class="num">№ 8</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#interiors">Interiors</a></li>
+    <li><a href="#plans">Plans</a></li>
+    <li><a href="#location">Location</a></li>
+    <li><a href="#team">Team</a></li>
+  </ul>
+  <a href="#contact" class="cta">Private Viewing</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <h1>
+      <span class="small">Tel Aviv-Jaffa · A LVNT development</span>
+      Hadoar <span class="num">№ 8</span>.
+    </h1>
+    <p class="hero-sub">Twenty-five private residences, <em>fully designed and furnished — to the last detail</em>. Six minutes from the sea, between Neve Tzedek and old Jaffa.</p>
+  </div>
+  <div class="hero-base">
+    <span>8 Hadoar Street · Tel Aviv-Jaffa</span>
+    <div class="hero-scroll"><span>Scroll</span><span class="line"></span></div>
+    <span>Architecture · Yaniv Pardo</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="intro section" id="about">
+  <div class="wrap">
+    <div class="intro-grid">
+      <div class="eyebrow fade"><span class="bar"></span><span class="label">About the project</span></div>
+      <h2 class="fade" data-d="1">A house that has<br/>always <em>belonged</em> here.</h2>
+      <p class="fade" data-d="2">Hadoar 8 returns one of the city's first addresses to its old function: a place of arrival. Twenty-five private residences inside the building that, a century ago, served as Tel Aviv's first telegraph and post office.</p>
+      <p class="fade" data-d="2">The exterior is by Yaniv Pardo. Every interior — every door handle, every chair leg, every brass fitting — is by Yaron Eldad. The owners do not arrive to an empty room; they arrive to a finished home.</p>
+      <div class="intro-meta fade" data-d="3">
+        <div><span class="v"><em>25</em></span><span class="k">Residences</span></div>
+        <div><span class="v">5 + roof</span><span class="k">Floors</span></div>
+        <div><span class="v">60–185 sqm</span><span class="k">Range</span></div>
+        <div><span class="v">450 m</span><span class="k">To the sea</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROMISE -->
+<section class="promise">
+  <div class="promise-inner">
+    <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">Move-in standard</span></div>
+    <h2 class="fade" data-d="1">Designed and furnished,<br/>down to the <em>last detail</em>.</h2>
+    <p class="fade" data-d="2">Hadoar 8 is delivered the way it was photographed. Bedding, lighting, kitchenware, brass — everything in the renderings is included. The buyer carries a key, not a checklist.</p>
+    <div class="promise-line fade" data-d="3">
+      <div class="item"><span class="v">Yaron Eldad</span><span class="k">Interior Studio</span></div>
+      <div class="item"><span class="v">Italian</span><span class="k">Stainless kitchens</span></div>
+      <div class="item"><span class="v">Travertine</span><span class="k">All bathrooms</span></div>
+      <div class="item"><span class="v">Smoked Oak</span><span class="k">Flooring</span></div>
+      <div class="item"><span class="v">KNX</span><span class="k">Smart-home</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section class="split">
+  <div class="split-img fade"><img src="assets/renders/exterioir%202.jpg" alt="Hadoar 8 exterior at dusk" /></div>
+  <div class="split-text">
+    <div class="eyebrow fade"><span class="bar"></span><span class="label">Architecture</span></div>
+    <h2 class="fade" data-d="1">Of its time,<br/>and of its <em>place</em>.</h2>
+    <p class="fade" data-d="2">Five storeys above the boulevard, crowned with a verdigris copper roof. Cream stucco, honed travertine, smoked oak. Materials that age into Tel Aviv rather than against it.</p>
+    <ul>
+      <li class="fade" data-d="2"><span>Architect</span><span>Yaniv Pardo</span></li>
+      <li class="fade" data-d="2"><span>Interiors</span><span>Yaron Eldad</span></li>
+      <li class="fade" data-d="3"><span>Floors</span><span>5 + roof terrace</span></li>
+      <li class="fade" data-d="3"><span>Façade</span><span>Stucco · Travertine · Copper</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- LOBBY (full bleed) -->
+<section class="fullbleed">
+  <div class="fullbleed-img" style="background-image:url('assets/renders/lobby.jpg');background-position:center 30%"></div>
+  <div class="fullbleed-cap">
+    <div class="ttl fade">Through the arches,<br/>into a <em>quiet</em> city.</div>
+    <div class="meta fade" data-d="2">The Lobby<br/>Patinated copper · Travertine</div>
+  </div>
+</section>
+
+<!-- CORRIDOR (full bleed) -->
+<section class="fullbleed">
+  <div class="fullbleed-img" style="background-image:url('assets/renders/coridor.jpg');background-position:center"></div>
+  <div class="fullbleed-cap">
+    <div class="ttl fade">Floors three<br/>and <em>above</em>.</div>
+    <div class="meta fade" data-d="2">Residential corridor<br/>Brass sconces · Travertine</div>
+  </div>
+</section>
+
+<!-- LIVING -->
+<section id="interiors">
+  <div class="split reverse">
+    <div class="split-img fade"><img src="assets/renders/apt%20interioirs.jpg" alt="Living and dining" /></div>
+    <div class="split-text">
+      <div class="eyebrow fade"><span class="bar"></span><span class="label">The Living Room</span></div>
+      <h2 class="fade" data-d="1">Stainless kitchens.<br/>Oak <em>everywhere</em>.</h2>
+      <p class="fade" data-d="2">An open kitchen in stainless steel and oak, a dining table under a soft pendant, and the city beyond the window. Every piece in the photograph is delivered with the home — chairs, sofa, table, lamps.</p>
+      <ul>
+        <li class="fade" data-d="2"><span>Kitchen</span><span>Italian stainless</span></li>
+        <li class="fade" data-d="2"><span>Floor</span><span>Smoked oak</span></li>
+        <li class="fade" data-d="3"><span>Climate</span><span>VRF · underfloor</span></li>
+        <li class="fade" data-d="3"><span>Smart Home</span><span>KNX-ready</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- BEDROOMS GALLERY -->
+<section class="gallery">
+  <div class="gallery-head">
+    <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">The Bedrooms</span></div>
+    <h2 class="fade" data-d="1">Where the city <em>quiets</em>.</h2>
+    <p class="fade" data-d="2">Concrete ceilings, oxidised steel feature walls, oak floors and copper detailing. Each bedroom is finished and furnished by Yaron Eldad's studio.</p>
+  </div>
+  <div class="gal-2">
+    <div class="gal-img fade"><img src="assets/renders/bedroom.jpg" alt="Master bedroom" /></div>
+    <div class="gal-img fade" data-d="1"><img src="assets/renders/bedroom2.jpg" alt="Bedroom 2" /></div>
+  </div>
+</section>
+
+<!-- BATHROOMS GALLERY -->
+<section class="gallery" style="padding-top:0">
+  <div class="gallery-head">
+    <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">The Bathrooms</span></div>
+    <h2 class="fade" data-d="1">Travertine, brass,<br/>and a <em>handheld</em> shower.</h2>
+    <p class="fade" data-d="2">Honed travertine wall-to-wall, brushed-brass fittings, oval mirrors and fluted vanities. Every bathroom is identical in standard, varied in proportion.</p>
+  </div>
+  <div class="gal-2">
+    <div class="gal-img fade"><img src="assets/renders/wc1.jpg" alt="Bathroom 1" /></div>
+    <div class="gal-img fade" data-d="1"><img src="assets/renders/wc2.jpg" alt="Bathroom 2" /></div>
+  </div>
+</section>
+
+<!-- FLOOR PLANS -->
+<section class="plans" id="plans">
+  <div class="plans-head">
+    <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">Floor Plans</span></div>
+    <h2 class="fade" data-d="1">Twenty-five plans.<br/>No two <em>alike</em>.</h2>
+    <p class="fade" data-d="2">Each residence is the result of a unique conversation between the original 1920 envelope and contemporary life. Move between the three floors below, then book a viewing to discuss specific apartments.</p>
+  </div>
+  <div class="plan-tabs fade">
+    <button class="plan-tab active" data-tab="a">Floor One</button>
+    <button class="plan-tab" data-tab="b">Floor Two — Typical</button>
+    <button class="plan-tab" data-tab="c">Floor Three</button>
+  </div>
+  <div class="plan-stage fade" data-d="1">
+    <div class="plan-frame">
+      <div class="plan-pic show" data-pic="a"><img src="assets/renders/floor-a-clean.png" alt="Floor One plan" /></div>
+      <div class="plan-pic" data-pic="b"><img src="assets/renders/floor-b-clean.png" alt="Typical residential level plan" /></div>
+      <div class="plan-pic" data-pic="c"><img src="assets/renders/floor-c-clean.png" alt="Floor Three plan" /></div>
+    </div>
+    <div class="plan-info">
+      <div class="item"><span class="k">Level</span><span class="v" id="plan-level">Floor <em>One</em></span></div>
+      <div class="item"><span class="k">Apartments</span><span class="v" id="plan-apts">12 unique</span></div>
+      <div class="item"><span class="k">Range</span><span class="v" id="plan-range">60 – 185 sqm</span></div>
+      <div class="item"><span class="k">Outdoor</span><span class="v" id="plan-outdoor">Private balconies</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section class="location" id="location">
+  <div class="loc-head">
+    <div>
+      <div class="eyebrow fade"><span class="bar"></span><span class="label">Location</span></div>
+      <h2 class="fade" data-d="1">On the <em>line</em><br/>of the sea.</h2>
+    </div>
+    <p class="fade" data-d="2">Six minutes from the Mediterranean. Between Neve Tzedek's lanes and Jaffa's clock tower. Walk to HaMesila Park in under ten minutes; reach Rothschild in twenty.</p>
+  </div>
+
+  <div class="illmap-wrap fade">
+    <svg class="illmap" viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg" aria-label="Hadoar 8 location map">
+      <defs>
+        <pattern id="dots" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="0.6" fill="#5C544B" opacity=".22"/>
+        </pattern>
+        <pattern id="seaWaves" x="0" y="0" width="60" height="14" patternUnits="userSpaceOnUse">
+          <path d="M0 7 Q15 0 30 7 T60 7" stroke="#7CA7B6" stroke-width="0.7" fill="none" opacity=".55"/>
+        </pattern>
+      </defs>
+
+      <!-- Land base -->
+      <rect width="1200" height="720" fill="url(#dots)"/>
+
+      <!-- Sea -->
+      <path d="M0 0 L0 720 L300 720 Q280 540 320 380 Q360 220 280 60 Q240 0 0 0 Z" fill="#cfe2e9"/>
+      <rect x="0" y="0" width="320" height="720" fill="url(#seaWaves)" opacity=".5"/>
+      <text x="120" y="180" font-family="Cormorant Garamond, serif" font-style="italic" font-size="42" fill="#4F7E91" opacity=".75">Mediterranean</text>
+      <text x="160" y="218" font-family="Inter,sans-serif" font-size="9" letter-spacing="3" fill="#4F7E91" opacity=".6">450 M · 6 MIN WALK</text>
+
+      <!-- Coast wave detail -->
+      <path d="M285 100 Q300 220 270 380 Q310 540 290 720" stroke="#4F7E91" stroke-width="0.8" fill="none" opacity=".45"/>
+
+      <!-- Boulevards / streets -->
+      <path d="M340 720 L420 540 L520 380 L640 240 L820 130 L1100 60" stroke="#5C544B" stroke-width="1.2" fill="none" opacity=".35" stroke-dasharray="2 4"/>
+      <path d="M360 80 Q470 250 580 390 Q700 530 880 700" stroke="#5C544B" stroke-width="1.2" fill="none" opacity=".35" stroke-dasharray="2 4"/>
+      <path d="M150 460 L1180 460" stroke="#5C544B" stroke-width="0.6" fill="none" opacity=".18"/>
+      <path d="M150 290 L1180 290" stroke="#5C544B" stroke-width="0.6" fill="none" opacity=".18"/>
+
+      <!-- Park (HaMesila) - green dotted area -->
+      <ellipse cx="700" cy="490" rx="120" ry="55" fill="#A7B89A" opacity=".4"/>
+      <text x="660" y="495" font-family="Cormorant Garamond, serif" font-size="22" fill="#4d5c44">HaMesila Park</text>
+      <text x="660" y="514" font-family="Inter,sans-serif" font-size="8" letter-spacing="2.5" fill="#4d5c44" opacity=".7">RAILWAY PARK · 6 MIN</text>
+
+      <!-- Jaffa Clock Tower (south) -->
+      <g transform="translate(380,610)">
+        <rect x="-7" y="-30" width="14" height="30" fill="none" stroke="#5C544B" stroke-width="1"/>
+        <circle cx="0" cy="-22" r="4" fill="none" stroke="#5C544B" stroke-width="1"/>
+        <path d="M-10 0 L10 0 L8 6 L-8 6 Z" fill="#5C544B" opacity=".6"/>
+        <text x="-50" y="22" font-family="Cormorant Garamond, serif" font-size="20" fill="#2A2520">Clock Tower</text>
+        <text x="-50" y="38" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#5C544B">OLD JAFFA · 8 MIN</text>
+      </g>
+
+      <!-- Neve Tzedek (north-east of building) -->
+      <g transform="translate(840,340)">
+        <path d="M-20 0 L-10 -16 L0 0 Z M-2 0 L8 -20 L18 0 Z M16 0 L26 -14 L36 0 Z" fill="none" stroke="#5C544B" stroke-width="1" opacity=".6"/>
+        <text x="-40" y="22" font-family="Cormorant Garamond, serif" font-size="22" fill="#2A2520">Neve Tzedek</text>
+        <text x="-40" y="38" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#5C544B">HISTORIC QUARTER · 9 MIN</text>
+      </g>
+
+      <!-- Alma Beach (on coast) -->
+      <g transform="translate(170,440)">
+        <path d="M-20 8 Q-10 -2 0 8 Q10 -2 20 8" stroke="#4F7E91" stroke-width="1.4" fill="none"/>
+        <path d="M-25 18 Q-12 8 0 18 Q12 8 25 18" stroke="#4F7E91" stroke-width="1" fill="none" opacity=".5"/>
+        <text x="-40" y="44" font-family="Cormorant Garamond, serif" font-size="20" fill="#2A2520">Alma Beach</text>
+        <text x="-40" y="60" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#5C544B">SEAFRONT · 6 MIN</text>
+      </g>
+
+      <!-- Rothschild Boulevard (NE corner) -->
+      <g transform="translate(1040,180)">
+        <circle cx="0" cy="0" r="3" fill="#5C544B" opacity=".4"/>
+        <text x="-30" y="22" font-family="Cormorant Garamond, serif" font-size="18" fill="#2A2520">Rothschild Blvd</text>
+        <text x="-30" y="36" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#5C544B">CULTURAL · 20 MIN</text>
+      </g>
+
+      <!-- HADOAR 8 (center) -->
+      <g transform="translate(560,360)">
+        <!-- compass rose -->
+        <g opacity=".25">
+          <line x1="0" y1="-90" x2="0" y2="90" stroke="#4F7E91" stroke-width="0.5"/>
+          <line x1="-90" y1="0" x2="90" y2="0" stroke="#4F7E91" stroke-width="0.5"/>
+          <text x="0" y="-100" font-family="Inter,sans-serif" font-size="9" text-anchor="middle" fill="#4F7E91">N</text>
+        </g>
+        <!-- Building marker -->
+        <circle cx="0" cy="0" r="42" fill="#FAF7F1" stroke="#4F7E91" stroke-width="1"/>
+        <circle cx="0" cy="0" r="32" fill="none" stroke="#4F7E91" stroke-width="0.5" opacity=".5"/>
+        <circle cx="0" cy="0" r="6" fill="#4F7E91"/>
+        <text x="0" y="-58" font-family="Cormorant Garamond, serif" font-size="22" text-anchor="middle" fill="#2A2520" font-weight="500">HADOAR № 8</text>
+        <text x="0" y="68" font-family="Inter,sans-serif" font-size="9" letter-spacing="3" text-anchor="middle" fill="#4F7E91">EST. MCMXX</text>
+      </g>
+
+      <!-- Scale + label -->
+      <g transform="translate(60,680)">
+        <line x1="0" y1="0" x2="80" y2="0" stroke="#5C544B" stroke-width="1"/>
+        <line x1="0" y1="-3" x2="0" y2="3" stroke="#5C544B" stroke-width="1"/>
+        <line x1="80" y1="-3" x2="80" y2="3" stroke="#5C544B" stroke-width="1"/>
+        <text x="0" y="18" font-family="Inter,sans-serif" font-size="9" letter-spacing="2" fill="#5C544B">500 M · APPROX</text>
+      </g>
+      <text x="1140" y="694" font-family="Inter,sans-serif" font-size="9" letter-spacing="3" text-anchor="end" fill="#5C544B">A FEW MINUTES FROM EVERYWHERE</text>
+    </svg>
+  </div>
+
+  <div class="poi-grid fade">
+    <div class="poi"><div class="name">Alma Beach</div><div class="meta">450 m · 6 min</div></div>
+    <div class="poi"><div class="name">HaMesila Park</div><div class="meta">500 m · 6 min</div></div>
+    <div class="poi"><div class="name">Neve Tzedek</div><div class="meta">700 m · 9 min</div></div>
+    <div class="poi"><div class="name">Old Jaffa Clock Tower</div><div class="meta">650 m · 8 min</div></div>
+    <div class="poi"><div class="name">HaTachana</div><div class="meta">550 m · 7 min</div></div>
+    <div class="poi"><div class="name">The Stay TLV</div><div class="meta">800 m · 10 min</div></div>
+    <div class="poi"><div class="name">Mandarin Oriental</div><div class="meta">1.4 km · 18 min</div></div>
+    <div class="poi"><div class="name">Rothschild Boulevard</div><div class="meta">1.4 km · 20 min</div></div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="team-head">
+    <div class="eyebrow fade"><span class="bar"></span><span class="label">The Team</span></div>
+    <h2 class="fade" data-d="1">Three studios.<br/>One <em>building</em>.</h2>
+    <p class="fade" data-d="2">A small, deliberate collaboration: a Tel Aviv architect, a Tel Aviv interior studio, and a developer-contractor with seven decades of building inside the Gabso Group.</p>
+  </div>
+  <div class="team-grid">
+    <div class="tcard fade">
+      <div class="tcard-img"><img src="assets/team/יניב%2001.jpg" alt="Yaniv Pardo, architect" /></div>
+      <div class="tcard-body">
+        <div class="tcard-role">Architect</div>
+        <div class="tcard-name">Yaniv <em>Pardo</em></div>
+        <div class="tcard-bio">Architect of record. The exterior, the envelope, and the conversation between 1920 and now.</div>
+      </div>
+    </div>
+    <div class="tcard fade" data-d="1">
+      <div class="tcard-img"><img src="assets/team/ירון%20אלדד.JPG" alt="Yaron Eldad, interior designer" /></div>
+      <div class="tcard-body">
+        <div class="tcard-role">Interior Designer</div>
+        <div class="tcard-name">Yaron <em>Eldad</em></div>
+        <div class="tcard-bio">Tel Aviv interior studio. Every apartment, the lobby and corridors, the brass and the brushed steel — designed to the last detail.</div>
+      </div>
+    </div>
+    <div class="tcard fade" data-d="2">
+      <div class="tcard-img"><img src="assets/team/צוות%20LVNT.jpg" alt="LVNT team" /></div>
+      <div class="tcard-body">
+        <div class="tcard-role">Developer & Contractor</div>
+        <div class="tcard-name">L'<em>VNT</em></div>
+        <div class="tcard-bio">A LVNT development, a Gabso Group company. Class G-5 contractor. Owned crews, owned equipment, seven decades on the city's skyline.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="wrap-wide">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow fade"><span class="bar"></span><span class="label">Private Viewing</span></div>
+        <h2 class="fade" data-d="1">By <em>appointment</em><br/>only.</h2>
+        <p class="lead fade" data-d="2">Twenty-five residences. Not all available. We meet by request, on site — with the architect or with the developer.</p>
+        <div class="info">
+          <div class="row fade"><span class="k">Address</span><span class="v">8 Hadoar St · Tel Aviv-Jaffa</span></div>
+          <div class="row fade" data-d="1"><span class="k">Telephone</span><span class="v">+972 3 000 0000</span></div>
+          <div class="row fade" data-d="2"><span class="k">Email</span><span class="v">sales@levant-living.co.il</span></div>
+          <div class="row fade" data-d="3"><span class="k">Web</span><span class="v">l'vnt.co.il</span></div>
+        </div>
+      </div>
+      <form class="fade" data-d="2" onsubmit="event.preventDefault();this.querySelector('button').textContent='Thank you — we will be in touch.'">
+        <label>Full Name</label>
+        <input type="text" required />
+        <label>Email</label>
+        <input type="email" required />
+        <label>Phone</label>
+        <input type="tel" />
+        <label>Country of Residence</label>
+        <input type="text" placeholder="Optional" />
+        <label>Residence Type</label>
+        <select>
+          <option>Studio · from 60 sqm</option>
+          <option>One bedroom · 75–95 sqm</option>
+          <option>Two bedrooms · 95–145 sqm</option>
+          <option>Penthouse · up to 185 sqm</option>
+          <option>Open to all options</option>
+        </select>
+        <label>Message</label>
+        <textarea></textarea>
+        <button type="submit">Request a private viewing</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot">
+    <div>
+      <div class="foot-mark">HADOAR <span class="num">№ 8</span></div>
+      <p style="margin-top:14px">Tel Aviv-Jaffa<br/>A LVNT — Gabso Group development</p>
+    </div>
+    <div>
+      <h4>Project</h4>
+      <a href="#about">About</a>
+      <a href="#interiors">Interiors</a>
+      <a href="#plans">Floor Plans</a>
+      <a href="#location">Location</a>
+      <a href="#team">Team</a>
+    </div>
+    <div>
+      <h4>Sales</h4>
+      <a href="mailto:sales@levant-living.co.il">sales@levant-living.co.il</a>
+      <a href="tel:+972300000000">+972 3 000 0000</a>
+      <a href="#contact">Private Viewing</a>
+    </div>
+    <div>
+      <h4>Developer</h4>
+      <a href="#">L'VNT — Levant Living</a>
+      <a href="#">A Gabso Group company</a>
+    </div>
+  </div>
+  <div class="foot-bot">
+    <span>© Hadoar 8 · A LVNT Development</span>
+    <span>Designed in Tel Aviv</span>
+  </div>
+</footer>
+
+<script>
+// Sticky nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) nav.classList.add('solid'); else nav.classList.remove('solid');
+}, { passive: true });
+
+// Reveal — rAF loop checks all .fade elements (works with programmatic scroll)
+const fades = [...document.querySelectorAll('.fade, .split-img, .gal-img, .fullbleed')];
+const checkFades = () => {
+  const trigger = window.innerHeight * 0.92;
+  fades.forEach(el => {
+    if (el.classList.contains('in')) return;
+    const r = el.getBoundingClientRect();
+    if (r.top < trigger && r.bottom > 0) el.classList.add('in');
+  });
+};
+checkFades();
+window.addEventListener('scroll', checkFades, { passive: true });
+window.addEventListener('resize', checkFades);
+window.addEventListener('load', checkFades);
+setInterval(checkFades, 250);
+
+// Floor plan tabs
+const planMeta = {
+  a: { level: 'Floor <em>One</em>',   apts: '12 unique', range: '60 – 185 sqm', outdoor: 'Private balconies' },
+  b: { level: 'Floor <em>Two</em>',   apts: '12 unique', range: '60 – 145 sqm', outdoor: 'Balconies · planters' },
+  c: { level: 'Floor <em>Three</em>', apts: '8 unique',  range: '85 – 185 sqm', outdoor: 'Terraces · roof access' },
+};
+document.querySelectorAll('.plan-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    const t = tab.dataset.tab;
+    document.querySelectorAll('.plan-tab').forEach(b => b.classList.toggle('active', b === tab));
+    document.querySelectorAll('.plan-pic').forEach(p => p.classList.toggle('show', p.dataset.pic === t));
+    const m = planMeta[t];
+    document.getElementById('plan-level').innerHTML = m.level;
+    document.getElementById('plan-apts').textContent = m.apts;
+    document.getElementById('plan-range').textContent = m.range;
+    document.getElementById('plan-outdoor').textContent = m.outdoor;
+  });
+});
+
+// Hero parallax
+const heroBg = document.querySelector('.hero-bg');
+let t = false;
+window.addEventListener('scroll', () => {
+  if (!t) {
+    requestAnimationFrame(() => {
+      const y = window.scrollY;
+      if (y < window.innerHeight && heroBg) heroBg.style.transform = `scale(1.02) translate3d(0,${y*0.22}px,0)`;
+      t = false;
+    });
+    t = true;
+  }
+}, { passive: true });
+</script>
+
+</body>
+</html>
