@@ -216,12 +216,21 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .plan-pic.show{display:block}
 .plan-pic img{width:100%;height:auto}
 .plan-info{margin-top:36px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line)}
+.plan-info[hidden]{display:none}
 .plan-info .item{padding:24px 28px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
 .plan-info .item:last-child{border-right:none}
 .plan-info .v{font-family:var(--serif);font-size:22px;font-weight:300}
 .plan-info .v em{font-style:italic;color:var(--sea-deep)}
 .plan-info .k{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute)}
-@media(max-width:900px){.plan-tabs{flex-wrap:wrap}.plan-info{grid-template-columns:repeat(2,1fr)}.plan-info .item{border-right:none;border-bottom:1px solid var(--line)}}
+.type-chips{margin-top:48px;border-top:1px solid var(--line);padding-top:32px}
+.type-display{margin-top:40px}
+.type-display[hidden]{display:none}
+.type-chips .type-eyebrow{display:block;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--mute);margin-bottom:20px;text-align:center}
+.chip-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.type-chip{background:var(--paper);border:1px solid var(--line);padding:12px 22px;font-family:var(--sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;font-weight:500;transition:background .25s,color .25s,border-color .25s}
+.type-chip:hover:not(.active){border-color:var(--ink);color:var(--ink)}
+.type-chip.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+@media(max-width:900px){.plan-tabs{flex-wrap:wrap}.plan-info{grid-template-columns:repeat(2,1fr)}.plan-info .item{border-right:none;border-bottom:1px solid var(--line)}.type-chip{padding:10px 16px}}
 
 /* LOCATION — illustrated map */
 .location{padding:180px 0;background:var(--paper)}
@@ -497,14 +506,49 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
   </div>
   <div class="plan-stage fade" data-d="1">
     <div class="plan-frame">
-      <div class="plan-pic show" data-pic="first"><img src="assets/renders/floor-first.png" alt="First floor plan — Yaniv Pardo Architects" /></div>
-      <div class="plan-pic" data-pic="typical"><img src="assets/renders/floor-typical.png" alt="Typical floor plan — Yaniv Pardo Architects" /></div>
+      <div class="plan-pic show" data-pic="first"><img src="assets/floorplans/floor%20plans/1st-floor.png" alt="First floor plan — Yaniv Pardo Architects" /></div>
+      <div class="plan-pic" data-pic="typical"><img src="assets/floorplans/floor%20plans/typical-floor.png" alt="Typical floor plan — Yaniv Pardo Architects" /></div>
     </div>
     <div class="plan-info">
       <div class="item"><span class="k">Level</span><span class="v" id="plan-level"><em>First</em> Floor</span></div>
       <div class="item"><span class="k">Outdoor</span><span class="v" id="plan-outdoor">Private balconies · planters</span></div>
       <div class="item"><span class="k">Range</span><span class="v" id="plan-range">60 – 145 sqm</span></div>
       <div class="item"><span class="k">Architect</span><span class="v" id="plan-arch">Yaniv Pardo</span></div>
+    </div>
+    <div class="type-chips">
+      <span class="type-eyebrow">Browse a specific apartment type</span>
+      <div class="chip-row">
+        <button class="type-chip" data-type="A">A</button>
+        <button class="type-chip" data-type="C">C</button>
+        <button class="type-chip" data-type="F1">F1</button>
+        <button class="type-chip" data-type="F2">F2</button>
+        <button class="type-chip" data-type="G1">G1</button>
+        <button class="type-chip" data-type="G2">G2</button>
+        <button class="type-chip" data-type="G3">G3</button>
+        <button class="type-chip" data-type="L">L</button>
+        <button class="type-chip" data-type="PATIO A">Patio A</button>
+        <button class="type-chip" data-type="PATIO B">Patio B</button>
+      </div>
+    </div>
+    <div class="type-display" hidden>
+      <div class="plan-frame">
+        <div class="plan-pic" data-pic="A"><img src="assets/floorplans/apartment_pages_output/v3/A.png" alt="Type A — apartment plan" /></div>
+        <div class="plan-pic" data-pic="C"><img src="assets/floorplans/apartment_pages_output/v3/C.png" alt="Type C — apartment plan" /></div>
+        <div class="plan-pic" data-pic="F1"><img src="assets/floorplans/apartment_pages_output/v3/F1.png" alt="Type F1 — apartment plan" /></div>
+        <div class="plan-pic" data-pic="F2"><img src="assets/floorplans/apartment_pages_output/v3/F2.png" alt="Type F2 — apartment plan" /></div>
+        <div class="plan-pic" data-pic="G1"><img src="assets/floorplans/apartment_pages_output/v3/G1.png" alt="Type G1 — apartment plan" /></div>
+        <div class="plan-pic" data-pic="G2"><img src="assets/floorplans/apartment_pages_output/v3/G2.png" alt="Type G2 — apartment plan" /></div>
+        <div class="plan-pic" data-pic="G3"><img src="assets/floorplans/apartment_pages_output/v3/G3.png" alt="Type G3 — apartment plan" /></div>
+        <div class="plan-pic" data-pic="L"><img src="assets/floorplans/apartment_pages_output/v3/L.png" alt="Type L — apartment plan" /></div>
+        <div class="plan-pic" data-pic="PATIO A"><img src="assets/floorplans/apartment_pages_output/v3/PATIO%20A.png" alt="Type Patio A — apartment plan" /></div>
+        <div class="plan-pic" data-pic="PATIO B"><img src="assets/floorplans/apartment_pages_output/v3/PATIO%20B.png" alt="Type Patio B — apartment plan" /></div>
+      </div>
+      <div class="plan-info">
+        <div class="item"><span class="k">Type</span><span class="v" id="type-name">—</span></div>
+        <div class="item"><span class="k">Layout</span><span class="v" id="type-layout">—</span></div>
+        <div class="item"><span class="k">Apartment</span><span class="v" id="type-apt">—</span></div>
+        <div class="item"><span class="k">Outdoor</span><span class="v" id="type-outdoor">—</span></div>
+      </div>
     </div>
   </div>
 </section>
@@ -844,15 +888,42 @@ const planMeta = {
   first:   { level: '<em>First</em> Floor',   range: '60 – 145 sqm', outdoor: 'Private balconies · planters' },
   typical: { level: '<em>Typical</em> Floor', range: '60 – 185 sqm', outdoor: 'Balconies · terraces' },
 };
+const typeMeta = {
+  'A':       { name: 'Type <em>A</em>',       layout: 'Street · 3BR',       apt: '83 sqm',  outdoor: '6 sqm balcony' },
+  'C':       { name: 'Type <em>C</em>',       layout: 'Street · 4BR',       apt: '105 sqm', outdoor: '4 sqm balcony' },
+  'F1':      { name: 'Type <em>F1</em>',      layout: 'Street · 3BR',       apt: '66 sqm',  outdoor: '7 sqm balcony' },
+  'F2':      { name: 'Type <em>F2</em>',      layout: 'Street · 3BR',       apt: '66 sqm',  outdoor: '4 sqm balcony' },
+  'G1':      { name: 'Type <em>G1</em>',      layout: 'Garden · 2BR',       apt: '46 sqm',  outdoor: '4 sqm balcony' },
+  'G2':      { name: 'Type <em>G2</em>',      layout: 'Garden · 2BR',       apt: '49 sqm',  outdoor: '4 sqm balcony' },
+  'G3':      { name: 'Type <em>G3</em>',      layout: 'Garden · 3BR',       apt: '68 sqm',  outdoor: '4 sqm balcony' },
+  'L':       { name: 'Type <em>L</em>',       layout: '4.5BR',              apt: '128 sqm', outdoor: '8 sqm terrace' },
+  'PATIO A': { name: 'Type <em>Patio A</em>', layout: 'Street · 3BR + Patio', apt: '66 sqm', outdoor: '24 sqm patio' },
+  'PATIO B': { name: 'Type <em>Patio B</em>', layout: 'Street · 3BR + Patio', apt: '66 sqm', outdoor: '22 sqm patio' },
+};
+const typeDisplay = document.querySelector('.type-display');
 document.querySelectorAll('.plan-tab').forEach(tab => {
   tab.addEventListener('click', () => {
     const t = tab.dataset.tab;
     document.querySelectorAll('.plan-tab').forEach(b => b.classList.toggle('active', b === tab));
-    document.querySelectorAll('.plan-pic').forEach(p => p.classList.toggle('show', p.dataset.pic === t));
+    document.querySelectorAll('.plan-frame:not(.type-display .plan-frame) .plan-pic').forEach(p => p.classList.toggle('show', p.dataset.pic === t));
     const m = planMeta[t];
     document.getElementById('plan-level').innerHTML = m.level;
     document.getElementById('plan-range').textContent = m.range;
     document.getElementById('plan-outdoor').textContent = m.outdoor;
+  });
+});
+document.querySelectorAll('.type-chip').forEach(chip => {
+  chip.addEventListener('click', () => {
+    const t = chip.dataset.type;
+    document.querySelectorAll('.type-chip').forEach(c => c.classList.toggle('active', c === chip));
+    typeDisplay.querySelectorAll('.plan-pic').forEach(p => p.classList.toggle('show', p.dataset.pic === t));
+    const m = typeMeta[t];
+    document.getElementById('type-name').innerHTML = m.name;
+    document.getElementById('type-layout').textContent = m.layout;
+    document.getElementById('type-apt').textContent = m.apt;
+    document.getElementById('type-outdoor').textContent = m.outdoor;
+    typeDisplay.hidden = false;
+    typeDisplay.scrollIntoView({behavior:'smooth', block:'center'});
   });
 });
 
