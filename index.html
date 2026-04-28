@@ -132,6 +132,51 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .split.reverse .split-img{order:2}
 @media(max-width:900px){.split{grid-template-columns:1fr;min-height:auto}.split-img{aspect-ratio:4/3;order:1!important}.split-text{padding:70px 22px}}
 
+/* QUOTE SECTION */
+.quote-section{padding:140px 0;background:var(--paper);position:relative}
+.quote-section.dark{background:var(--paper-2)}
+.bigquote{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(28px,3.4vw,52px);line-height:1.18;color:var(--ink);max-width:24ch;margin:0 auto;text-align:center;position:relative}
+.bigquote em{font-style:italic;color:var(--sea-deep)}
+.bigquote .qmark{font-family:var(--serif);font-style:normal;font-size:1.6em;color:var(--sea);opacity:.55;line-height:0;display:inline-block;transform:translateY(.18em);margin-right:.05em}
+.quote-attr{margin-top:36px;text-align:center;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--mute)}
+.quote-section.long .bigquote{font-size:clamp(22px,2.4vw,34px);max-width:42ch;text-align:left}
+.quote-section.long .quote-attr{text-align:left}
+
+/* SPECIFICATIONS */
+.specs{padding:160px 0;background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.specs-head{max-width:880px;margin:0 auto 70px;text-align:center;padding:0 44px}
+.specs-head h2{font-size:clamp(34px,4.2vw,60px);line-height:1.08}
+.specs-head h2 em{font-style:italic;color:var(--sea-deep)}
+.specs-head p{margin-top:20px;color:var(--ink-soft);font-size:16px;max-width:54ch;margin-left:auto;margin-right:auto}
+.specs-grid{max-width:1280px;margin:0 auto;padding:0 44px;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.spec{background:var(--paper);padding:34px 30px;display:flex;flex-direction:column;gap:6px;min-height:170px;transition:background .3s}
+.spec:hover{background:#fff}
+.spec-label{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--sea-deep);font-weight:500}
+.spec-value{font-family:var(--serif);font-size:24px;font-weight:300;line-height:1.2;letter-spacing:-.005em;margin-top:6px}
+.spec-value em{font-style:italic}
+.spec-note{font-size:13px;color:var(--ink-soft);font-weight:300;line-height:1.55;margin-top:6px}
+@media(max-width:900px){.specs-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:600px){.specs-grid{grid-template-columns:1fr}}
+
+/* PLACES NEARBY */
+.nearby{padding:180px 0;background:var(--paper)}
+.nearby-head{max-width:1080px;margin:0 auto 70px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:end;padding:0 44px}
+.nearby-head h2{font-size:clamp(36px,4.6vw,72px);max-width:14ch;line-height:1.05}
+.nearby-head h2 em{font-style:italic;color:var(--sea-deep)}
+.nearby-head p{font-size:15px;color:var(--ink-soft);line-height:1.75;max-width:46ch}
+@media(max-width:900px){.nearby-head{grid-template-columns:1fr;gap:24px}}
+.nearby-grid{max-width:1480px;margin:0 auto;padding:0 44px;display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.ncard{position:relative;aspect-ratio:3/4;overflow:hidden;background:#222;cursor:default}
+.ncard img{width:100%;height:100%;object-fit:cover;transform:scale(1.06);transition:transform 1.4s cubic-bezier(.2,.8,.2,1),filter .5s}
+.ncard.in img{transform:scale(1)}
+.ncard:hover img{transform:scale(1.04);filter:brightness(.85)}
+.ncard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.65) 100%);pointer-events:none}
+.ncard-cap{position:absolute;left:22px;right:22px;bottom:22px;z-index:2;color:#fff}
+.ncard-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.1;letter-spacing:.005em}
+.ncard-name em{font-style:italic;color:#cee0e6}
+.ncard-meta{margin-top:6px;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+@media(max-width:900px){.nearby-grid{grid-template-columns:repeat(2,1fr)}}
+
 /* FULL BLEED */
 .fullbleed{position:relative;height:100vh;min-height:620px;overflow:hidden;background:#0a0a0a}
 .fullbleed-img{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.06);transition:transform 14s ease-out}
@@ -322,15 +367,27 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
 <section class="split">
   <div class="split-img fade"><img src="assets/renders/exterioir%202.jpg" alt="Hadoar 8 exterior at dusk" /></div>
   <div class="split-text">
-    <div class="eyebrow fade"><span class="bar"></span><span class="label">Architecture</span></div>
-    <h2 class="fade" data-d="1">Of its time,<br/>and of its <em>place</em>.</h2>
-    <p class="fade" data-d="2">Five storeys above the boulevard, crowned with a verdigris copper roof. Cream stucco, honed travertine, smoked oak. Materials that age into Tel Aviv rather than against it.</p>
+    <div class="eyebrow fade"><span class="bar"></span><span class="label">Architecture · Yaniv Pardo</span></div>
+    <h2 class="fade" data-d="1">A dialogue between<br/><em>old</em> and new.</h2>
+    <p class="fade" data-d="2">The complex sits at the heart of the developing Hadoar quarter — an intimate, quiet pocket between the coastline and the renewing Jerusalem Boulevard, framed by restored Ottoman and British-Mandate buildings.</p>
+    <p class="fade" data-d="2">A preserved commercial façade holds the historic street; behind it, three sculpted volumes open through twin patios toward the inner courtyard, the sea, old Jaffa, and the Tel Aviv skyline.</p>
     <ul>
       <li class="fade" data-d="2"><span>Architect</span><span>Yaniv Pardo</span></li>
       <li class="fade" data-d="2"><span>Interiors</span><span>Yaron Eldad</span></li>
-      <li class="fade" data-d="3"><span>Floors</span><span>5 + roof terrace</span></li>
-      <li class="fade" data-d="3"><span>Façade</span><span>Stucco · Travertine · Copper</span></li>
+      <li class="fade" data-d="3"><span>Façade</span><span>Restored heritage front</span></li>
+      <li class="fade" data-d="3"><span>Cladding</span><span>Monolithic copper</span></li>
     </ul>
+  </div>
+</section>
+
+<!-- PARDO QUOTE / COPPER LIGHTHOUSE -->
+<section class="quote-section">
+  <div class="wrap">
+    <blockquote class="bigquote fade">
+      <span class="qmark">“</span>
+      The monolithic copper cladding that unifies the volumes gives the building a presence of its own — recalling, from afar, a <em>lighthouse</em> looking out toward the port of Jaffa.
+    </blockquote>
+    <div class="quote-attr fade" data-d="1">— Yaniv Pardo · Architect</div>
   </div>
 </section>
 
@@ -367,6 +424,37 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
         <li class="fade" data-d="3"><span>Smart Home</span><span>KNX-ready</span></li>
       </ul>
     </div>
+  </div>
+</section>
+
+<!-- ELDAD QUOTE / DESIGN PHILOSOPHY -->
+<section class="quote-section long dark">
+  <div class="wrap">
+    <blockquote class="bigquote fade">
+      <span class="qmark">“</span>
+      Jaffa is a city you experience through <em>passages</em> — not as one open plane, but as a sequence of alleys, arches and thresholds. You move from ancient stone to contemporary life in a few steps. The city is built in <em>layers</em>: histories, faiths and architectural language laid one upon another, raw and refined. And at its core, Jaffa is a city of <em>connection</em> — once one of the world's oldest port cities, always a meeting point.
+    </blockquote>
+    <div class="quote-attr fade" data-d="1">— Yaron Eldad · Interior Designer</div>
+  </div>
+</section>
+
+<!-- SPECIFICATIONS — selected by Yaron Eldad -->
+<section class="specs">
+  <div class="specs-head">
+    <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">Specifications · Selected by Yaron Eldad</span></div>
+    <h2 class="fade" data-d="1">The technical <em>palette</em>.</h2>
+    <p class="fade" data-d="2">Every fixture, every surface, every piece of hardware was chosen by the designer's studio. No standard substitutions. No optional upgrades.</p>
+  </div>
+  <div class="specs-grid">
+    <div class="spec fade"><div class="spec-label">Doors</div><div class="spec-value">Zero-line <em>flush</em></div><div class="spec-note">Frameless interior doors, flush with the wall plane.</div></div>
+    <div class="spec fade"><div class="spec-label">Kitchen</div><div class="spec-value">DADA · <em>Bulthaup</em></div><div class="spec-note">Designer metal kitchens — DADA, Bulthaup, or bespoke joinery.</div></div>
+    <div class="spec fade"><div class="spec-label">Flooring</div><div class="spec-value">3-layer <em>parquet</em></div><div class="spec-note">Three-layer luxury parquet, smoked oak finish.</div></div>
+    <div class="spec fade"><div class="spec-label">Climate</div><div class="spec-value">VRF <em>air-conditioning</em></div><div class="spec-note">VRF central system. Whisper-quiet zoning per room.</div></div>
+    <div class="spec fade"><div class="spec-label">Lighting</div><div class="spec-value">Built-in <em>fixtures</em></div><div class="spec-note">Recessed, dimmable. Specified room-by-room.</div></div>
+    <div class="spec fade"><div class="spec-label">Smart Home</div><div class="spec-value">Smart electrical <em>system</em></div><div class="spec-note">Climate, lighting, shading and access from one panel.</div></div>
+    <div class="spec fade"><div class="spec-label">Windows</div><div class="spec-value">Belgian <em>profile</em></div><div class="spec-note">Slim Belgian-profile windows with full acoustic insulation.</div></div>
+    <div class="spec fade"><div class="spec-label">Bathrooms</div><div class="spec-value">Honed <em>travertine</em></div><div class="spec-note">Wall-to-wall travertine, brushed-brass fittings.</div></div>
+    <div class="spec fade"><div class="spec-label">Hardware</div><div class="spec-value">Brushed <em>brass</em></div><div class="spec-note">Door handles, taps and lighting — same family throughout.</div></div>
   </div>
 </section>
 
@@ -430,7 +518,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
       <div class="eyebrow fade"><span class="bar"></span><span class="label">Location</span></div>
       <h2 class="fade" data-d="1">On the <em>line</em><br/>of the sea.</h2>
     </div>
-    <p class="fade" data-d="2">Six minutes from the Mediterranean. Between Neve Tzedek's lanes and Jaffa's clock tower. Walk to HaMesila Park in under ten minutes; reach Rothschild in twenty.</p>
+    <p class="fade" data-d="2">450 metres in a straight line from the Mediterranean — closer to the sea than almost any address in the city. Between Neve Tzedek's lanes and Jaffa's clock tower; HaMesila Park half a kilometre away.</p>
   </div>
 
   <div class="illmap-wrap fade">
@@ -447,59 +535,69 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
       <!-- Land base -->
       <rect width="1200" height="720" fill="url(#dots)"/>
 
-      <!-- Sea -->
-      <path d="M0 0 L0 720 L300 720 Q280 540 320 380 Q360 220 280 60 Q240 0 0 0 Z" fill="#cfe2e9"/>
-      <rect x="0" y="0" width="320" height="720" fill="url(#seaWaves)" opacity=".5"/>
-      <text x="120" y="180" font-family="Cormorant Garamond, serif" font-style="italic" font-size="42" fill="#4F7E91" opacity=".75">Mediterranean</text>
-      <text x="160" y="218" font-family="Inter,sans-serif" font-size="9" letter-spacing="3" fill="#4F7E91" opacity=".6">450 M · 6 MIN WALK</text>
+      <!-- Sea — enlarged & emphasized -->
+      <path d="M0 0 L0 720 L460 720 Q430 540 470 380 Q510 220 430 60 Q380 0 0 0 Z" fill="#bcd6df"/>
+      <rect x="0" y="0" width="460" height="720" fill="url(#seaWaves)" opacity=".7"/>
+      <text x="160" y="200" font-family="Cormorant Garamond, serif" font-style="italic" font-size="56" fill="#3d6a7d" opacity=".9">Mediterranean</text>
+      <text x="200" y="240" font-family="Inter,sans-serif" font-size="11" font-weight="500" letter-spacing="3" fill="#3d6a7d">450 M · AERIAL</text>
 
       <!-- Coast wave detail -->
-      <path d="M285 100 Q300 220 270 380 Q310 540 290 720" stroke="#4F7E91" stroke-width="0.8" fill="none" opacity=".45"/>
+      <path d="M440 80 Q460 240 420 400 Q470 560 440 720" stroke="#3d6a7d" stroke-width="1" fill="none" opacity=".55"/>
+
+      <!-- Aerial line from building to sea (dashed direct) -->
+      <line x1="600" y1="380" x2="320" y2="380" stroke="#3d6a7d" stroke-width="1" stroke-dasharray="3 4" opacity=".7"/>
+      <text x="490" y="370" font-family="Inter,sans-serif" font-size="9" letter-spacing="2" fill="#3d6a7d" opacity=".85">450 M</text>
 
       <!-- Boulevards / streets -->
-      <path d="M340 720 L420 540 L520 380 L640 240 L820 130 L1100 60" stroke="#5C544B" stroke-width="1.2" fill="none" opacity=".35" stroke-dasharray="2 4"/>
-      <path d="M360 80 Q470 250 580 390 Q700 530 880 700" stroke="#5C544B" stroke-width="1.2" fill="none" opacity=".35" stroke-dasharray="2 4"/>
-      <path d="M150 460 L1180 460" stroke="#5C544B" stroke-width="0.6" fill="none" opacity=".18"/>
-      <path d="M150 290 L1180 290" stroke="#5C544B" stroke-width="0.6" fill="none" opacity=".18"/>
+      <path d="M480 720 L530 540 L600 380 L700 240 L860 130 L1100 60" stroke="#5C544B" stroke-width="1.2" fill="none" opacity=".3" stroke-dasharray="2 4"/>
+      <path d="M500 80 Q570 250 650 390 Q740 530 880 700" stroke="#5C544B" stroke-width="1.2" fill="none" opacity=".3" stroke-dasharray="2 4"/>
+      <path d="M460 460 L1180 460" stroke="#5C544B" stroke-width="0.6" fill="none" opacity=".15"/>
+      <path d="M460 290 L1180 290" stroke="#5C544B" stroke-width="0.6" fill="none" opacity=".15"/>
 
-      <!-- Park (HaMesila) - green dotted area -->
-      <ellipse cx="700" cy="490" rx="120" ry="55" fill="#A7B89A" opacity=".4"/>
-      <text x="660" y="495" font-family="Cormorant Garamond, serif" font-size="22" fill="#4d5c44">HaMesila Park</text>
-      <text x="660" y="514" font-family="Inter,sans-serif" font-size="8" letter-spacing="2.5" fill="#4d5c44" opacity=".7">RAILWAY PARK · 6 MIN</text>
+      <!-- Park (HaMesila) -->
+      <ellipse cx="780" cy="500" rx="120" ry="50" fill="#A7B89A" opacity=".42"/>
+      <text x="740" y="505" font-family="Cormorant Garamond, serif" font-size="22" fill="#4d5c44">HaMesila Park</text>
+      <text x="740" y="524" font-family="Inter,sans-serif" font-size="8" letter-spacing="2.5" fill="#4d5c44" opacity=".7">500 M · AERIAL</text>
 
       <!-- Jaffa Clock Tower (south) -->
-      <g transform="translate(380,610)">
+      <g transform="translate(490,620)">
         <rect x="-7" y="-30" width="14" height="30" fill="none" stroke="#5C544B" stroke-width="1"/>
         <circle cx="0" cy="-22" r="4" fill="none" stroke="#5C544B" stroke-width="1"/>
         <path d="M-10 0 L10 0 L8 6 L-8 6 Z" fill="#5C544B" opacity=".6"/>
         <text x="-50" y="22" font-family="Cormorant Garamond, serif" font-size="20" fill="#2A2520">Clock Tower</text>
-        <text x="-50" y="38" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#5C544B">OLD JAFFA · 8 MIN</text>
+        <text x="-50" y="38" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#5C544B">OLD JAFFA · 650 M AERIAL</text>
       </g>
 
       <!-- Neve Tzedek (north-east of building) -->
-      <g transform="translate(840,340)">
+      <g transform="translate(900,340)">
         <path d="M-20 0 L-10 -16 L0 0 Z M-2 0 L8 -20 L18 0 Z M16 0 L26 -14 L36 0 Z" fill="none" stroke="#5C544B" stroke-width="1" opacity=".6"/>
         <text x="-40" y="22" font-family="Cormorant Garamond, serif" font-size="22" fill="#2A2520">Neve Tzedek</text>
-        <text x="-40" y="38" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#5C544B">HISTORIC QUARTER · 9 MIN</text>
+        <text x="-40" y="38" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#5C544B">700 M · AERIAL</text>
       </g>
 
       <!-- Alma Beach (on coast) -->
-      <g transform="translate(170,440)">
-        <path d="M-20 8 Q-10 -2 0 8 Q10 -2 20 8" stroke="#4F7E91" stroke-width="1.4" fill="none"/>
-        <path d="M-25 18 Q-12 8 0 18 Q12 8 25 18" stroke="#4F7E91" stroke-width="1" fill="none" opacity=".5"/>
-        <text x="-40" y="44" font-family="Cormorant Garamond, serif" font-size="20" fill="#2A2520">Alma Beach</text>
-        <text x="-40" y="60" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#5C544B">SEAFRONT · 6 MIN</text>
+      <g transform="translate(280,460)">
+        <path d="M-20 8 Q-10 -2 0 8 Q10 -2 20 8" stroke="#3d6a7d" stroke-width="1.6" fill="none"/>
+        <path d="M-25 18 Q-12 8 0 18 Q12 8 25 18" stroke="#3d6a7d" stroke-width="1.1" fill="none" opacity=".55"/>
+        <text x="-44" y="44" font-family="Cormorant Garamond, serif" font-size="22" fill="#2A2520">Alma Beach</text>
+        <text x="-44" y="60" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#3d6a7d">SEAFRONT · 450 M</text>
+      </g>
+
+      <!-- Charles Clore (north on coast) -->
+      <g transform="translate(290,260)">
+        <text x="-50" y="0" font-family="Cormorant Garamond, serif" font-size="16" fill="#2A2520">Charles Clore</text>
+        <text x="-50" y="14" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#3d6a7d">700 M · AERIAL</text>
       </g>
 
       <!-- Rothschild Boulevard (NE corner) -->
-      <g transform="translate(1040,180)">
+      <g transform="translate(1050,170)">
         <circle cx="0" cy="0" r="3" fill="#5C544B" opacity=".4"/>
-        <text x="-30" y="22" font-family="Cormorant Garamond, serif" font-size="18" fill="#2A2520">Rothschild Blvd</text>
-        <text x="-30" y="36" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#5C544B">CULTURAL · 20 MIN</text>
+        <text x="-30" y="22" font-family="Cormorant Garamond, serif" font-size="18" fill="#2A2520">Rothschild</text>
+        <text x="-30" y="36" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#5C544B">1.4 KM · AERIAL</text>
       </g>
 
       <!-- HADOAR 8 (center) -->
-      <g transform="translate(560,360)">
+      <g transform="translate(620,380)">
         <!-- compass rose -->
         <g opacity=".25">
           <line x1="0" y1="-90" x2="0" y2="90" stroke="#4F7E91" stroke-width="0.5"/>
@@ -526,14 +624,83 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
   </div>
 
   <div class="poi-grid fade">
-    <div class="poi"><div class="name">Alma Beach</div><div class="meta">450 m · 6 min</div></div>
-    <div class="poi"><div class="name">HaMesila Park</div><div class="meta">500 m · 6 min</div></div>
-    <div class="poi"><div class="name">Neve Tzedek</div><div class="meta">700 m · 9 min</div></div>
-    <div class="poi"><div class="name">Old Jaffa Clock Tower</div><div class="meta">650 m · 8 min</div></div>
-    <div class="poi"><div class="name">HaTachana</div><div class="meta">550 m · 7 min</div></div>
-    <div class="poi"><div class="name">The Stay TLV</div><div class="meta">800 m · 10 min</div></div>
-    <div class="poi"><div class="name">Mandarin Oriental</div><div class="meta">1.4 km · 18 min</div></div>
-    <div class="poi"><div class="name">Rothschild Boulevard</div><div class="meta">1.4 km · 20 min</div></div>
+    <div class="poi"><div class="name">The Sea</div><div class="meta">450 m · aerial</div></div>
+    <div class="poi"><div class="name">Alma Beach</div><div class="meta">450 m · aerial</div></div>
+    <div class="poi"><div class="name">HaMesila Park</div><div class="meta">500 m · aerial</div></div>
+    <div class="poi"><div class="name">Old Jaffa Clock Tower</div><div class="meta">650 m · aerial</div></div>
+    <div class="poi"><div class="name">Charles Clore</div><div class="meta">700 m · aerial</div></div>
+    <div class="poi"><div class="name">Neve Tzedek</div><div class="meta">700 m · aerial</div></div>
+    <div class="poi"><div class="name">Jerusalem Boulevard</div><div class="meta">800 m · aerial</div></div>
+    <div class="poi"><div class="name">Rothschild Boulevard</div><div class="meta">1.4 km · aerial</div></div>
+  </div>
+</section>
+
+<!-- PLACES NEARBY -->
+<section class="nearby" id="nearby">
+  <div class="nearby-head">
+    <div>
+      <div class="eyebrow fade"><span class="bar"></span><span class="label">Places nearby</span></div>
+      <h2 class="fade" data-d="1">Walked,<br/>not <em>described</em>.</h2>
+    </div>
+    <p class="fade" data-d="2">A few of the addresses inside the same neighbourhood. Each is a few minutes from Hadoar 8 — and each tells you why this is the part of the city to live in.</p>
+  </div>
+  <div class="nearby-grid">
+    <div class="ncard fade">
+      <img src="assets/locations/alma-beach.jpg" alt="Alma Beach" loading="lazy" />
+      <div class="ncard-cap">
+        <div class="ncard-name">Alma <em>Beach</em></div>
+        <div class="ncard-meta">Seafront · 450 m</div>
+      </div>
+    </div>
+    <div class="ncard fade" data-d="1">
+      <img src="assets/locations/charles-clore.jpg" alt="Charles Clore Park" loading="lazy" />
+      <div class="ncard-cap">
+        <div class="ncard-name">Charles <em>Clore</em></div>
+        <div class="ncard-meta">Park · 700 m</div>
+      </div>
+    </div>
+    <div class="ncard fade" data-d="2">
+      <img src="assets/locations/clock-tower.jpg" alt="Old Jaffa Clock Tower" loading="lazy" />
+      <div class="ncard-cap">
+        <div class="ncard-name">Clock <em>Tower</em></div>
+        <div class="ncard-meta">Old Jaffa · 650 m</div>
+      </div>
+    </div>
+    <div class="ncard fade" data-d="3">
+      <img src="assets/locations/neve-tzedek.jpg" alt="Neve Tzedek" loading="lazy" />
+      <div class="ncard-cap">
+        <div class="ncard-name">Neve <em>Tzedek</em></div>
+        <div class="ncard-meta">Historic quarter · 700 m</div>
+      </div>
+    </div>
+    <div class="ncard fade">
+      <img src="assets/locations/jerusalem.jpg" alt="Jerusalem Boulevard" loading="lazy" />
+      <div class="ncard-cap">
+        <div class="ncard-name">Jerusalem <em>Blvd</em></div>
+        <div class="ncard-meta">The boulevard · 800 m</div>
+      </div>
+    </div>
+    <div class="ncard fade" data-d="1">
+      <img src="assets/locations/hamesila-park.jpg" alt="HaMesila Park" loading="lazy" />
+      <div class="ncard-cap">
+        <div class="ncard-name">HaMesila <em>Park</em></div>
+        <div class="ncard-meta">Railway park · 500 m</div>
+      </div>
+    </div>
+    <div class="ncard fade" data-d="2">
+      <img src="assets/locations/noga.jpg" alt="Noga Compound" loading="lazy" />
+      <div class="ncard-cap">
+        <div class="ncard-name">Noga <em>Compound</em></div>
+        <div class="ncard-meta">Culture · 600 m</div>
+      </div>
+    </div>
+    <div class="ncard fade" data-d="3">
+      <img src="assets/locations/gesher.jpg" alt="Gesher Theatre" loading="lazy" />
+      <div class="ncard-cap">
+        <div class="ncard-name">Gesher <em>Theatre</em></div>
+        <div class="ncard-meta">Repertory · 600 m</div>
+      </div>
+    </div>
   </div>
 </section>
 
