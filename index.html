@@ -487,26 +487,24 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
 <!-- FLOOR PLANS -->
 <section class="plans" id="plans">
   <div class="plans-head">
-    <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">Floor Plans</span></div>
-    <h2 class="fade" data-d="1">Twenty-five plans.<br/>No two <em>alike</em>.</h2>
-    <p class="fade" data-d="2">Each residence is the result of a unique conversation between the original 1920 envelope and contemporary life. Move between the three floors below, then book a viewing to discuss specific apartments.</p>
+    <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">Floor Plans · Yaniv Pardo Architects</span></div>
+    <h2 class="fade" data-d="1">Two plates.<br/>No two residences <em>alike</em>.</h2>
+    <p class="fade" data-d="2">A first floor that meets the boulevard, and a typical residential plate above it. Switch between the two below; book a viewing to walk a specific apartment.</p>
   </div>
   <div class="plan-tabs fade">
-    <button class="plan-tab active" data-tab="a">Floor One</button>
-    <button class="plan-tab" data-tab="b">Floor Two — Typical</button>
-    <button class="plan-tab" data-tab="c">Floor Three</button>
+    <button class="plan-tab active" data-tab="first">First Floor</button>
+    <button class="plan-tab" data-tab="typical">Typical Floor</button>
   </div>
   <div class="plan-stage fade" data-d="1">
     <div class="plan-frame">
-      <div class="plan-pic show" data-pic="a"><img src="assets/renders/floor-a-clean.png" alt="Floor One plan" /></div>
-      <div class="plan-pic" data-pic="b"><img src="assets/renders/floor-b-clean.png" alt="Typical residential level plan" /></div>
-      <div class="plan-pic" data-pic="c"><img src="assets/renders/floor-c-clean.png" alt="Floor Three plan" /></div>
+      <div class="plan-pic show" data-pic="first"><img src="assets/renders/floor-first.png" alt="First floor plan — Yaniv Pardo Architects" /></div>
+      <div class="plan-pic" data-pic="typical"><img src="assets/renders/floor-typical.png" alt="Typical floor plan — Yaniv Pardo Architects" /></div>
     </div>
     <div class="plan-info">
-      <div class="item"><span class="k">Level</span><span class="v" id="plan-level">Floor <em>One</em></span></div>
-      <div class="item"><span class="k">Apartments</span><span class="v" id="plan-apts">12 unique</span></div>
-      <div class="item"><span class="k">Range</span><span class="v" id="plan-range">60 – 185 sqm</span></div>
-      <div class="item"><span class="k">Outdoor</span><span class="v" id="plan-outdoor">Private balconies</span></div>
+      <div class="item"><span class="k">Level</span><span class="v" id="plan-level"><em>First</em> Floor</span></div>
+      <div class="item"><span class="k">Outdoor</span><span class="v" id="plan-outdoor">Private balconies · planters</span></div>
+      <div class="item"><span class="k">Range</span><span class="v" id="plan-range">60 – 145 sqm</span></div>
+      <div class="item"><span class="k">Architect</span><span class="v" id="plan-arch">Yaniv Pardo</span></div>
     </div>
   </div>
 </section>
@@ -837,9 +835,8 @@ setInterval(checkFades, 250);
 
 // Floor plan tabs
 const planMeta = {
-  a: { level: 'Floor <em>One</em>',   apts: '12 unique', range: '60 – 185 sqm', outdoor: 'Private balconies' },
-  b: { level: 'Floor <em>Two</em>',   apts: '12 unique', range: '60 – 145 sqm', outdoor: 'Balconies · planters' },
-  c: { level: 'Floor <em>Three</em>', apts: '8 unique',  range: '85 – 185 sqm', outdoor: 'Terraces · roof access' },
+  first:   { level: '<em>First</em> Floor',   range: '60 – 145 sqm', outdoor: 'Private balconies · planters' },
+  typical: { level: '<em>Typical</em> Floor', range: '60 – 185 sqm', outdoor: 'Balconies · terraces' },
 };
 document.querySelectorAll('.plan-tab').forEach(tab => {
   tab.addEventListener('click', () => {
@@ -848,7 +845,6 @@ document.querySelectorAll('.plan-tab').forEach(tab => {
     document.querySelectorAll('.plan-pic').forEach(p => p.classList.toggle('show', p.dataset.pic === t));
     const m = planMeta[t];
     document.getElementById('plan-level').innerHTML = m.level;
-    document.getElementById('plan-apts').textContent = m.apts;
     document.getElementById('plan-range').textContent = m.range;
     document.getElementById('plan-outdoor').textContent = m.outdoor;
   });
