@@ -267,9 +267,11 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .loc-head h2 em{font-style:italic;color:var(--sea-deep)}
 .loc-head p{font-size:15px;color:var(--ink-soft);line-height:1.75;max-width:48ch}
 @media(max-width:900px){.loc-head{grid-template-columns:1fr;gap:24px}}
+@media(max-width:700px){.location{padding:90px 0}.loc-head{margin-bottom:40px}}
 
 .illmap-wrap{max-width:1280px;margin:0 auto;padding:0 44px;position:relative}
 .illmap{width:100%;height:auto;background:linear-gradient(180deg,#F2EDE2 0%, #E8DECF 100%);border:1px solid var(--line);display:block}
+@media(max-width:700px){.illmap-wrap{padding:0}.illmap{border-left:none;border-right:none}}
 .poi-grid{margin-top:50px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);max-width:1280px;margin-left:auto;margin-right:auto;padding:0 44px}
 .poi{padding:24px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
 .poi:last-child{border-right:none}
