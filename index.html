@@ -4,10 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Hadoar 8 — Tel Aviv-Jaffa</title>
-<meta name="description" content="Twenty-six private residences, fully designed, in Tel Aviv-Jaffa's first post office. Architecture by Yaniv Pardo. Interiors by Yaron Eldad. A LVNT — Gabso Group development." />
+<meta name="description" content="Twenty-eight private residences, fully designed, in Tel Aviv-Jaffa's first post office. Architecture by Yaniv Pardo. Interiors by Yaron Eldad. A LVNT — Gabso Group development." />
 <link rel="icon" type="image/png" href="assets/favicon/L'VNT logo.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="assets/renders/exterioir-1-hero.jpg" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
 :root{
@@ -61,7 +62,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 
 /* HERO */
 .hero{position:relative;height:100vh;min-height:680px;overflow:hidden;background:#0c0c0a}
-.hero-bg{position:absolute;inset:-2%;background-image:url('assets/renders/exterioir%201.jpg');background-size:cover;background-position:center 55%;filter:brightness(.78) saturate(.95);transform:scale(1.06);animation:slowZoom 22s ease-out forwards}
+.hero-bg{position:absolute;inset:-2%;background-image:url('assets/renders/exterioir-1-hero.jpg');background-size:cover;background-position:center 55%;filter:brightness(.78) saturate(.95);transform:scale(1.06);animation:slowZoom 22s ease-out forwards}
 @keyframes slowZoom{from{transform:scale(1.14)}to{transform:scale(1.02)}}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,0) 35%,rgba(0,0,0,.05) 60%,rgba(0,0,0,.55) 100%)}
 .hero-content{position:relative;z-index:2;height:100%;max-width:1480px;margin:0 auto;padding:0 44px 90px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
@@ -135,6 +136,12 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 /* QUOTE SECTION */
 .quote-section{padding:140px 0;background:var(--paper);position:relative}
 .quote-section.dark{background:var(--paper-2)}
+.quote-section.copper{background-color:#3a3a35;background-image:linear-gradient(180deg,rgba(15,15,12,.55) 0%,rgba(15,15,12,.35) 50%,rgba(15,15,12,.65) 100%),url('assets/renders/ox-copper.jpg');background-size:cover;background-position:center;color:#fff}
+.quote-section.copper .wrap{position:relative;z-index:2}
+.quote-section.copper .bigquote{color:#f4ecdf}
+.quote-section.copper .bigquote em{color:#cee0e6}
+.quote-section.copper .bigquote .qmark{color:#cee0e6;opacity:.7}
+.quote-section.copper .quote-attr{color:rgba(255,255,255,.6)}
 .bigquote{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(28px,3.4vw,52px);line-height:1.18;color:var(--ink);max-width:24ch;margin:0 auto;text-align:center;position:relative}
 .bigquote em{font-style:italic;color:var(--sea-deep)}
 .bigquote .qmark{font-family:var(--serif);font-style:normal;font-size:1.6em;color:var(--sea);opacity:.55;line-height:0;display:inline-block;transform:translateY(.18em);margin-right:.05em}
@@ -175,6 +182,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .ncard-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.1;letter-spacing:.005em}
 .ncard-name em{font-style:italic;color:#cee0e6}
 .ncard-meta{margin-top:6px;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.78)}
+.walk-badge{position:absolute;top:16px;right:16px;z-index:3;display:inline-flex;align-items:center;gap:8px;background:rgba(15,15,12,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#fff;padding:8px 12px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;border:1px solid rgba(255,255,255,.18)}
+.walk-badge svg{width:11px;height:14px;color:#cee0e6}
 @media(max-width:900px){.nearby-grid{grid-template-columns:repeat(2,1fr)}}
 
 /* FULL BLEED */
@@ -187,6 +196,19 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .fullbleed-cap .ttl em{font-style:italic;color:#cee0e6}
 .fullbleed-cap .meta{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.7);text-align:right}
 @media(max-width:700px){.fullbleed-cap{flex-direction:column;align-items:flex-start}.fullbleed-cap .meta{text-align:left}}
+
+/* FULL BLEED — split (portrait image, desktop split + mobile stack) */
+.fullbleed-split{position:relative;background-color:#E5DBC8;background-image:url('assets/sand-grain.svg'),radial-gradient(ellipse at 25% 25%,rgba(217,207,185,.55),transparent 60%),radial-gradient(ellipse at 80% 85%,rgba(195,180,155,.45),transparent 60%);background-size:320px 320px,100% 100%,100% 100%;background-repeat:repeat,no-repeat,no-repeat;color:var(--ink);display:grid;grid-template-columns:1fr 1.05fr;min-height:760px;overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.fullbleed-split .fbs-text{padding:90px 70px;display:flex;flex-direction:column;justify-content:center;gap:18px;position:relative}
+.fullbleed-split .fbs-eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--mute)}
+.fullbleed-split .fbs-eyebrow::before{content:"";display:inline-block;width:46px;height:1px;background:var(--line-2)}
+.fullbleed-split .fbs-ttl{font-family:var(--serif);font-size:clamp(36px,3.6vw,58px);font-weight:300;line-height:1.06;max-width:14ch;margin:6px 0 4px}
+.fullbleed-split .fbs-ttl em{font-style:italic;color:var(--sea-deep)}
+.fullbleed-split .fbs-meta{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--ink-soft);line-height:1.9}
+.fullbleed-split .fbs-img{position:relative;overflow:hidden;background:transparent;min-height:760px}
+.fullbleed-split .fbs-img img{width:100%;height:100%;object-fit:cover;object-position:center;transform:scale(1.06);transition:transform 14s ease-out}
+.fullbleed-split.in .fbs-img img{transform:scale(1)}
+@media(max-width:900px){.fullbleed-split{grid-template-columns:1fr;min-height:auto}.fullbleed-split .fbs-text{padding:70px 30px 50px;order:2}.fullbleed-split .fbs-img{aspect-ratio:3/4;min-height:auto;order:1}}
 
 /* GALLERY GRID (bedrooms / bathrooms) */
 .gallery{padding:120px 0}
@@ -336,7 +358,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
       <span class="small">Tel Aviv-Jaffa · A LVNT development</span>
       Hadoar <span class="num">№ 8</span>.
     </h1>
-    <p class="hero-sub">Twenty-six private residences, <em>fully designed — to the last detail</em>. Four minutes from the sea, between Neve Tzedek and old Jaffa.</p>
+    <p class="hero-sub">Twenty-eight private residences, <em>fully designed — to the last detail</em>. Four minutes from the sea, between Neve Tzedek and old Jaffa.</p>
   </div>
   <div class="hero-base">
     <span>8 Hadoar Street · Tel Aviv-Jaffa</span>
@@ -351,30 +373,14 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
     <div class="intro-grid">
       <div class="eyebrow fade"><span class="bar"></span><span class="label">About the project</span></div>
       <h2 class="fade" data-d="1">A house that has<br/>always <em>belonged</em> here.</h2>
-      <p class="fade" data-d="2">Hadoar 8 returns one of the city's first addresses to its old function: a place of arrival. Twenty-six private residences inside the building that, a century ago, served as Tel Aviv's first telegraph and post office.</p>
+      <p class="fade" data-d="2">Hadoar 8 returns one of the city's first addresses to its old function: a place of arrival. Twenty-eight private residences inside the building that, a century ago, served as Tel Aviv's first telegraph and post office.</p>
       <p class="fade" data-d="2">The exterior is by Yaniv Pardo. Every interior — every fixture, every finish, every brass fitting — is by Yaron Eldad. A complete interior architecture, resolved to the last detail.</p>
       <div class="intro-meta fade" data-d="3">
-        <div><span class="v"><em>26</em></span><span class="k">Residences</span></div>
+        <div><span class="v"><em>28</em></span><span class="k">Residences</span></div>
         <div><span class="v">3 + roof</span><span class="k">Floors</span></div>
         <div><span class="v">60–185 sqm</span><span class="k">Range</span></div>
         <div><span class="v">250 m</span><span class="k">To the sea</span></div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- PROMISE -->
-<section class="promise">
-  <div class="promise-inner">
-    <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">Move-in standard</span></div>
-    <h2 class="fade" data-d="1">Designed,<br/>down to the <em>last detail</em>.</h2>
-    <p class="fade" data-d="2">Hadoar 8 is delivered as a finished interior. Italian kitchens, travertine bathrooms, oak flooring, brass detailing, oxidised steel — every fixture and finish resolved.</p>
-    <div class="promise-line fade" data-d="3">
-      <div class="item"><span class="v">Yaron Eldad</span><span class="k">Interior Studio</span></div>
-      <div class="item"><span class="v">Italian</span><span class="k">Stainless kitchens</span></div>
-      <div class="item"><span class="v">Travertine</span><span class="k">All bathrooms</span></div>
-      <div class="item"><span class="v">Smoked Oak</span><span class="k">Flooring</span></div>
-      <div class="item"><span class="v">Smart-ready</span><span class="k">Wiring</span></div>
     </div>
   </div>
 </section>
@@ -397,7 +403,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
 </section>
 
 <!-- PARDO QUOTE / COPPER LIGHTHOUSE -->
-<section class="quote-section">
+<section class="quote-section copper">
   <div class="wrap">
     <blockquote class="bigquote fade">
       <span class="qmark">“</span>
@@ -407,13 +413,14 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
   </div>
 </section>
 
-<!-- LOBBY (full bleed) -->
-<section class="fullbleed">
-  <div class="fullbleed-img" style="background-image:url('assets/renders/lobby.jpg');background-position:center 30%"></div>
-  <div class="fullbleed-cap">
-    <div class="ttl fade">Through the arches,<br/>into a <em>quiet</em> city.</div>
-    <div class="meta fade" data-d="2">The Lobby<br/>Patinated copper · Travertine</div>
+<!-- LOBBY (split — portrait image fully visible) -->
+<section class="fullbleed-split">
+  <div class="fbs-text">
+    <div class="fbs-eyebrow fade">The Lobby</div>
+    <h2 class="fbs-ttl fade" data-d="1">Through the arches,<br/>into a <em>quiet</em> city.</h2>
+    <div class="fbs-meta fade" data-d="2">Patinated copper · Travertine<br/>Brass detailing throughout</div>
   </div>
+  <div class="fbs-img"><img src="assets/renders/lobby.jpg" alt="Hadoar 8 lobby — patinated copper and travertine" loading="lazy" /></div>
 </section>
 
 <!-- CORRIDOR (full bleed) -->
@@ -436,7 +443,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
       <ul>
         <li class="fade" data-d="2"><span>Kitchen</span><span>Italian stainless</span></li>
         <li class="fade" data-d="2"><span>Floor</span><span>Smoked oak</span></li>
-        <li class="fade" data-d="3"><span>Climate</span><span>VRF · underfloor</span></li>
+        <li class="fade" data-d="3"><span>Climate</span><span>VRF system</span></li>
         <li class="fade" data-d="3"><span>Smart Home</span><span>Smart-ready wiring</span></li>
       </ul>
     </div>
@@ -462,15 +469,15 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
     <p class="fade" data-d="2">Every fixture, every surface, every piece of hardware was chosen by the designer's studio. No standard substitutions. No optional upgrades.</p>
   </div>
   <div class="specs-grid">
-    <div class="spec fade"><div class="spec-label">Doors</div><div class="spec-value">Zero-line <em>flush</em></div><div class="spec-note">Frameless interior doors, flush with the wall plane.</div></div>
-    <div class="spec fade"><div class="spec-label">Kitchen</div><div class="spec-value">DADA · <em>Bulthaup</em></div><div class="spec-note">Designer metal kitchens — DADA, Bulthaup, or bespoke joinery.</div></div>
-    <div class="spec fade"><div class="spec-label">Flooring</div><div class="spec-value">3-layer <em>parquet</em></div><div class="spec-note">Three-layer luxury parquet, smoked oak finish.</div></div>
+    <div class="spec fade"><div class="spec-label">Kitchen</div><div class="spec-value">DADA · <em>Bulthaup</em></div><div class="spec-note">Imported designer kitchens — DADA, Bulthaup, or comparable bespoke joinery.</div></div>
+    <div class="spec fade"><div class="spec-label">Countertops</div><div class="spec-value">Caesarstone <em>premium</em></div><div class="spec-note">Worktops from Caesarstone's high-end series.</div></div>
     <div class="spec fade"><div class="spec-label">Climate</div><div class="spec-value">VRF <em>air-conditioning</em></div><div class="spec-note">VRF central system. Whisper-quiet zoning per room.</div></div>
-    <div class="spec fade"><div class="spec-label">Lighting</div><div class="spec-value">Built-in <em>fixtures</em></div><div class="spec-note">Recessed, dimmable. Specified room-by-room.</div></div>
+    <div class="spec fade"><div class="spec-label">Flooring</div><div class="spec-value">3-layer <em>parquet</em></div><div class="spec-note">Three-layer engineered parquet throughout.</div></div>
+    <div class="spec fade"><div class="spec-label">Doors</div><div class="spec-value">Floor-to-ceiling <em>flush</em></div><div class="spec-note">Tall interior doors, zero-line — flush with the wall plane.</div></div>
     <div class="spec fade"><div class="spec-label">Smart Home</div><div class="spec-value">Smart electrical <em>system</em></div><div class="spec-note">Climate, lighting, shading and access from one panel.</div></div>
-    <div class="spec fade"><div class="spec-label">Windows</div><div class="spec-value">Belgian <em>profile</em></div><div class="spec-note">Slim Belgian-profile windows with full acoustic insulation.</div></div>
-    <div class="spec fade"><div class="spec-label">Bathrooms</div><div class="spec-value">Honed <em>travertine</em></div><div class="spec-note">Wall-to-wall travertine, brushed-brass fittings.</div></div>
-    <div class="spec fade"><div class="spec-label">Hardware</div><div class="spec-value">Brushed <em>brass</em></div><div class="spec-note">Door handles, taps and lighting — same family throughout.</div></div>
+    <div class="spec fade"><div class="spec-label">Windows</div><div class="spec-value">Belgian <em>profile</em></div><div class="spec-note">Sealed Belgian-profile windows with full acoustic insulation.</div></div>
+    <div class="spec fade"><div class="spec-label">Wet Rooms</div><div class="spec-value">Designer <em>cladding</em></div><div class="spec-note">Wall cladding to ceiling height, laid out room-by-room by the designer.</div></div>
+    <div class="spec fade"><div class="spec-label">Lighting</div><div class="spec-value">Designed <em>throughout</em></div><div class="spec-note">Lighting plan specified for every room of the home.</div></div>
   </div>
 </section>
 
@@ -702,16 +709,6 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
     </svg>
   </div>
 
-  <div class="poi-grid fade">
-    <div class="poi"><div class="name">Alma Beach</div><div class="meta"><svg class="walk-icon"><use href="#walker"/></svg>3 min · 250 m</div></div>
-    <div class="poi"><div class="name">HaMesila Park</div><div class="meta"><svg class="walk-icon"><use href="#walker"/></svg>5 min · 500 m</div></div>
-    <div class="poi"><div class="name">Setai Hotel</div><div class="meta"><svg class="walk-icon"><use href="#walker"/></svg>6 min · 550 m</div></div>
-    <div class="poi"><div class="name">Old Jaffa Clock Tower</div><div class="meta"><svg class="walk-icon"><use href="#walker"/></svg>7 min · 650 m</div></div>
-    <div class="poi"><div class="name">Charles Clore</div><div class="meta"><svg class="walk-icon"><use href="#walker"/></svg>7 min · 700 m</div></div>
-    <div class="poi"><div class="name">Neve Tzedek</div><div class="meta"><svg class="walk-icon"><use href="#walker"/></svg>7 min · 700 m</div></div>
-    <div class="poi"><div class="name">Jerusalem Boulevard</div><div class="meta"><svg class="walk-icon"><use href="#walker"/></svg>8 min · 800 m</div></div>
-    <div class="poi"><div class="name">Rothschild Boulevard</div><div class="meta"><svg class="walk-icon"><use href="#walker"/></svg>14 min · 1.4 km</div></div>
-  </div>
 </section>
 
 <!-- PLACES NEARBY -->
@@ -726,58 +723,66 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
   <div class="nearby-grid">
     <div class="ncard fade">
       <img src="assets/locations/alma-beach.jpg" alt="Alma Beach" loading="lazy" />
+      <div class="walk-badge"><svg viewBox="0 0 16 20"><use href="#walker"/></svg>3 min · 250 m</div>
       <div class="ncard-cap">
         <div class="ncard-name">Alma <em>Beach</em></div>
-        <div class="ncard-meta">Seafront · 250 m</div>
+        <div class="ncard-meta">Seafront</div>
       </div>
     </div>
     <div class="ncard fade" data-d="1">
       <img src="assets/locations/charles-clore.jpg" alt="Charles Clore Park" loading="lazy" />
+      <div class="walk-badge"><svg viewBox="0 0 16 20"><use href="#walker"/></svg>7 min · 700 m</div>
       <div class="ncard-cap">
         <div class="ncard-name">Charles <em>Clore</em></div>
-        <div class="ncard-meta">Park · 700 m</div>
+        <div class="ncard-meta">Park</div>
       </div>
     </div>
     <div class="ncard fade" data-d="2">
       <img src="assets/locations/clock-tower.jpg" alt="Old Jaffa Clock Tower" loading="lazy" />
+      <div class="walk-badge"><svg viewBox="0 0 16 20"><use href="#walker"/></svg>4 min · 300 m</div>
       <div class="ncard-cap">
         <div class="ncard-name">Clock <em>Tower</em></div>
-        <div class="ncard-meta">Old Jaffa · 650 m</div>
+        <div class="ncard-meta">Old Jaffa</div>
       </div>
     </div>
     <div class="ncard fade" data-d="3">
       <img src="assets/locations/neve-tzedek.jpg" alt="Neve Tzedek" loading="lazy" />
+      <div class="walk-badge"><svg viewBox="0 0 16 20"><use href="#walker"/></svg>7 min · 700 m</div>
       <div class="ncard-cap">
         <div class="ncard-name">Neve <em>Tzedek</em></div>
-        <div class="ncard-meta">Historic quarter · 700 m</div>
+        <div class="ncard-meta">Historic quarter</div>
       </div>
     </div>
     <div class="ncard fade">
       <img src="assets/locations/jerusalem.jpg" alt="Jerusalem Boulevard" loading="lazy" />
+      <div class="walk-badge"><svg viewBox="0 0 16 20"><use href="#walker"/></svg>1 min · 100 m</div>
       <div class="ncard-cap">
         <div class="ncard-name">Jerusalem <em>Blvd</em></div>
-        <div class="ncard-meta">The boulevard · 800 m</div>
+        <div class="ncard-meta">The boulevard</div>
       </div>
     </div>
     <div class="ncard fade" data-d="1">
       <img src="assets/locations/hamesila-park.jpg" alt="HaMesila Park" loading="lazy" />
+      <div class="walk-badge"><svg viewBox="0 0 16 20"><use href="#walker"/></svg>5 min · 500 m</div>
       <div class="ncard-cap">
         <div class="ncard-name">HaMesila <em>Park</em></div>
-        <div class="ncard-meta">Railway park · 500 m</div>
+        <div class="ncard-meta">Railway park</div>
       </div>
     </div>
     <div class="ncard fade" data-d="2">
       <img src="assets/locations/noga.jpg" alt="Noga Compound" loading="lazy" />
+      <div class="walk-badge"><svg viewBox="0 0 16 20"><use href="#walker"/></svg>4 min · 250 m</div>
       <div class="ncard-cap">
         <div class="ncard-name">Noga <em>Compound</em></div>
-        <div class="ncard-meta">Culture · 600 m</div>
+        <div class="ncard-meta">Culture</div>
       </div>
     </div>
     <div class="ncard fade" data-d="3">
       <img src="assets/locations/satai.png" alt="Setai Hotel" loading="lazy" />
+      <div class="walk-badge"><svg viewBox="0 0 16 20"><use href="#walker"/></svg>6 min · 550 m</div>
       <div class="ncard-cap">
         <div class="ncard-name">Setai <em>Hotel</em></div>
-        <div class="ncard-meta">Seafront · 550 m</div>
+        <div class="ncard-meta">Seafront</div>
       </div>
     </div>
   </div>
@@ -899,7 +904,7 @@ window.addEventListener('scroll', () => {
 }, { passive: true });
 
 // Reveal — rAF loop checks all .fade elements (works with programmatic scroll)
-const fades = [...document.querySelectorAll('.fade, .split-img, .gal-img, .fullbleed')];
+const fades = [...document.querySelectorAll('.fade, .split-img, .gal-img, .fullbleed, .fullbleed-split')];
 const checkFades = () => {
   const trigger = window.innerHeight * 0.92;
   fades.forEach(el => {
