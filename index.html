@@ -246,7 +246,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .poi{padding:24px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
 .poi:last-child{border-right:none}
 .poi .name{font-family:var(--serif);font-size:19px;font-weight:400}
-.poi .meta{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute)}
+.poi .meta{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute);display:inline-flex;align-items:center;gap:8px}
+.poi .meta .walk-icon{width:13px;height:16px;color:var(--sea-deep);flex-shrink:0}
 @media(max-width:900px){.poi-grid{grid-template-columns:repeat(2,1fr)}.poi:nth-child(2n){border-right:none}.poi:nth-child(odd){border-right:1px solid var(--line)}}
 
 /* TEAM */
@@ -361,13 +362,13 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
   <div class="promise-inner">
     <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">Move-in standard</span></div>
     <h2 class="fade" data-d="1">Designed,<br/>down to the <em>last detail</em>.</h2>
-    <p class="fade" data-d="2">Hadoar 8 is delivered as a finished interior. Italian kitchens, travertine bathrooms, oak flooring, brass detailing, oxidised steel — every fixture and finish resolved. The buyer chooses what to bring; everything else is in place.</p>
+    <p class="fade" data-d="2">Hadoar 8 is delivered as a finished interior. Italian kitchens, travertine bathrooms, oak flooring, brass detailing, oxidised steel — every fixture and finish resolved.</p>
     <div class="promise-line fade" data-d="3">
       <div class="item"><span class="v">Yaron Eldad</span><span class="k">Interior Studio</span></div>
       <div class="item"><span class="v">Italian</span><span class="k">Stainless kitchens</span></div>
       <div class="item"><span class="v">Travertine</span><span class="k">All bathrooms</span></div>
       <div class="item"><span class="v">Smoked Oak</span><span class="k">Flooring</span></div>
-      <div class="item"><span class="v">KNX</span><span class="k">Smart-home</span></div>
+      <div class="item"><span class="v">Smart-ready</span><span class="k">Wiring</span></div>
     </div>
   </div>
 </section>
@@ -425,12 +426,12 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
     <div class="split-text">
       <div class="eyebrow fade"><span class="bar"></span><span class="label">The Living Room</span></div>
       <h2 class="fade" data-d="1">Stainless kitchens.<br/>Oak <em>everywhere</em>.</h2>
-      <p class="fade" data-d="2">An open kitchen in stainless steel and oak, a dining table under a soft pendant, and the city beyond the window. Every piece in the photograph is delivered with the home — chairs, sofa, table, lamps.</p>
+      <p class="fade" data-d="2">An open kitchen in stainless steel and oak, a dining table under a soft pendant, and the city beyond the window.</p>
       <ul>
         <li class="fade" data-d="2"><span>Kitchen</span><span>Italian stainless</span></li>
         <li class="fade" data-d="2"><span>Floor</span><span>Smoked oak</span></li>
         <li class="fade" data-d="3"><span>Climate</span><span>VRF · underfloor</span></li>
-        <li class="fade" data-d="3"><span>Smart Home</span><span>KNX-ready</span></li>
+        <li class="fade" data-d="3"><span>Smart Home</span><span>Smart-ready wiring</span></li>
       </ul>
     </div>
   </div>
@@ -472,7 +473,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
   <div class="gallery-head">
     <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">The Bedrooms</span></div>
     <h2 class="fade" data-d="1">Where the city <em>quiets</em>.</h2>
-    <p class="fade" data-d="2">Concrete ceilings, oxidised steel feature walls, oak floors and copper detailing. Each bedroom is finished by Yaron Eldad's studio.</p>
+    <p class="fade" data-d="2">Oak floors and copper detailing. Each bedroom is finished by Yaron Eldad's studio.</p>
   </div>
   <div class="gal-2">
     <div class="gal-img fade"><img src="assets/renders/bedroom.jpg" alt="Master bedroom" /></div>
@@ -498,16 +499,16 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
   <div class="plans-head">
     <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">Floor Plans · Yaniv Pardo Architects</span></div>
     <h2 class="fade" data-d="1">Two plates.<br/>No two residences <em>alike</em>.</h2>
-    <p class="fade" data-d="2">A first floor that meets the boulevard, and a typical residential plate above it. Switch between the two below; book a viewing to walk a specific apartment.</p>
+    <p class="fade" data-d="2">A first floor that meets the boulevard, and a second floor above it. Switch between the two plates below, or pick a specific apartment type to see its plan.</p>
   </div>
   <div class="plan-tabs fade">
     <button class="plan-tab active" data-tab="first">First Floor</button>
-    <button class="plan-tab" data-tab="typical">Typical Floor</button>
+    <button class="plan-tab" data-tab="second">Second Floor</button>
   </div>
   <div class="plan-stage fade" data-d="1">
     <div class="plan-frame">
       <div class="plan-pic show" data-pic="first"><img src="assets/floorplans/floor%20plans/1st-floor.png" alt="First floor plan — Yaniv Pardo Architects" /></div>
-      <div class="plan-pic" data-pic="typical"><img src="assets/floorplans/floor%20plans/typical-floor.png" alt="Typical floor plan — Yaniv Pardo Architects" /></div>
+      <div class="plan-pic" data-pic="second"><img src="assets/floorplans/floor%20plans/typical-floor.png" alt="Second floor plan — Yaniv Pardo Architects" /></div>
     </div>
     <div class="plan-info">
       <div class="item"><span class="k">Level</span><span class="v" id="plan-level"><em>First</em> Floor</span></div>
@@ -577,90 +578,98 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
       <!-- Land base -->
       <rect width="1200" height="720" fill="url(#dots)"/>
 
-      <!-- Sea — enlarged & emphasized -->
+      <!-- Sea -->
       <path d="M0 0 L0 720 L460 720 Q430 540 470 380 Q510 220 430 60 Q380 0 0 0 Z" fill="#bcd6df"/>
       <rect x="0" y="0" width="460" height="720" fill="url(#seaWaves)" opacity=".7"/>
       <text x="160" y="200" font-family="Cormorant Garamond, serif" font-style="italic" font-size="56" fill="#3d6a7d" opacity=".9">Mediterranean</text>
-      <text x="200" y="240" font-family="Inter,sans-serif" font-size="11" font-weight="500" letter-spacing="3" fill="#3d6a7d">250 M · AERIAL</text>
 
       <!-- Coast wave detail -->
       <path d="M440 80 Q460 240 420 400 Q470 560 440 720" stroke="#3d6a7d" stroke-width="1" fill="none" opacity=".55"/>
 
-      <!-- Aerial line from building to sea (dashed direct) -->
-      <line x1="600" y1="380" x2="320" y2="380" stroke="#3d6a7d" stroke-width="1" stroke-dasharray="3 4" opacity=".7"/>
-      <text x="490" y="370" font-family="Inter,sans-serif" font-size="9" letter-spacing="2" fill="#3d6a7d" opacity=".85">250 M</text>
+      <!-- Subtle street grid -->
+      <path d="M460 460 L1180 460" stroke="#5C544B" stroke-width="0.6" fill="none" opacity=".12"/>
+      <path d="M460 290 L1180 290" stroke="#5C544B" stroke-width="0.6" fill="none" opacity=".12"/>
+      <path d="M700 60 L700 700" stroke="#5C544B" stroke-width="0.6" fill="none" opacity=".10"/>
+      <path d="M900 60 L900 700" stroke="#5C544B" stroke-width="0.6" fill="none" opacity=".10"/>
 
-      <!-- Boulevards / streets -->
-      <path d="M480 720 L530 540 L600 380 L700 240 L860 130 L1100 60" stroke="#5C544B" stroke-width="1.2" fill="none" opacity=".3" stroke-dasharray="2 4"/>
-      <path d="M500 80 Q570 250 650 390 Q740 530 880 700" stroke="#5C544B" stroke-width="1.2" fill="none" opacity=".3" stroke-dasharray="2 4"/>
-      <path d="M460 460 L1180 460" stroke="#5C544B" stroke-width="0.6" fill="none" opacity=".15"/>
-      <path d="M460 290 L1180 290" stroke="#5C544B" stroke-width="0.6" fill="none" opacity=".15"/>
-
-      <!-- Park (HaMesila) -->
-      <ellipse cx="780" cy="500" rx="120" ry="50" fill="#A7B89A" opacity=".42"/>
-      <text x="740" y="505" font-family="Cormorant Garamond, serif" font-size="22" fill="#4d5c44">HaMesila Park</text>
-      <text x="740" y="524" font-family="Inter,sans-serif" font-size="8" letter-spacing="2.5" fill="#4d5c44" opacity=".7">500 M · AERIAL</text>
-
-      <!-- Jaffa Clock Tower (south) -->
-      <g transform="translate(490,620)">
-        <rect x="-7" y="-30" width="14" height="30" fill="none" stroke="#5C544B" stroke-width="1"/>
-        <circle cx="0" cy="-22" r="4" fill="none" stroke="#5C544B" stroke-width="1"/>
-        <path d="M-10 0 L10 0 L8 6 L-8 6 Z" fill="#5C544B" opacity=".6"/>
-        <text x="-50" y="22" font-family="Cormorant Garamond, serif" font-size="20" fill="#2A2520">Clock Tower</text>
-        <text x="-50" y="38" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#5C544B">OLD JAFFA · 650 M AERIAL</text>
+      <!-- Aerial dashed lines from HADOAR (615,540) to each landmark -->
+      <g stroke="#4F7E91" stroke-width="1" fill="none" opacity=".55" stroke-dasharray="3 5">
+        <line x1="615" y1="540" x2="485" y2="365"/>
+        <line x1="615" y1="540" x2="780" y2="500"/>
+        <line x1="615" y1="540" x2="478" y2="610"/>
+        <line x1="615" y1="540" x2="490" y2="660"/>
+        <line x1="615" y1="540" x2="495" y2="450"/>
+        <line x1="615" y1="540" x2="850" y2="400"/>
+        <line x1="615" y1="540" x2="445" y2="540"/>
+        <line x1="615" y1="540" x2="1040" y2="180"/>
       </g>
 
-      <!-- Neve Tzedek (north-east of building) -->
-      <g transform="translate(900,340)">
-        <path d="M-20 0 L-10 -16 L0 0 Z M-2 0 L8 -20 L18 0 Z M16 0 L26 -14 L36 0 Z" fill="none" stroke="#5C544B" stroke-width="1" opacity=".6"/>
-        <text x="-40" y="22" font-family="Cormorant Garamond, serif" font-size="22" fill="#2A2520">Neve Tzedek</text>
-        <text x="-40" y="38" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#5C544B">700 M · AERIAL</text>
+      <!-- HaMesila Park -->
+      <ellipse cx="830" cy="500" rx="110" ry="40" fill="#A7B89A" opacity=".4"/>
+      <text x="788" y="503" font-family="Cormorant Garamond, serif" font-style="italic" font-size="20" fill="#4d5c44">HaMesila Park</text>
+
+      <!-- Charles Clore Park (long green strip running N→S along coast) -->
+      <g>
+        <path d="M448 290 Q450 400 458 510 Q448 575 470 600 L520 600 L520 290 Z" fill="#A7B89A" opacity=".55" stroke="#7d9070" stroke-width="0.6"/>
+        <circle cx="490" cy="340" r="1.8" fill="#5d7a4f" opacity=".5"/>
+        <circle cx="478" cy="430" r="1.8" fill="#5d7a4f" opacity=".5"/>
+        <circle cx="500" cy="500" r="1.8" fill="#5d7a4f" opacity=".5"/>
+        <circle cx="485" cy="560" r="1.8" fill="#5d7a4f" opacity=".5"/>
+        <text x="468" y="445" font-family="Cormorant Garamond, serif" font-size="13" fill="#3a4f2c">Charles</text>
+        <text x="468" y="460" font-family="Cormorant Garamond, serif" font-size="13" fill="#3a4f2c">Clore Park</text>
       </g>
 
       <!-- Alma Beach (on coast) -->
-      <g transform="translate(280,460)">
+      <g transform="translate(485,365)">
         <path d="M-20 8 Q-10 -2 0 8 Q10 -2 20 8" stroke="#3d6a7d" stroke-width="1.6" fill="none"/>
         <path d="M-25 18 Q-12 8 0 18 Q12 8 25 18" stroke="#3d6a7d" stroke-width="1.1" fill="none" opacity=".55"/>
-        <text x="-44" y="44" font-family="Cormorant Garamond, serif" font-size="22" fill="#2A2520">Alma Beach</text>
-        <text x="-44" y="60" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#3d6a7d">SEAFRONT · 250 M</text>
+        <text x="20" y="0" font-family="Cormorant Garamond, serif" font-style="italic" font-size="20" fill="#2A2520">Alma Beach</text>
       </g>
 
-      <!-- Charles Clore Park (green, on coast just north of Jaffa) -->
-      <g>
-        <path d="M448 480 Q452 540 467 600 L520 600 L520 480 Z" fill="#A7B89A" opacity=".55" stroke="#7d9070" stroke-width="0.6"/>
-        <circle cx="475" cy="510" r="2" fill="#5d7a4f" opacity=".5"/>
-        <circle cx="500" cy="540" r="2" fill="#5d7a4f" opacity=".5"/>
-        <circle cx="485" cy="575" r="2" fill="#5d7a4f" opacity=".5"/>
-        <circle cx="510" cy="500" r="1.5" fill="#5d7a4f" opacity=".5"/>
-        <text x="468" y="540" font-family="Cormorant Garamond, serif" font-size="14" fill="#3a4f2c">Charles</text>
-        <text x="468" y="556" font-family="Cormorant Garamond, serif" font-size="14" fill="#3a4f2c">Clore Park</text>
-        <text x="468" y="572" font-family="Inter,sans-serif" font-size="7" letter-spacing="2" fill="#3a4f2c" opacity=".75">700 M · AERIAL</text>
+      <!-- Setai Hotel (coastal building) -->
+      <g transform="translate(478,610)">
+        <rect x="-9" y="-18" width="18" height="18" fill="#FAF7F1" stroke="#2A2520" stroke-width="0.9"/>
+        <line x1="-9" y1="-12" x2="9" y2="-12" stroke="#2A2520" stroke-width="0.4" opacity=".5"/>
+        <line x1="-9" y1="-6" x2="9" y2="-6" stroke="#2A2520" stroke-width="0.4" opacity=".5"/>
+        <line x1="-3" y1="-18" x2="-3" y2="0" stroke="#2A2520" stroke-width="0.4" opacity=".5"/>
+        <line x1="3" y1="-18" x2="3" y2="0" stroke="#2A2520" stroke-width="0.4" opacity=".5"/>
+        <text x="14" y="-4" font-family="Cormorant Garamond, serif" font-style="italic" font-size="18" fill="#2A2520">Setai Hotel</text>
       </g>
 
-      <!-- Rothschild Boulevard (NE corner) -->
+      <!-- Jaffa Clock Tower -->
+      <g transform="translate(490,660)">
+        <rect x="-7" y="-30" width="14" height="30" fill="none" stroke="#5C544B" stroke-width="1"/>
+        <circle cx="0" cy="-22" r="4" fill="none" stroke="#5C544B" stroke-width="1"/>
+        <path d="M-10 0 L10 0 L8 6 L-8 6 Z" fill="#5C544B" opacity=".6"/>
+        <text x="14" y="-4" font-family="Cormorant Garamond, serif" font-style="italic" font-size="18" fill="#2A2520">Clock Tower</text>
+      </g>
+
+      <!-- Neve Tzedek (NE) -->
+      <g transform="translate(870,400)">
+        <path d="M-20 0 L-10 -16 L0 0 Z M-2 0 L8 -20 L18 0 Z M16 0 L26 -14 L36 0 Z" fill="none" stroke="#5C544B" stroke-width="1" opacity=".6"/>
+        <text x="-12" y="22" font-family="Cormorant Garamond, serif" font-style="italic" font-size="20" fill="#2A2520">Neve Tzedek</text>
+      </g>
+
+      <!-- Rothschild -->
       <g transform="translate(1050,170)">
-        <circle cx="0" cy="0" r="3" fill="#5C544B" opacity=".4"/>
-        <text x="-30" y="22" font-family="Cormorant Garamond, serif" font-size="18" fill="#2A2520">Rothschild</text>
-        <text x="-30" y="36" font-family="Inter,sans-serif" font-size="8" letter-spacing="2" fill="#5C544B">1.4 KM · AERIAL</text>
+        <circle cx="0" cy="0" r="3" fill="#5C544B" opacity=".5"/>
+        <text x="-30" y="22" font-family="Cormorant Garamond, serif" font-style="italic" font-size="18" fill="#2A2520">Rothschild</text>
       </g>
 
-      <!-- HADOAR 8 (center) -->
-      <g transform="translate(620,380)">
-        <!-- compass rose -->
-        <g opacity=".25">
-          <line x1="0" y1="-90" x2="0" y2="90" stroke="#4F7E91" stroke-width="0.5"/>
-          <line x1="-90" y1="0" x2="90" y2="0" stroke="#4F7E91" stroke-width="0.5"/>
-          <text x="0" y="-100" font-family="Inter,sans-serif" font-size="9" text-anchor="middle" fill="#4F7E91">N</text>
+      <!-- HADOAR № 8 — minimal dot + framed label -->
+      <g transform="translate(615,540)">
+        <circle cx="0" cy="0" r="14" fill="none" stroke="#4F7E91" stroke-width="0.6" opacity=".35"/>
+        <circle cx="0" cy="0" r="7" fill="#4F7E91"/>
+        <line x1="0" y1="-12" x2="0" y2="-30" stroke="#4F7E91" stroke-width="0.8"/>
+        <g transform="translate(0,-58)">
+          <rect x="-86" y="-22" width="172" height="44" fill="#FAF7F1" stroke="#2A2520" stroke-width="1.2"/>
+          <rect x="-82" y="-18" width="164" height="36" fill="none" stroke="#2A2520" stroke-width="0.4" opacity=".4"/>
+          <text x="0" y="-1" font-family="Cormorant Garamond, serif" font-size="22" text-anchor="middle" fill="#2A2520" font-weight="500">HADOAR № 8</text>
+          <text x="0" y="14" font-family="Inter,sans-serif" font-size="8" letter-spacing="3" text-anchor="middle" fill="#4F7E91">8 HADOAR ST · TLV-JAFFA</text>
         </g>
-        <!-- Building marker -->
-        <circle cx="0" cy="0" r="42" fill="#FAF7F1" stroke="#4F7E91" stroke-width="1"/>
-        <circle cx="0" cy="0" r="32" fill="none" stroke="#4F7E91" stroke-width="0.5" opacity=".5"/>
-        <circle cx="0" cy="0" r="6" fill="#4F7E91"/>
-        <text x="0" y="-58" font-family="Cormorant Garamond, serif" font-size="22" text-anchor="middle" fill="#2A2520" font-weight="500">HADOAR № 8</text>
-        <text x="0" y="68" font-family="Inter,sans-serif" font-size="9" letter-spacing="3" text-anchor="middle" fill="#4F7E91">EST. MCMXX</text>
       </g>
 
-      <!-- Scale + label -->
+      <!-- Scale -->
       <g transform="translate(60,680)">
         <line x1="0" y1="0" x2="80" y2="0" stroke="#5C544B" stroke-width="1"/>
         <line x1="0" y1="-3" x2="0" y2="3" stroke="#5C544B" stroke-width="1"/>
@@ -669,17 +678,33 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
       </g>
       <text x="1140" y="694" font-family="Inter,sans-serif" font-size="9" letter-spacing="3" text-anchor="end" fill="#5C544B">A FEW MINUTES FROM EVERYWHERE</text>
     </svg>
+
+    <!-- Reusable walker icon for POI grid below -->
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+      <defs>
+        <symbol id="walker" viewBox="0 0 16 20" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="9" cy="2.6" r="1.8" fill="currentColor" stroke="none"/>
+          <line x1="9" y1="5" x2="8" y2="11"/>
+          <line x1="9" y1="6.5" x2="11.5" y2="9.5"/>
+          <line x1="9" y1="6.5" x2="6" y2="9"/>
+          <line x1="8" y1="11" x2="11" y2="16"/>
+          <line x1="11" y1="16" x2="11.5" y2="18.5"/>
+          <line x1="8" y1="11" x2="5.5" y2="15"/>
+          <line x1="5.5" y1="15" x2="6.5" y2="18"/>
+        </symbol>
+      </defs>
+    </svg>
   </div>
 
   <div class="poi-grid fade">
-    <div class="poi"><div class="name">The Sea</div><div class="meta">250 m · aerial</div></div>
-    <div class="poi"><div class="name">Alma Beach</div><div class="meta">250 m · aerial</div></div>
-    <div class="poi"><div class="name">HaMesila Park</div><div class="meta">500 m · aerial</div></div>
-    <div class="poi"><div class="name">Old Jaffa Clock Tower</div><div class="meta">650 m · aerial</div></div>
-    <div class="poi"><div class="name">Charles Clore</div><div class="meta">700 m · aerial</div></div>
-    <div class="poi"><div class="name">Neve Tzedek</div><div class="meta">700 m · aerial</div></div>
-    <div class="poi"><div class="name">Jerusalem Boulevard</div><div class="meta">800 m · aerial</div></div>
-    <div class="poi"><div class="name">Rothschild Boulevard</div><div class="meta">1.4 km · aerial</div></div>
+    <div class="poi"><div class="name">Alma Beach</div><div class="meta"><svg class="walk-icon"><use href="#walker"/></svg>3 min · 250 m</div></div>
+    <div class="poi"><div class="name">HaMesila Park</div><div class="meta"><svg class="walk-icon"><use href="#walker"/></svg>5 min · 500 m</div></div>
+    <div class="poi"><div class="name">Setai Hotel</div><div class="meta"><svg class="walk-icon"><use href="#walker"/></svg>6 min · 550 m</div></div>
+    <div class="poi"><div class="name">Old Jaffa Clock Tower</div><div class="meta"><svg class="walk-icon"><use href="#walker"/></svg>7 min · 650 m</div></div>
+    <div class="poi"><div class="name">Charles Clore</div><div class="meta"><svg class="walk-icon"><use href="#walker"/></svg>7 min · 700 m</div></div>
+    <div class="poi"><div class="name">Neve Tzedek</div><div class="meta"><svg class="walk-icon"><use href="#walker"/></svg>7 min · 700 m</div></div>
+    <div class="poi"><div class="name">Jerusalem Boulevard</div><div class="meta"><svg class="walk-icon"><use href="#walker"/></svg>8 min · 800 m</div></div>
+    <div class="poi"><div class="name">Rothschild Boulevard</div><div class="meta"><svg class="walk-icon"><use href="#walker"/></svg>14 min · 1.4 km</div></div>
   </div>
 </section>
 
@@ -743,10 +768,10 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
       </div>
     </div>
     <div class="ncard fade" data-d="3">
-      <img src="assets/locations/gesher.jpg" alt="Gesher Theatre" loading="lazy" />
+      <img src="assets/locations/satai.png" alt="Setai Hotel" loading="lazy" />
       <div class="ncard-cap">
-        <div class="ncard-name">Gesher <em>Theatre</em></div>
-        <div class="ncard-meta">Repertory · 600 m</div>
+        <div class="ncard-name">Setai <em>Hotel</em></div>
+        <div class="ncard-meta">Seafront · 550 m</div>
       </div>
     </div>
   </div>
@@ -885,20 +910,20 @@ setInterval(checkFades, 250);
 
 // Floor plan tabs
 const planMeta = {
-  first:   { level: '<em>First</em> Floor',   range: '60 – 145 sqm', outdoor: 'Private balconies · planters' },
-  typical: { level: '<em>Typical</em> Floor', range: '60 – 185 sqm', outdoor: 'Balconies · terraces' },
+  first:  { level: '<em>First</em> Floor',  range: '60 – 145 sqm', outdoor: 'Private balconies · planters' },
+  second: { level: '<em>Second</em> Floor', range: '60 – 185 sqm', outdoor: 'Balconies · terraces' },
 };
 const typeMeta = {
-  'A':       { name: 'Type <em>A</em>',       layout: 'Street · 3BR',       apt: '83 sqm',  outdoor: '6 sqm balcony' },
-  'C':       { name: 'Type <em>C</em>',       layout: 'Street · 4BR',       apt: '105 sqm', outdoor: '4 sqm balcony' },
-  'F1':      { name: 'Type <em>F1</em>',      layout: 'Street · 3BR',       apt: '66 sqm',  outdoor: '7 sqm balcony' },
-  'F2':      { name: 'Type <em>F2</em>',      layout: 'Street · 3BR',       apt: '66 sqm',  outdoor: '4 sqm balcony' },
-  'G1':      { name: 'Type <em>G1</em>',      layout: 'Garden · 2BR',       apt: '46 sqm',  outdoor: '4 sqm balcony' },
-  'G2':      { name: 'Type <em>G2</em>',      layout: 'Garden · 2BR',       apt: '49 sqm',  outdoor: '4 sqm balcony' },
-  'G3':      { name: 'Type <em>G3</em>',      layout: 'Garden · 3BR',       apt: '68 sqm',  outdoor: '4 sqm balcony' },
-  'L':       { name: 'Type <em>L</em>',       layout: '4.5BR',              apt: '128 sqm', outdoor: '8 sqm terrace' },
-  'PATIO A': { name: 'Type <em>Patio A</em>', layout: 'Street · 3BR + Patio', apt: '66 sqm', outdoor: '24 sqm patio' },
-  'PATIO B': { name: 'Type <em>Patio B</em>', layout: 'Street · 3BR + Patio', apt: '66 sqm', outdoor: '22 sqm patio' },
+  'A':       { name: 'Type <em>A</em>',       layout: 'Street · 2BR',         apt: '83 sqm',  outdoor: '6 sqm balcony' },
+  'C':       { name: 'Type <em>C</em>',       layout: 'Street · 3BR',         apt: '105 sqm', outdoor: '4 sqm balcony' },
+  'F1':      { name: 'Type <em>F1</em>',      layout: 'Street · 2BR',         apt: '66 sqm',  outdoor: '7 sqm balcony' },
+  'F2':      { name: 'Type <em>F2</em>',      layout: 'Street · 2BR',         apt: '66 sqm',  outdoor: '4 sqm balcony' },
+  'G1':      { name: 'Type <em>G1</em>',      layout: 'Garden · 1BR',         apt: '46 sqm',  outdoor: '4 sqm balcony' },
+  'G2':      { name: 'Type <em>G2</em>',      layout: 'Garden · 1BR',         apt: '49 sqm',  outdoor: '4 sqm balcony' },
+  'G3':      { name: 'Type <em>G3</em>',      layout: 'Garden · 2BR',         apt: '68 sqm',  outdoor: '4 sqm balcony' },
+  'L':       { name: 'Type <em>L</em>',       layout: 'Street · 3.5BR',       apt: '128 sqm', outdoor: '8 sqm terrace' },
+  'PATIO A': { name: 'Type <em>Patio A</em>', layout: 'Street · 2BR + Patio', apt: '66 sqm',  outdoor: '24 sqm patio' },
+  'PATIO B': { name: 'Type <em>Patio B</em>', layout: 'Street · 2BR + Patio', apt: '66 sqm',  outdoor: '22 sqm patio' },
 };
 const typeDisplay = document.querySelector('.type-display');
 document.querySelectorAll('.plan-tab').forEach(tab => {
