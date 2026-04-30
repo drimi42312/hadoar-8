@@ -230,7 +230,13 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .type-chip{background:var(--paper);border:1px solid var(--line);padding:12px 22px;font-family:var(--sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;font-weight:500;transition:background .25s,color .25s,border-color .25s}
 .type-chip:hover:not(.active){border-color:var(--ink);color:var(--ink)}
 .type-chip.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-@media(max-width:900px){.plan-tabs{flex-wrap:wrap}.plan-info{grid-template-columns:repeat(2,1fr)}.plan-info .item{border-right:none;border-bottom:1px solid var(--line)}.type-chip{padding:10px 16px}}
+.plan-frame-type{padding:0;border:none;background:transparent;min-height:0}
+.plan-frame-type img{display:block;width:100%;height:auto;border:1px solid var(--line);background:var(--paper)}
+.plans-download{margin-top:56px;display:flex;justify-content:center}
+.plans-download-btn{display:inline-flex;align-items:center;gap:14px;background:var(--ink);color:var(--paper);padding:18px 32px;font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:500;text-decoration:none;border:1px solid var(--ink);transition:background .25s,color .25s}
+.plans-download-btn:hover{background:var(--paper);color:var(--ink)}
+.plans-download-btn .dl-arrow{font-size:16px;letter-spacing:0;line-height:1}
+@media(max-width:900px){.plan-tabs{flex-wrap:wrap}.plan-info{grid-template-columns:repeat(2,1fr)}.plan-info .item{border-right:none;border-bottom:1px solid var(--line)}.type-chip{padding:10px 16px}.plans-download-btn{padding:14px 22px;font-size:10px;letter-spacing:.24em}}
 
 /* LOCATION — illustrated map */
 .location{padding:180px 0;background:var(--paper)}
@@ -520,7 +526,6 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
       <span class="type-eyebrow">Browse a specific apartment type</span>
       <div class="chip-row">
         <button class="type-chip" data-type="A">A</button>
-        <button class="type-chip" data-type="C">C</button>
         <button class="type-chip" data-type="F1">F1</button>
         <button class="type-chip" data-type="F2">F2</button>
         <button class="type-chip" data-type="G1">G1</button>
@@ -529,27 +534,28 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
         <button class="type-chip" data-type="L">L</button>
         <button class="type-chip" data-type="PATIO A">Patio A</button>
         <button class="type-chip" data-type="PATIO B">Patio B</button>
+        <button class="type-chip" data-type="PATIO C">Patio C</button>
       </div>
     </div>
     <div class="type-display" hidden>
-      <div class="plan-frame">
-        <div class="plan-pic" data-pic="A"><img src="assets/floorplans/apartment_pages_output/v3/A.png" alt="Type A — apartment plan" /></div>
-        <div class="plan-pic" data-pic="C"><img src="assets/floorplans/apartment_pages_output/v3/C.png" alt="Type C — apartment plan" /></div>
-        <div class="plan-pic" data-pic="F1"><img src="assets/floorplans/apartment_pages_output/v3/F1.png" alt="Type F1 — apartment plan" /></div>
-        <div class="plan-pic" data-pic="F2"><img src="assets/floorplans/apartment_pages_output/v3/F2.png" alt="Type F2 — apartment plan" /></div>
-        <div class="plan-pic" data-pic="G1"><img src="assets/floorplans/apartment_pages_output/v3/G1.png" alt="Type G1 — apartment plan" /></div>
-        <div class="plan-pic" data-pic="G2"><img src="assets/floorplans/apartment_pages_output/v3/G2.png" alt="Type G2 — apartment plan" /></div>
-        <div class="plan-pic" data-pic="G3"><img src="assets/floorplans/apartment_pages_output/v3/G3.png" alt="Type G3 — apartment plan" /></div>
-        <div class="plan-pic" data-pic="L"><img src="assets/floorplans/apartment_pages_output/v3/L.png" alt="Type L — apartment plan" /></div>
-        <div class="plan-pic" data-pic="PATIO A"><img src="assets/floorplans/apartment_pages_output/v3/PATIO%20A.png" alt="Type Patio A — apartment plan" /></div>
-        <div class="plan-pic" data-pic="PATIO B"><img src="assets/floorplans/apartment_pages_output/v3/PATIO%20B.png" alt="Type Patio B — apartment plan" /></div>
+      <div class="plan-frame plan-frame-type">
+        <div class="plan-pic" data-pic="A"><img src="assets/floorplans/apartment_pages_output/v4/page_04.png" alt="Type A — apartment plan" /></div>
+        <div class="plan-pic" data-pic="F1"><img src="assets/floorplans/apartment_pages_output/v4/page_05.png" alt="Type F1 — apartment plan" /></div>
+        <div class="plan-pic" data-pic="F2"><img src="assets/floorplans/apartment_pages_output/v4/page_06.png" alt="Type F2 — apartment plan" /></div>
+        <div class="plan-pic" data-pic="L"><img src="assets/floorplans/apartment_pages_output/v4/page_07.png" alt="Type L — apartment plan" /></div>
+        <div class="plan-pic" data-pic="G1"><img src="assets/floorplans/apartment_pages_output/v4/page_08.png" alt="Type G1 — apartment plan" /></div>
+        <div class="plan-pic" data-pic="G2"><img src="assets/floorplans/apartment_pages_output/v4/page_09.png" alt="Type G2 — apartment plan" /></div>
+        <div class="plan-pic" data-pic="G3"><img src="assets/floorplans/apartment_pages_output/v4/page_10.png" alt="Type G3 — apartment plan" /></div>
+        <div class="plan-pic" data-pic="PATIO A"><img src="assets/floorplans/apartment_pages_output/v4/page_11.png" alt="Type Patio A — apartment plan" /></div>
+        <div class="plan-pic" data-pic="PATIO B"><img src="assets/floorplans/apartment_pages_output/v4/page_12.png" alt="Type Patio B — apartment plan" /></div>
+        <div class="plan-pic" data-pic="PATIO C"><img src="assets/floorplans/apartment_pages_output/v4/page_13.png" alt="Type Patio C — apartment plan" /></div>
       </div>
-      <div class="plan-info">
-        <div class="item"><span class="k">Type</span><span class="v" id="type-name">—</span></div>
-        <div class="item"><span class="k">Layout</span><span class="v" id="type-layout">—</span></div>
-        <div class="item"><span class="k">Apartment</span><span class="v" id="type-apt">—</span></div>
-        <div class="item"><span class="k">Outdoor</span><span class="v" id="type-outdoor">—</span></div>
-      </div>
+    </div>
+    <div class="plans-download fade">
+      <a class="plans-download-btn" href="assets/floorplans/HADOAR_TLV_Plans_Booklet.pdf" download="HADOAR_TLV_Plans_Booklet.pdf">
+        <span class="dl-arrow" aria-hidden="true">↓</span>
+        <span class="dl-label">Download project plans · PDF</span>
+      </a>
     </div>
   </div>
 </section>
@@ -913,18 +919,6 @@ const planMeta = {
   first:  { level: '<em>First</em> Floor',  range: '60 – 145 sqm', outdoor: 'Private balconies · planters' },
   second: { level: '<em>Second</em> Floor', range: '60 – 185 sqm', outdoor: 'Balconies · terraces' },
 };
-const typeMeta = {
-  'A':       { name: 'Type <em>A</em>',       layout: 'Street · 2BR',         apt: '83 sqm',  outdoor: '6 sqm balcony' },
-  'C':       { name: 'Type <em>C</em>',       layout: 'Street · 3BR',         apt: '105 sqm', outdoor: '4 sqm balcony' },
-  'F1':      { name: 'Type <em>F1</em>',      layout: 'Street · 2BR',         apt: '66 sqm',  outdoor: '7 sqm balcony' },
-  'F2':      { name: 'Type <em>F2</em>',      layout: 'Street · 2BR',         apt: '66 sqm',  outdoor: '4 sqm balcony' },
-  'G1':      { name: 'Type <em>G1</em>',      layout: 'Garden · 1BR',         apt: '46 sqm',  outdoor: '4 sqm balcony' },
-  'G2':      { name: 'Type <em>G2</em>',      layout: 'Garden · 1BR',         apt: '49 sqm',  outdoor: '4 sqm balcony' },
-  'G3':      { name: 'Type <em>G3</em>',      layout: 'Garden · 2BR',         apt: '68 sqm',  outdoor: '4 sqm balcony' },
-  'L':       { name: 'Type <em>L</em>',       layout: 'Street · 3.5BR',       apt: '128 sqm', outdoor: '8 sqm terrace' },
-  'PATIO A': { name: 'Type <em>Patio A</em>', layout: 'Street · 2BR + Patio', apt: '66 sqm',  outdoor: '24 sqm patio' },
-  'PATIO B': { name: 'Type <em>Patio B</em>', layout: 'Street · 2BR + Patio', apt: '66 sqm',  outdoor: '22 sqm patio' },
-};
 const typeDisplay = document.querySelector('.type-display');
 document.querySelectorAll('.plan-tab').forEach(tab => {
   tab.addEventListener('click', () => {
@@ -942,11 +936,6 @@ document.querySelectorAll('.type-chip').forEach(chip => {
     const t = chip.dataset.type;
     document.querySelectorAll('.type-chip').forEach(c => c.classList.toggle('active', c === chip));
     typeDisplay.querySelectorAll('.plan-pic').forEach(p => p.classList.toggle('show', p.dataset.pic === t));
-    const m = typeMeta[t];
-    document.getElementById('type-name').innerHTML = m.name;
-    document.getElementById('type-layout').textContent = m.layout;
-    document.getElementById('type-apt').textContent = m.apt;
-    document.getElementById('type-outdoor').textContent = m.outdoor;
     typeDisplay.hidden = false;
     typeDisplay.scrollIntoView({behavior:'smooth', block:'center'});
   });
