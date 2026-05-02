@@ -6,11 +6,26 @@
 <title>Hadoar 8 — Tel Aviv-Jaffa</title>
 <meta name="description" content="Twenty-eight private residences, fully designed, in Tel Aviv-Jaffa's first post office. Architecture by Yaniv Pardo. Interiors by Yaron Eldad. A LVNT — Gabso Group development." />
 <link rel="icon" type="image/png" href="assets/favicon/L'VNT logo.png" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload" as="image" href="assets/renders/exterioir-1-hero.jpg" fetchpriority="high">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Inter:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
+/* ---------- BRAND FONT — SAANS ---------- */
+@font-face{font-family:'Saans';font-style:normal;font-weight:300;font-display:swap;
+  src:url('assets/פונטים לבנט/SaansTRIAL-Light.otf') format('opentype')}
+@font-face{font-family:'Saans';font-style:italic;font-weight:300;font-display:swap;
+  src:url('assets/פונטים לבנט/SaansTRIAL-LightItalic.otf') format('opentype')}
+@font-face{font-family:'Saans';font-style:normal;font-weight:400;font-display:swap;
+  src:url('assets/פונטים לבנט/SaansTRIAL-Regular.otf') format('opentype')}
+@font-face{font-family:'Saans';font-style:italic;font-weight:400;font-display:swap;
+  src:url('assets/פונטים לבנט/SaansTRIAL-RegularItalic.otf') format('opentype')}
+@font-face{font-family:'Saans';font-style:normal;font-weight:500;font-display:swap;
+  src:url('assets/פונטים לבנט/SaansTRIAL-Medium.otf') format('opentype')}
+@font-face{font-family:'Saans';font-style:italic;font-weight:500;font-display:swap;
+  src:url('assets/פונטים לבנט/SaansTRIAL-MediumItalic.otf') format('opentype')}
+@font-face{font-family:'Saans';font-style:normal;font-weight:600;font-display:swap;
+  src:url('assets/פונטים לבנט/SaansTRIAL-SemiBold.otf') format('opentype')}
+@font-face{font-family:'Saans';font-style:normal;font-weight:700;font-display:swap;
+  src:url('assets/פונטים לבנט/SaansTRIAL-Bold.otf') format('opentype')}
+
 :root{
   --paper:#FAF7F1;
   --paper-2:#F2EDE2;
@@ -23,8 +38,8 @@
   --sea-deep:#4F7E91;
   --line:rgba(42,37,32,.10);
   --line-2:rgba(42,37,32,.18);
-  --serif:'Cormorant Garamond', Garamond, serif;
-  --sans:'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --serif:'Saans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --sans:'Saans', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
@@ -72,9 +87,11 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .hero-sub{margin-top:24px;color:rgba(255,255,255,.82);font-size:15px;font-weight:300;max-width:48ch}
 .hero-sub em{font-style:italic;color:#e6efe8}
 .hero-base{position:absolute;left:44px;right:44px;bottom:30px;z-index:3;display:flex;justify-content:space-between;align-items:flex-end;color:rgba(255,255,255,.6);font-size:10px;letter-spacing:.3em;text-transform:uppercase;pointer-events:none}
-.hero-scroll{display:flex;align-items:center;gap:14px}
+.hero-scroll{display:inline-flex;align-items:center;gap:14px;color:rgba(255,255,255,.78);text-decoration:none;cursor:pointer;pointer-events:auto;padding:10px 4px;transition:color .35s}
+.hero-scroll:hover{color:#fff}
 .hero-scroll .line{display:inline-block;width:46px;height:1px;background:rgba(255,255,255,.5);position:relative;overflow:hidden}
 .hero-scroll .line::after{content:"";position:absolute;top:0;left:-100%;width:100%;height:100%;background:#fff;animation:scrollLine 2.4s ease-in-out infinite}
+.hero-scroll:hover .line{background:rgba(255,255,255,.85)}
 @keyframes scrollLine{0%{left:-100%}100%{left:100%}}
 .hero h1, .hero-sub{opacity:0;transform:translateY(18px);animation:hin 1.4s cubic-bezier(.2,.8,.2,1) forwards}
 .hero h1{animation-delay:.6s}
@@ -132,6 +149,20 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .split-text li span:last-child{font-family:var(--serif);font-size:17px}
 .split.reverse .split-img{order:2}
 @media(max-width:900px){.split{grid-template-columns:1fr;min-height:auto}.split-img{aspect-ratio:4/3;order:1!important}.split-text{padding:70px 22px}}
+
+/* LVNT — keep all type in ink (no accent color) */
+#lvnt h2 em, #lvnt p em{color:var(--ink)}
+
+/* METRIC BADGES (capsule + label bar) */
+.metrics{margin-top:40px;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.metric{display:flex;flex-direction:column;align-items:center;text-align:center}
+.metric .num{display:flex;align-items:center;justify-content:center;width:100%;min-height:68px;padding:0 10px;border:1.5px solid var(--ink);border-radius:999px;font-family:var(--sans);font-weight:500;font-size:clamp(20px,2vw,28px);letter-spacing:-.01em;color:var(--ink);background:transparent;line-height:1;white-space:nowrap}
+.metric .lbl{margin-top:14px;color:var(--ink);background:transparent;padding:0;font-size:10px;font-weight:500;letter-spacing:.2em;text-transform:uppercase;line-height:1.35}
+@media(max-width:900px){
+  .metrics{grid-template-columns:repeat(2,1fr);gap:18px 12px;margin-top:32px}
+  .metric .num{min-height:60px;font-size:20px}
+  .metric .lbl{font-size:9px;letter-spacing:.16em}
+}
 
 /* QUOTE SECTION */
 .quote-section{padding:140px 0;background:var(--paper);position:relative}
@@ -287,7 +318,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .team-head h2{font-size:clamp(36px,4.6vw,72px);max-width:14ch;line-height:1.05}
 .team-head h2 em{font-style:italic;color:var(--sea-deep)}
 .team-head p{margin-top:22px;font-size:15px;color:var(--ink-soft);max-width:54ch;line-height:1.75}
-.team-grid{max-width:1480px;margin:0 auto;padding:0 44px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.team-grid{max-width:1080px;margin:0 auto;padding:0 44px;display:grid;grid-template-columns:repeat(2,1fr);gap:32px}
 .tcard{background:var(--paper);border:1px solid var(--line);overflow:hidden}
 .tcard-img{aspect-ratio:4/5;overflow:hidden;background:#ddd}
 .tcard-img img{width:100%;height:100%;object-fit:cover;filter:grayscale(.35);transition:filter .5s, transform 1.6s cubic-bezier(.2,.8,.2,1);transform:scale(1.04)}
@@ -348,7 +379,8 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
     <li><a href="#interiors">Interiors</a></li>
     <li><a href="#plans">Plans</a></li>
     <li><a href="#location">Location</a></li>
-    <li><a href="#team">Team</a></li>
+    <li><a href="#lvnt">L'VNT</a></li>
+    <li><a href="#team">Design Leads</a></li>
   </ul>
   <a href="#contact" class="cta">Private Viewing</a>
 </nav>
@@ -365,7 +397,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
   </div>
   <div class="hero-base">
     <span>8 Hadoar Street · Tel Aviv-Jaffa</span>
-    <div class="hero-scroll"><span>Scroll</span><span class="line"></span></div>
+    <a class="hero-scroll" href="#about" aria-label="Scroll to about section"><span>Scroll</span><span class="line"></span></a>
     <span>Architecture · Yaniv Pardo</span>
   </div>
 </section>
@@ -791,12 +823,30 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
   </div>
 </section>
 
+<!-- L'VNT — DEVELOPER -->
+<section class="split reverse" id="lvnt">
+  <div class="split-img fade"><img src="assets/team/צוות%20LVNT.jpg" alt="L'VNT — the team" /></div>
+  <div class="split-text">
+    <div class="eyebrow fade"><span class="bar"></span><span class="label">The Developer · L'VNT</span></div>
+    <h2 class="fade" data-d="1">A new generation<br/>of <em>city-builders</em>.</h2>
+    <p class="fade" data-d="2">L'VNT is a Tel Aviv urban developer with a designer's eye. Each project starts from a blank page — no templates, no copy-paste — shaped by creative thinking, good taste, and a deep understanding of what turns walls and a roof into a home.</p>
+    <p class="fade" data-d="2">A subsidiary of the <em>Gabso Group</em> — a developer and builder founded more than seventy years ago, with thousands of homes behind it. The same financial strength and uncompromising execution, with a younger generation's eye and an original creative voice.</p>
+    <div class="metrics fade" data-d="3">
+      <div class="metric"><div class="num">70</div><div class="lbl">Active years</div></div>
+      <div class="metric"><div class="num">100+</div><div class="lbl">Projects delivered</div></div>
+      <div class="metric"><div class="num">3,000+</div><div class="lbl">Homes delivered</div></div>
+      <div class="metric"><div class="num">100K</div><div class="lbl">Sqm built</div></div>
+      <div class="metric"><div class="num">G-5</div><div class="lbl">Contractor class</div></div>
+    </div>
+  </div>
+</section>
+
 <!-- TEAM -->
 <section class="team" id="team">
   <div class="team-head">
-    <div class="eyebrow fade"><span class="bar"></span><span class="label">The Team</span></div>
-    <h2 class="fade" data-d="1">Developer, architect,<br/><em>interior designer</em>.</h2>
-    <p class="fade" data-d="2">A small, deliberate collaboration: a developer-contractor with seven decades of building inside the Gabso Group, a Tel Aviv architect, and a Tel Aviv interior studio.</p>
+    <div class="eyebrow fade"><span class="bar"></span><span class="label">Design Leads</span></div>
+    <h2 class="fade" data-d="1">The architect,<br/>the <em>interior designer</em>.</h2>
+    <p class="fade" data-d="2">A deliberate collaboration: a Tel Aviv architect and a Tel Aviv interior studio, working together to resolve every room — inside and out — to the last detail.</p>
   </div>
   <div class="team-grid">
     <div class="tcard fade">
@@ -813,14 +863,6 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
         <div class="tcard-role">Interior Designer</div>
         <div class="tcard-name">Yaron <em>Eldad</em></div>
         <div class="tcard-bio">Tel Aviv interior studio. Every apartment, the lobby and corridors, the brass and the brushed steel — designed to the last detail.</div>
-      </div>
-    </div>
-    <div class="tcard fade" data-d="2">
-      <div class="tcard-img"><img src="assets/team/צוות%20LVNT.jpg" alt="LVNT team" loading="lazy" /></div>
-      <div class="tcard-body">
-        <div class="tcard-role">Developer & Contractor</div>
-        <div class="tcard-name">L'<em>VNT</em></div>
-        <div class="tcard-bio">A LVNT development, a Gabso Group company. Class G-5 contractor. Owned crews, owned equipment, seven decades on the city's skyline.</div>
       </div>
     </div>
   </div>
