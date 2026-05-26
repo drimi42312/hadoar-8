@@ -7,6 +7,7 @@
 <meta name="description" content="Twenty-eight private residences, fully designed, in Tel Aviv-Jaffa's first post office. Architecture by Yaniv Pardo. Interiors by Yaron Eldad. A LVNT — Gabso Group development." />
 <link rel="icon" type="image/png" href="assets/favicon/L'VNT logo.png" />
 <link rel="preload" as="image" href="assets/renders/exterioir-1-hero.jpg" fetchpriority="high">
+<link rel="preload" as="video" href="assets/video/Hadoar_Video_20260526_235901.mp4" type="video/mp4">
 <link rel="preload" as="font" type="font/woff2" href="assets/פונטים לבנט/Saans-Light.woff2" crossorigin>
 <style>
 /* ---------- BRAND FONT — SAANS ---------- */
@@ -78,7 +79,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 
 /* HERO */
 .hero{position:relative;height:100vh;min-height:680px;overflow:hidden;background:#0c0c0a}
-.hero-bg{position:absolute;inset:-2%;background-image:url('assets/renders/exterioir-1-hero.jpg');background-size:cover;background-position:center 55%;filter:brightness(.78) saturate(.95);transform:scale(1.06);animation:slowZoom 22s ease-out forwards}
+.hero-bg{position:absolute;inset:-2%;background-image:url('assets/renders/exterioir-1-hero.jpg');background-size:cover;background-position:center 55%;filter:brightness(.78) saturate(.95);transform:scale(1.06);animation:slowZoom 22s ease-out forwards;overflow:hidden}
+.hero-bg .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;display:block}
 @keyframes slowZoom{from{transform:scale(1.14)}to{transform:scale(1.02)}}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,0) 35%,rgba(0,0,0,.05) 60%,rgba(0,0,0,.55) 100%)}
 .hero-content{position:relative;z-index:2;height:100%;max-width:1480px;margin:0 auto;padding:0 44px 90px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
@@ -168,7 +170,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 /* QUOTE SECTION */
 .quote-section{padding:140px 0;background:var(--paper);position:relative}
 .quote-section.dark{background:var(--paper-2)}
-.quote-section.copper{background-color:#3a3a35;background-image:linear-gradient(180deg,rgba(15,15,12,.55) 0%,rgba(15,15,12,.35) 50%,rgba(15,15,12,.65) 100%),url('assets/renders/ox-copper.jpg');background-size:cover;background-position:center;color:#fff}
+.quote-section.copper{background-color:#3a3a35;background-image:linear-gradient(180deg,rgba(15,15,12,.55) 0%,rgba(15,15,12,.35) 50%,rgba(15,15,12,.65) 100%),url('assets/renders/ox-copper.jpg');background-size:cover;background-position:center;color:#fff;margin:28px 0}
 .quote-section.copper .wrap{position:relative;z-index:2}
 .quote-section.copper .bigquote{color:#f4ecdf}
 .quote-section.copper .bigquote em{color:#cee0e6}
@@ -388,7 +390,11 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <div class="hero-bg"></div>
+  <div class="hero-bg">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/renders/exterioir-1-hero.jpg" aria-hidden="true">
+      <source src="assets/video/Hadoar_Video_20260526_235901.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hero-content">
     <h1>
       <span class="small">Tel Aviv-Jaffa · A LVNT development</span>
@@ -577,7 +583,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
         <button class="type-chip" data-type="L">L</button>
         <button class="type-chip" data-type="PATIO A">Patio A</button>
         <button class="type-chip" data-type="PATIO B">Patio B</button>
-        <button class="type-chip" data-type="PATIO C">Patio C</button>
+        <button class="type-chip" data-type="CL">CL</button>
       </div>
     </div>
     <div class="type-display" hidden>
@@ -591,7 +597,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
         <div class="plan-pic" data-pic="G3"><img src="assets/floorplans/apartment_pages_output/v4/page_10.webp" alt="Type G3 — apartment plan" loading="lazy" /></div>
         <div class="plan-pic" data-pic="PATIO A"><img src="assets/floorplans/apartment_pages_output/v4/page_11.webp" alt="Type Patio A — apartment plan" loading="lazy" /></div>
         <div class="plan-pic" data-pic="PATIO B"><img src="assets/floorplans/apartment_pages_output/v4/page_12.webp" alt="Type Patio B — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="PATIO C"><img src="assets/floorplans/apartment_pages_output/v4/page_13.webp" alt="Type Patio C — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="CL"><img src="assets/floorplans/apartment_pages_output/v4/page_13.webp" alt="Type CL — apartment plan" loading="lazy" /></div>
       </div>
     </div>
     <div class="plans-download fade">
