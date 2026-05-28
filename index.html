@@ -183,6 +183,24 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .quote-section.long .bigquote{font-size:clamp(22px,2.4vw,34px);max-width:42ch;text-align:left}
 .quote-section.long .quote-attr{text-align:left}
 
+/* JAFFA — dark keyword-reveal quote */
+.quote-section.jaffa{background:#13120f;color:#fff;overflow:hidden}
+.quote-section.jaffa .bigquote{color:#e9e2d4}
+.quote-section.jaffa .bigquote em{color:#c9dfe6;font-style:italic}
+.quote-section.jaffa .bigquote .qmark{color:#c9dfe6;opacity:.55}
+.quote-section.jaffa .quote-attr{color:rgba(255,255,255,.5)}
+.jaffa-wrap{position:relative;min-height:clamp(240px,34vw,420px);display:flex;flex-direction:column;justify-content:center}
+/* keyword overlay */
+.jaffa-words{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;gap:.04em;pointer-events:none}
+.jaffa-words span{font-family:var(--serif);font-weight:700;font-style:normal;font-size:clamp(42px,7.4vw,104px);line-height:1.0;letter-spacing:-.025em;color:#fff;opacity:0;transform:translateY(34px);transition:opacity .7s cubic-bezier(.2,.8,.2,1),transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:calc(var(--i) * .15s)}
+.quote-section.jaffa.in-view .jaffa-words span{opacity:1;transform:translateY(0)}
+.quote-section.jaffa.revealed .jaffa-words span{opacity:0;transform:translateX(-110px);transition:opacity .7s ease,transform .85s cubic-bezier(.5,0,.1,1);transition-delay:calc(var(--i) * .07s)}
+/* full text */
+.jaffa-text{opacity:0;transform:translateX(48px);transition:opacity .9s ease,transform .9s cubic-bezier(.2,.8,.2,1)}
+.quote-section.jaffa.revealed .jaffa-text{opacity:1;transform:translateX(0);transition-delay:.2s}
+.quote-section.jaffa.revealed .jaffa-attr{transition-delay:.5s}
+@media(prefers-reduced-motion:reduce){.jaffa-words{display:none}.jaffa-text{opacity:1;transform:none}}
+
 /* SPECIFICATIONS */
 .specs{padding:160px 0;background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .specs-head{max-width:880px;margin:0 auto 70px;text-align:center;padding:0 44px}
@@ -483,13 +501,18 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
 </section>
 
 <!-- ELDAD QUOTE / DESIGN PHILOSOPHY -->
-<section class="quote-section long dark">
-  <div class="wrap">
-    <blockquote class="bigquote fade">
+<section class="quote-section long jaffa">
+  <div class="wrap jaffa-wrap">
+    <div class="jaffa-words" aria-hidden="true">
+      <span style="--i:0">Passages</span>
+      <span style="--i:1">Layers</span>
+      <span style="--i:2">Connection</span>
+    </div>
+    <blockquote class="bigquote jaffa-text">
       <span class="qmark">“</span>
       Jaffa is a city you experience through <em>passages</em> — not as one open plane, but as a sequence of alleys, arches and thresholds. You move from ancient stone to contemporary life in a few steps. The city is built in <em>layers</em>: histories, faiths and architectural language laid one upon another, raw and refined. And at its core, Jaffa is a city of <em>connection</em> — once one of the world's oldest port cities, always a meeting point.
     </blockquote>
-    <div class="quote-attr fade" data-d="1">— Yaron Eldad · Interior Designer</div>
+    <div class="quote-attr jaffa-text jaffa-attr">— Yaron Eldad · Interior Designer</div>
   </div>
 </section>
 
@@ -536,66 +559,6 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
   <div class="gal-2">
     <div class="gal-img fade"><img src="assets/renders/wc1.webp" alt="Bathroom 1" loading="lazy" /></div>
     <div class="gal-img fade" data-d="1"><img src="assets/renders/wc2.webp" alt="Bathroom 2" loading="lazy" /></div>
-  </div>
-</section>
-
-<!-- FLOOR PLANS -->
-<section class="plans" id="plans">
-  <div class="plans-head">
-    <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">Floor Plans · Yaniv Pardo Architects</span></div>
-    <h2 class="fade" data-d="1">Two plates.<br/>No two residences <em>alike</em>.</h2>
-    <p class="fade" data-d="2">A first floor that meets the boulevard, and a second floor above it. Switch between the two plates below, or pick a specific apartment type to see its plan.</p>
-  </div>
-  <div class="plan-tabs fade">
-    <button class="plan-tab active" data-tab="first">First Floor</button>
-    <button class="plan-tab" data-tab="second">Second Floor</button>
-  </div>
-  <div class="plan-stage fade" data-d="1">
-    <div class="plan-frame">
-      <div class="plan-pic show" data-pic="first"><img src="assets/floorplans/floor%20plans/1st-floor.webp" alt="First floor plan — Yaniv Pardo Architects" loading="lazy" /></div>
-      <div class="plan-pic" data-pic="second"><img src="assets/floorplans/floor%20plans/typical-floor.webp" alt="Second floor plan — Yaniv Pardo Architects" loading="lazy" /></div>
-    </div>
-    <div class="plan-info">
-      <div class="item"><span class="k">Level</span><span class="v" id="plan-level"><em>First</em> Floor</span></div>
-      <div class="item"><span class="k">Outdoor</span><span class="v" id="plan-outdoor">Private balconies · planters</span></div>
-      <div class="item"><span class="k">Range</span><span class="v" id="plan-range">60 – 145 sqm</span></div>
-      <div class="item"><span class="k">Architect</span><span class="v" id="plan-arch">Yaniv Pardo</span></div>
-    </div>
-    <div class="type-chips">
-      <span class="type-eyebrow">Browse a specific apartment type</span>
-      <div class="chip-row">
-        <button class="type-chip" data-type="A">A</button>
-        <button class="type-chip" data-type="F1">F1</button>
-        <button class="type-chip" data-type="F2">F2</button>
-        <button class="type-chip" data-type="G1">G1</button>
-        <button class="type-chip" data-type="G2">G2</button>
-        <button class="type-chip" data-type="G3">G3</button>
-        <button class="type-chip" data-type="L">L</button>
-        <button class="type-chip" data-type="PATIO A">Patio A</button>
-        <button class="type-chip" data-type="PATIO B">Patio B</button>
-        <button class="type-chip" data-type="CL">CL</button>
-      </div>
-    </div>
-    <div class="type-display" hidden>
-      <div class="plan-frame plan-frame-type">
-        <div class="plan-pic" data-pic="A"><img src="assets/floorplans/apartment_pages_output/v4/page_04.webp?v=20260528" alt="Type A — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="F1"><img src="assets/floorplans/apartment_pages_output/v4/page_05.webp?v=20260528" alt="Type F1 — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="F2"><img src="assets/floorplans/apartment_pages_output/v4/page_06.webp?v=20260528" alt="Type F2 — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="L"><img src="assets/floorplans/apartment_pages_output/v4/page_07.webp?v=20260528" alt="Type L — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="G1"><img src="assets/floorplans/apartment_pages_output/v4/page_08.webp?v=20260528" alt="Type G1 — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="G2"><img src="assets/floorplans/apartment_pages_output/v4/page_09.webp?v=20260528" alt="Type G2 — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="G3"><img src="assets/floorplans/apartment_pages_output/v4/page_10.webp?v=20260528" alt="Type G3 — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="PATIO A"><img src="assets/floorplans/apartment_pages_output/v4/page_11.webp?v=20260528" alt="Type Patio A — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="PATIO B"><img src="assets/floorplans/apartment_pages_output/v4/page_12.webp?v=20260528" alt="Type Patio B — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="CL"><img src="assets/floorplans/apartment_pages_output/v4/page_13.webp?v=20260528" alt="Type CL — apartment plan" loading="lazy" /></div>
-      </div>
-    </div>
-    <div class="plans-download fade">
-      <a class="plans-download-btn" href="assets/floorplans/HADOAR_TLV_Plans_Booklet.pdf" download="HADOAR_TLV_Plans_Booklet.pdf">
-        <span class="dl-arrow" aria-hidden="true">↓</span>
-        <span class="dl-label">Download project plans · PDF</span>
-      </a>
-    </div>
   </div>
 </section>
 
@@ -820,6 +783,66 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
   </div>
 </section>
 
+<!-- FLOOR PLANS -->
+<section class="plans" id="plans">
+  <div class="plans-head">
+    <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">Floor Plans · Yaniv Pardo Architects</span></div>
+    <h2 class="fade" data-d="1">Two plates.<br/>No two residences <em>alike</em>.</h2>
+    <p class="fade" data-d="2">A first floor that meets the boulevard, and a second floor above it. Switch between the two plates below, or pick a specific apartment type to see its plan.</p>
+  </div>
+  <div class="plan-tabs fade">
+    <button class="plan-tab active" data-tab="first">First Floor</button>
+    <button class="plan-tab" data-tab="second">Second Floor</button>
+  </div>
+  <div class="plan-stage fade" data-d="1">
+    <div class="plan-frame">
+      <div class="plan-pic show" data-pic="first"><img src="assets/floorplans/floor%20plans/1st-floor.webp" alt="First floor plan — Yaniv Pardo Architects" loading="lazy" /></div>
+      <div class="plan-pic" data-pic="second"><img src="assets/floorplans/floor%20plans/typical-floor.webp" alt="Second floor plan — Yaniv Pardo Architects" loading="lazy" /></div>
+    </div>
+    <div class="plan-info">
+      <div class="item"><span class="k">Level</span><span class="v" id="plan-level"><em>First</em> Floor</span></div>
+      <div class="item"><span class="k">Outdoor</span><span class="v" id="plan-outdoor">Private balconies · planters</span></div>
+      <div class="item"><span class="k">Range</span><span class="v" id="plan-range">60 – 145 sqm</span></div>
+      <div class="item"><span class="k">Architect</span><span class="v" id="plan-arch">Yaniv Pardo</span></div>
+    </div>
+    <div class="type-chips">
+      <span class="type-eyebrow">Browse a specific apartment type</span>
+      <div class="chip-row">
+        <button class="type-chip" data-type="A">A</button>
+        <button class="type-chip" data-type="F1">F1</button>
+        <button class="type-chip" data-type="F2">F2</button>
+        <button class="type-chip" data-type="G1">G1</button>
+        <button class="type-chip" data-type="G2">G2</button>
+        <button class="type-chip" data-type="G3">G3</button>
+        <button class="type-chip" data-type="L">L</button>
+        <button class="type-chip" data-type="PATIO A">Patio A</button>
+        <button class="type-chip" data-type="PATIO B">Patio B</button>
+        <button class="type-chip" data-type="CL">CL</button>
+      </div>
+    </div>
+    <div class="type-display" hidden>
+      <div class="plan-frame plan-frame-type">
+        <div class="plan-pic" data-pic="A"><img src="assets/floorplans/apartment_pages_output/v4/page_04.webp?v=20260528" alt="Type A — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="F1"><img src="assets/floorplans/apartment_pages_output/v4/page_05.webp?v=20260528" alt="Type F1 — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="F2"><img src="assets/floorplans/apartment_pages_output/v4/page_06.webp?v=20260528" alt="Type F2 — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="L"><img src="assets/floorplans/apartment_pages_output/v4/page_07.webp?v=20260528" alt="Type L — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="G1"><img src="assets/floorplans/apartment_pages_output/v4/page_08.webp?v=20260528" alt="Type G1 — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="G2"><img src="assets/floorplans/apartment_pages_output/v4/page_09.webp?v=20260528" alt="Type G2 — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="G3"><img src="assets/floorplans/apartment_pages_output/v4/page_10.webp?v=20260528" alt="Type G3 — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="PATIO A"><img src="assets/floorplans/apartment_pages_output/v4/page_11.webp?v=20260528" alt="Type Patio A — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="PATIO B"><img src="assets/floorplans/apartment_pages_output/v4/page_12.webp?v=20260528" alt="Type Patio B — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="CL"><img src="assets/floorplans/apartment_pages_output/v4/page_13.webp?v=20260528" alt="Type CL — apartment plan" loading="lazy" /></div>
+      </div>
+    </div>
+    <div class="plans-download fade">
+      <a class="plans-download-btn" href="assets/floorplans/HADOAR_TLV_Plans_Booklet.pdf" download="HADOAR_TLV_Plans_Booklet.pdf">
+        <span class="dl-arrow" aria-hidden="true">↓</span>
+        <span class="dl-label">Download project plans · PDF</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- L'VNT — DEVELOPER -->
 <section class="split reverse" id="lvnt">
   <div class="split-img fade"><img src="assets/team/צוות%20LVNT.webp" alt="L'VNT — the team" loading="lazy" /></div>
@@ -962,6 +985,20 @@ window.addEventListener('scroll', checkFades, { passive: true });
 window.addEventListener('resize', checkFades);
 window.addEventListener('load', checkFades);
 setInterval(checkFades, 250);
+
+// Jaffa quote — keywords first, then slide left to reveal the text
+const jaffa = document.querySelector('.quote-section.jaffa');
+if (jaffa) {
+  const jio = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      jaffa.classList.add('in-view');
+      setTimeout(() => jaffa.classList.add('revealed'), 1600);
+      jio.disconnect();
+    });
+  }, { threshold: 0.55 });
+  jio.observe(jaffa);
+}
 
 // Floor plan tabs
 const planMeta = {
