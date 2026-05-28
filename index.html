@@ -84,7 +84,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 @keyframes slowZoom{from{transform:scale(1.14)}to{transform:scale(1.02)}}
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,0) 35%,rgba(0,0,0,.05) 60%,rgba(0,0,0,.55) 100%)}
 .hero-content{position:relative;z-index:2;height:100%;max-width:1480px;margin:0 auto;padding:0 44px 90px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
-.hero h1{color:#fff;font-size:clamp(56px,8.4vw,128px);font-weight:300;line-height:.95;letter-spacing:-.005em}
+.hero h1{color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:clamp(56px,8.4vw,128px);font-weight:300;line-height:.95;letter-spacing:-.01em}
 .hero h1 .num{font-style:italic;color:#cee0e6}
 .hero h1 .small{display:block;font-size:.13em;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:24px;font-style:normal;font-family:var(--sans);font-weight:400}
 .hero-sub{margin-top:24px;color:rgba(255,255,255,.82);font-size:15px;font-weight:300;max-width:48ch}
@@ -345,7 +345,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .contact .info{margin-top:60px;display:flex;flex-direction:column}
 .contact .row{display:flex;justify-content:space-between;padding:18px 0;border-bottom:1px solid rgba(250,247,241,.14);font-size:14px}
 .contact .row .k{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(250,247,241,.5);align-self:center}
-.contact .row .v{font-family:var(--serif);font-size:18px}
+.contact .row .v{font-family:var(--serif);font-size:18px;color:var(--paper);text-decoration:none;transition:color .3s}
+a.contact-link,.contact .row a.v:hover{color:#cee0e6}
 form{display:flex;flex-direction:column}
 form label{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(250,247,241,.5);margin-top:18px}
 form input,form select,form textarea{background:transparent;color:var(--paper);border:0;border-bottom:1px solid rgba(250,247,241,.18);padding:10px 0;font-family:var(--sans);font-size:15px;font-weight:300;outline:none;transition:border-color .3s}
@@ -398,7 +399,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
   <div class="hero-content">
     <h1>
       <span class="small">Tel Aviv-Jaffa · A LVNT development</span>
-      Hadoar <span class="num">№ 8</span>.
+      8 HADOAR st
     </h1>
     <p class="hero-sub">Twenty-eight private residences, <em>fully designed — to the last detail</em>. Four minutes from the sea, between Neve Tzedek and old Jaffa.</p>
   </div>
@@ -885,9 +886,10 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
         <p class="lead fade" data-d="2">Twenty-six residences. Not all available. We meet by request, on site — with the architect or with the developer.</p>
         <div class="info">
           <div class="row fade"><span class="k">Address</span><span class="v">8 Hadoar St · Tel Aviv-Jaffa</span></div>
-          <div class="row fade" data-d="1"><span class="k">Telephone</span><span class="v">+972 3 000 0000</span></div>
-          <div class="row fade" data-d="2"><span class="k">Email</span><span class="v">sales@levant-living.co.il</span></div>
-          <div class="row fade" data-d="3"><span class="k">Web</span><span class="v">l'vnt.co.il</span></div>
+          <div class="row fade" data-d="1"><span class="k">Telephone</span><a class="v" href="tel:+97247659885">074-7659885</a></div>
+          <div class="row fade" data-d="2"><span class="k">WhatsApp</span><a class="v" href="https://wa.me/972544897633" target="_blank" rel="noopener">054-4897633</a></div>
+          <div class="row fade" data-d="3"><span class="k">Email</span><a class="v" href="mailto:dan@levant-living.co.il">dan@levant-living.co.il</a></div>
+          <div class="row fade" data-d="4"><span class="k">Web</span><a class="v" href="https://lvnt.co.il" target="_blank" rel="noopener">LVNT.co.il</a></div>
         </div>
       </div>
       <form class="fade" data-d="2" onsubmit="event.preventDefault();this.querySelector('button').textContent='Thank you — we will be in touch.'">
@@ -901,10 +903,10 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
         <input type="text" placeholder="Optional" />
         <label>Residence Type</label>
         <select>
-          <option>Studio · from 60 sqm</option>
-          <option>One bedroom · 75–95 sqm</option>
-          <option>Two bedrooms · 95–145 sqm</option>
-          <option>Penthouse · up to 185 sqm</option>
+          <option>2 rooms · 46–49 sqm</option>
+          <option>3 rooms · 66–83 sqm</option>
+          <option>4 rooms+</option>
+          <option>Penthouse</option>
           <option>Open to all options</option>
         </select>
         <label>Message</label>
@@ -932,13 +934,14 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
     </div>
     <div>
       <h4>Sales</h4>
-      <a href="mailto:sales@levant-living.co.il">sales@levant-living.co.il</a>
-      <a href="tel:+972300000000">+972 3 000 0000</a>
+      <a href="mailto:dan@levant-living.co.il">dan@levant-living.co.il</a>
+      <a href="tel:+97247659885">074-7659885</a>
+      <a href="https://wa.me/972544897633" target="_blank" rel="noopener">WhatsApp · 054-4897633</a>
       <a href="#contact">Private Viewing</a>
     </div>
     <div>
       <h4>Developer</h4>
-      <a href="#">L'VNT — Levant Living</a>
+      <a href="https://lvnt.co.il" target="_blank" rel="noopener">L'VNT — Levant Living</a>
       <a href="#">A Gabso Group company</a>
     </div>
   </div>
