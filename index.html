@@ -177,6 +177,15 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .quote-section.dark .bigquote em{color:#cee0e6}
 .quote-section.dark .bigquote .qmark{color:#cee0e6;opacity:.6}
 .quote-section.dark .quote-attr{color:rgba(255,255,255,.55)}
+/* Jaffa split — image left, quote right */
+.quote-section.jaffa-split{padding:0;overflow:hidden}
+.jaffa-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:560px}
+.jaffa-img{position:relative;overflow:hidden;background:#1a1814;min-height:560px}
+.jaffa-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transform:scale(1.04);transition:transform 14s ease-out}
+.jaffa-img.in img{transform:scale(1)}
+.jaffa-text{padding:90px 70px;display:flex;flex-direction:column;justify-content:center;gap:24px}
+.quote-section.jaffa-split .bigquote{max-width:38ch;margin:0}
+@media(max-width:900px){.jaffa-grid{grid-template-columns:1fr}.jaffa-img{min-height:auto;aspect-ratio:3/2}.jaffa-text{padding:60px 28px}}
 .quote-section.copper{background-color:#3a3a35;background-image:linear-gradient(180deg,rgba(15,15,12,.55) 0%,rgba(15,15,12,.35) 50%,rgba(15,15,12,.65) 100%),url('assets/renders/ox-copper.jpg');background-size:cover;background-position:center;color:#fff;margin:28px 0}
 .quote-section.copper .wrap{position:relative;z-index:2}
 .quote-section.copper .bigquote{color:#f4ecdf}
@@ -459,7 +468,16 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
     <h2 class="fbs-ttl fade" data-d="1">Through the arches,<br/>into a <em>quiet</em> city.</h2>
     <div class="fbs-meta fade" data-d="2">Patinated copper · Travertine<br/>Brass detailing throughout</div>
   </div>
-  <div class="fbs-img"><img src="assets/renders/lobby.webp" alt="Hadoar 8 lobby — patinated copper and travertine" loading="lazy" /></div>
+  <div class="fbs-img"><img src="assets/renders/lobby.webp?v=20260601" alt="Hadoar 8 lobby — patinated copper and travertine" loading="lazy" /></div>
+</section>
+
+<!-- LOBBY STAIR (full bleed) -->
+<section class="fullbleed">
+  <div class="fullbleed-img" style="background-image:url('assets/renders/lobby2.webp');background-position:center"></div>
+  <div class="fullbleed-cap">
+    <div class="ttl fade">Out to the<br/><em>boulevard</em>.</div>
+    <div class="meta fade" data-d="2">Lobby stair · Cor-Ten<br/>Travertine throughout</div>
+  </div>
 </section>
 
 <!-- CORRIDOR (full bleed) -->
@@ -474,7 +492,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
 <!-- LIVING -->
 <section id="interiors">
   <div class="split reverse">
-    <div class="split-img fade"><img src="assets/renders/apt%20interioirs.webp" alt="Living and dining" loading="lazy" /></div>
+    <div class="split-img fade"><img src="assets/renders/apt%20interioirs2.webp?v=20260601" alt="Living and dining — stainless kitchen, oak floor" loading="lazy" /></div>
     <div class="split-text">
       <div class="eyebrow fade"><span class="bar"></span><span class="label">The Living Room</span></div>
       <h2 class="fade" data-d="1">Stainless kitchens.<br/>Oak <em>everywhere</em>.</h2>
@@ -490,13 +508,16 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
 </section>
 
 <!-- ELDAD QUOTE / DESIGN PHILOSOPHY -->
-<section class="quote-section long dark">
-  <div class="wrap">
-    <blockquote class="bigquote fade">
-      <span class="qmark">“</span>
-      Jaffa is a city you experience through <em>passages</em> — not as one open plane, but as a sequence of alleys, arches and thresholds. You move from ancient stone to contemporary life in a few steps. The city is built in <em>layers</em>: histories, faiths and architectural language laid one upon another, raw and refined. And at its core, Jaffa is a city of <em>connection</em> — once one of the world's oldest port cities, always a meeting point.
-    </blockquote>
-    <div class="quote-attr fade" data-d="1">— Yaron Eldad · Interior Designer</div>
+<section class="quote-section long dark jaffa-split">
+  <div class="jaffa-grid">
+    <div class="jaffa-img fade"><img src="assets/renders/apt%20interioirs.webp?v=20260601" alt="Interior — by Yaron Eldad" loading="lazy" /></div>
+    <div class="jaffa-text">
+      <blockquote class="bigquote fade">
+        <span class="qmark">“</span>
+        Jaffa is a city you experience through <em>passages</em> — not as one open plane, but as a sequence of alleys, arches and thresholds. You move from ancient stone to contemporary life in a few steps. The city is built in <em>layers</em>: histories, faiths and architectural language laid one upon another, raw and refined. And at its core, Jaffa is a city of <em>connection</em> — once one of the world's oldest port cities, always a meeting point.
+      </blockquote>
+      <div class="quote-attr fade" data-d="1">— Yaron Eldad · Interior Designer</div>
+    </div>
   </div>
 </section>
 
