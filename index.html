@@ -302,6 +302,11 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .type-chip{background:var(--paper);border:1px solid var(--line);padding:12px 22px;font-family:var(--sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;font-weight:500;transition:background .25s,color .25s,border-color .25s}
 .type-chip:hover:not(.active){border-color:var(--ink);color:var(--ink)}
 .type-chip.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+.type-chip[hidden]{display:none}
+.room-filter{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:26px}
+.room-btn{background:transparent;border:1px solid var(--line);border-radius:999px;padding:9px 20px;font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);cursor:pointer;font-weight:500;transition:background .25s,color .25s,border-color .25s}
+.room-btn:hover:not(.active){border-color:var(--ink);color:var(--ink)}
+.room-btn.active{background:var(--sea-deep);color:var(--paper);border-color:var(--sea-deep)}
 .plan-frame-type{padding:0;border:none;background:transparent;min-height:0}
 .plan-frame-type img{display:block;width:100%;height:auto;border:1px solid var(--line);background:var(--paper)}
 .plans-download{margin-top:56px;display:flex;justify-content:center}
@@ -806,26 +811,27 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
       <div class="plan-pic" data-pic="second"><img src="assets/floorplans/floor%20plans/2nd-floor.webp?v=20260618" alt="Second floor plan — Yaniv Pardo Architects" loading="lazy" /></div>
       <div class="plan-pic" data-pic="third"><img src="assets/floorplans/floor%20plans/3rd-floor.webp?v=20260618" alt="Third floor plan — Yaniv Pardo Architects" loading="lazy" /></div>
     </div>
-    <div class="plan-info">
-      <div class="item"><span class="k">Level</span><span class="v" id="plan-level"><em>First</em> Floor</span></div>
-      <div class="item"><span class="k">Outdoor</span><span class="v" id="plan-outdoor">Private balconies · planters</span></div>
-      <div class="item"><span class="k">Range</span><span class="v" id="plan-range">60 – 145 sqm</span></div>
-      <div class="item"><span class="k">Architect</span><span class="v" id="plan-arch">Yaniv Pardo</span></div>
-    </div>
     <div class="type-chips">
-      <span class="type-eyebrow">Browse a specific apartment type</span>
+      <span class="type-eyebrow">Filter apartments by number of rooms</span>
+      <div class="room-filter">
+        <button class="room-btn active" data-rooms="all">All</button>
+        <button class="room-btn" data-rooms="2">2 Rooms</button>
+        <button class="room-btn" data-rooms="3">3 Rooms</button>
+        <button class="room-btn" data-rooms="4">4 Rooms</button>
+        <button class="room-btn" data-rooms="5">5 Rooms</button>
+      </div>
       <div class="chip-row">
-        <button class="type-chip" data-type="A">A</button>
-        <button class="type-chip" data-type="F1">F1</button>
-        <button class="type-chip" data-type="F2">F2</button>
-        <button class="type-chip" data-type="F2-2">F2-2</button>
-        <button class="type-chip" data-type="G1">G1</button>
-        <button class="type-chip" data-type="G2">G2</button>
-        <button class="type-chip" data-type="G3">G3</button>
-        <button class="type-chip" data-type="L">L</button>
-        <button class="type-chip" data-type="PATIO A">Patio A</button>
-        <button class="type-chip" data-type="PATIO B">Patio B</button>
-        <button class="type-chip" data-type="CL">CL</button>
+        <button class="type-chip" data-type="A" data-rooms="4">A</button>
+        <button class="type-chip" data-type="F1" data-rooms="3">F1</button>
+        <button class="type-chip" data-type="F2" data-rooms="3">F2</button>
+        <button class="type-chip" data-type="F2-2" data-rooms="3">F2-2</button>
+        <button class="type-chip" data-type="G1" data-rooms="2">G1</button>
+        <button class="type-chip" data-type="G2" data-rooms="2">G2</button>
+        <button class="type-chip" data-type="G3" data-rooms="3">G3</button>
+        <button class="type-chip" data-type="L" data-rooms="5">L</button>
+        <button class="type-chip" data-type="PATIO A" data-rooms="4">Patio A</button>
+        <button class="type-chip" data-type="PATIO B" data-rooms="4">Patio B</button>
+        <button class="type-chip" data-type="CL" data-rooms="5">CL</button>
       </div>
     </div>
     <div class="type-display" hidden>
@@ -999,21 +1005,12 @@ window.addEventListener('load', checkFades);
 setInterval(checkFades, 250);
 
 // Floor plan tabs
-const planMeta = {
-  first:  { level: '<em>First</em> Floor',  range: '60 – 145 sqm', outdoor: 'Private balconies · planters' },
-  second: { level: '<em>Second</em> Floor', range: '60 – 185 sqm', outdoor: 'Balconies · terraces' },
-  third:  { level: '<em>Third</em> Floor',  range: '60 – 185 sqm', outdoor: 'Balconies · terraces' },
-};
 const typeDisplay = document.querySelector('.type-display');
 document.querySelectorAll('.plan-tab').forEach(tab => {
   tab.addEventListener('click', () => {
     const t = tab.dataset.tab;
     document.querySelectorAll('.plan-tab').forEach(b => b.classList.toggle('active', b === tab));
     document.querySelectorAll('.plan-frame:not(.type-display .plan-frame) .plan-pic').forEach(p => p.classList.toggle('show', p.dataset.pic === t));
-    const m = planMeta[t];
-    document.getElementById('plan-level').innerHTML = m.level;
-    document.getElementById('plan-range').textContent = m.range;
-    document.getElementById('plan-outdoor').textContent = m.outdoor;
   });
 });
 document.querySelectorAll('.type-chip').forEach(chip => {
@@ -1023,6 +1020,21 @@ document.querySelectorAll('.type-chip').forEach(chip => {
     typeDisplay.querySelectorAll('.plan-pic').forEach(p => p.classList.toggle('show', p.dataset.pic === t));
     typeDisplay.hidden = false;
     typeDisplay.scrollIntoView({behavior:'smooth', block:'center'});
+  });
+});
+// Room-count filter
+document.querySelectorAll('.room-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const r = btn.dataset.rooms;
+    document.querySelectorAll('.room-btn').forEach(b => b.classList.toggle('active', b === btn));
+    document.querySelectorAll('.type-chip').forEach(chip => {
+      const match = r === 'all' || chip.dataset.rooms === r;
+      chip.hidden = !match;
+      if (!match && chip.classList.contains('active')) {
+        chip.classList.remove('active');
+        typeDisplay.hidden = true;
+      }
+    });
   });
 });
 
