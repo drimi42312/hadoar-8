@@ -792,17 +792,19 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
 <section class="plans" id="plans">
   <div class="plans-head">
     <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">Floor Plans · Yaniv Pardo Architects</span></div>
-    <h2 class="fade" data-d="1">Two plates.<br/>No two residences <em>alike</em>.</h2>
-    <p class="fade" data-d="2">A first floor that meets the boulevard, and a second floor above it. Switch between the two plates below, or pick a specific apartment type to see its plan.</p>
+    <h2 class="fade" data-d="1">Three plates.<br/>No two residences <em>alike</em>.</h2>
+    <p class="fade" data-d="2">A first floor that meets the boulevard, with a second and third above it. Switch between the three plates below, or pick a specific apartment type to see its plan.</p>
   </div>
   <div class="plan-tabs fade">
     <button class="plan-tab active" data-tab="first">First Floor</button>
     <button class="plan-tab" data-tab="second">Second Floor</button>
+    <button class="plan-tab" data-tab="third">Third Floor</button>
   </div>
   <div class="plan-stage fade" data-d="1">
     <div class="plan-frame">
-      <div class="plan-pic show" data-pic="first"><img src="assets/floorplans/floor%20plans/1st-floor.webp" alt="First floor plan — Yaniv Pardo Architects" loading="lazy" /></div>
-      <div class="plan-pic" data-pic="second"><img src="assets/floorplans/floor%20plans/typical-floor.webp?v=20260617" alt="Second floor plan — Yaniv Pardo Architects" loading="lazy" /></div>
+      <div class="plan-pic show" data-pic="first"><img src="assets/floorplans/floor%20plans/1st-floor.webp?v=20260618" alt="First floor plan — Yaniv Pardo Architects" loading="lazy" /></div>
+      <div class="plan-pic" data-pic="second"><img src="assets/floorplans/floor%20plans/2nd-floor.webp?v=20260618" alt="Second floor plan — Yaniv Pardo Architects" loading="lazy" /></div>
+      <div class="plan-pic" data-pic="third"><img src="assets/floorplans/floor%20plans/3rd-floor.webp?v=20260618" alt="Third floor plan — Yaniv Pardo Architects" loading="lazy" /></div>
     </div>
     <div class="plan-info">
       <div class="item"><span class="k">Level</span><span class="v" id="plan-level"><em>First</em> Floor</span></div>
@@ -1000,6 +1002,7 @@ setInterval(checkFades, 250);
 const planMeta = {
   first:  { level: '<em>First</em> Floor',  range: '60 – 145 sqm', outdoor: 'Private balconies · planters' },
   second: { level: '<em>Second</em> Floor', range: '60 – 185 sqm', outdoor: 'Balconies · terraces' },
+  third:  { level: '<em>Third</em> Floor',  range: '60 – 185 sqm', outdoor: 'Balconies · terraces' },
 };
 const typeDisplay = document.querySelector('.type-display');
 document.querySelectorAll('.plan-tab').forEach(tab => {
