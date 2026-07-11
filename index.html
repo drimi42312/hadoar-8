@@ -1195,11 +1195,15 @@ window.addEventListener('scroll', () => {
   }
 }, { passive: true });
 
-// ---- Lead form ----
-// To wire real leads: set LEAD_ENDPOINT to a webhook (Formspree / Make / Zapier / own API)
-// that accepts a JSON POST. If left empty, the form still confirms and opens WhatsApp
-// with the details so no lead is lost.
-const LEAD_ENDPOINT = '';
+// ---- Lead delivery → Google Form (responses land in Google Forms / linked Sheet) ----
+const GFORM = "https://docs.google.com/forms/d/e/1FAIpQLSegkQIyTkVWwu8VOgNciuHCszZt5vZdUHlUdgMrBNdD4eonYw/formResponse";
+const GMAP = { name:"entry.1780721379", phone:"entry.1718316663", email:"entry.2116820258", rooms:"entry.899733827", budget:"entry.1901636617", source:"entry.1882492292" };
+const SRC = { "index-en":"אתר (אנגלית)", "lead-page":"דף הליד", "floating-widget":"ווידג׳ט צף" };
+function sendLead(data){
+  const body = new URLSearchParams();
+  for (const k in GMAP){ const v = k === "source" ? (SRC[data.source] || data.source || "אתר") : data[k]; if (v) body.append(GMAP[k], v); }
+  return fetch(GFORM, { method:"POST", mode:"no-cors", body });
+}
 const leadForm = document.getElementById('leadForm');
 const leadDone = document.getElementById('formDone');
 leadForm.addEventListener('submit', async (e) => {
@@ -1211,17 +1215,7 @@ leadForm.addEventListener('submit', async (e) => {
     return;
   }
   btn.disabled = true; btn.textContent = 'Sending…';
-  try {
-    if (LEAD_ENDPOINT) {
-      await fetch(LEAD_ENDPOINT, {
-        method:'POST', headers:{'Content-Type':'application/json'},
-        body: JSON.stringify({...data, source:'index-en', project:'Hadoar 8', ts:new Date().toISOString()})
-      });
-    } else {
-      const msg = `New lead — Hadoar 8%0AName: ${data.name}%0APhone: ${data.phone||'-'}%0AEmail: ${data.email||'-'}%0ARooms: ${data.rooms||'-'}%0ABudget: ${data.budget||'-'}`;
-      window.open(`https://wa.me/972544897633?text=${msg}`, '_blank');
-    }
-  } catch (err) { /* still confirm to the user */ }
+  try { await sendLead({ ...data, source:'index-en' }); } catch (err) { /* still confirm to the user */ }
   leadForm.hidden = true;
   leadDone.hidden = false;
   leadDone.classList.add('in');
@@ -1248,15 +1242,7 @@ leadForm.addEventListener('submit', async (e) => {
     const data = Object.fromEntries(new FormData(wForm).entries());
     if (!data.name || (!data.phone && !data.email)) { wForm.querySelector(!data.name ? '[name=name]' : '[name=phone]').focus(); return; }
     btn.disabled = true; btn.textContent = 'Sending…';
-    try {
-      if (LEAD_ENDPOINT) {
-        await fetch(LEAD_ENDPOINT, { method:'POST', headers:{'Content-Type':'application/json'},
-          body: JSON.stringify({...data, source:'floating-widget', project:'Hadoar 8', ts:new Date().toISOString()}) });
-      } else {
-        const msg = `New lead — Hadoar 8%0AName: ${data.name}%0APhone: ${data.phone||'-'}%0AEmail: ${data.email||'-'}%0ARooms: ${data.rooms||'-'}%0ABudget: ${data.budget||'-'}`;
-        window.open(`https://wa.me/972544897633?text=${msg}`, '_blank');
-      }
-    } catch (err) { /* still confirm to the user */ }
+    try { await sendLead({ ...data, source:'floating-widget' }); } catch (err) { /* still confirm to the user */ }
     wForm.hidden = true; wDone.hidden = false;
   });
 })();
