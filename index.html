@@ -1195,14 +1195,49 @@ window.addEventListener('scroll', () => {
   }
 }, { passive: true });
 
-// ---- Lead delivery → Google Form (responses land in Google Forms / linked Sheet) ----
+// ---- Lead delivery ----
+const SRC = { "index-en":"אתר (אנגלית)", "lead-page":"דף הליד", "floating-widget":"ווידג׳ט צף" };
+
+// 1) Fireberry CRM (web-to-account) — leads land straight in the CRM
+const FB_URL = "https://app.fireberry.com/web/webtoaccount.aspx";
+const FB_CONF = {
+  uid: "24A7181B-8A02-4A96-8C6A-DED763E5BDA1",
+  categorycode: "148",        // פרויקט: הדואר 8 ת"א
+  originatingleadcode: "11",  // מקור הגעה: אתר
+  accounttypecode: "8",       // סוג לקוח: לקוח
+  returnpath: "https://drimi42312.github.io/hadoar-8/"
+};
+// form label -> pcfsystemfield16 (מס' חדרים) picklist value
+const FB_ROOMS = { "2 rooms":"4", "3 rooms":"6", "4 rooms":"8", "4.5 rooms":"9", "5 rooms+":"10" };
+function sendFireberry(data){
+  const body = new URLSearchParams(FB_CONF);
+  body.append("accountname", data.name || "");
+  if (data.phone) body.append("telephone1", data.phone);
+  if (data.email) body.append("emailaddress1", data.email);
+  const rooms = FB_ROOMS[data.rooms];
+  if (rooms) body.append("pcfsystemfield16", rooms);
+  // budget has no matching CRM picklist for this price band — keep it as a note
+  const note = [
+    data.budget ? `Budget: ${data.budget}` : "",
+    (data.rooms && !rooms) ? `Rooms: ${data.rooms}` : "",
+    `Source: ${SRC[data.source] || data.source || "אתר"}`
+  ].filter(Boolean).join(" | ");
+  body.append("description", note);
+  return fetch(FB_URL, { method:"POST", mode:"no-cors", body });
+}
+
+// 2) Google Form backup (responses land in Google Forms / linked Sheet)
 const GFORM = "https://docs.google.com/forms/d/e/1FAIpQLSegkQIyTkVWwu8VOgNciuHCszZt5vZdUHlUdgMrBNdD4eonYw/formResponse";
 const GMAP = { name:"entry.1780721379", phone:"entry.1718316663", email:"entry.2116820258", rooms:"entry.899733827", budget:"entry.1901636617", source:"entry.1882492292" };
-const SRC = { "index-en":"אתר (אנגלית)", "lead-page":"דף הליד", "floating-widget":"ווידג׳ט צף" };
-function sendLead(data){
+function sendGoogleForm(data){
   const body = new URLSearchParams();
   for (const k in GMAP){ const v = k === "source" ? (SRC[data.source] || data.source || "אתר") : data[k]; if (v) body.append(GMAP[k], v); }
   return fetch(GFORM, { method:"POST", mode:"no-cors", body });
+}
+
+// deliver to both; never reject so the user still gets the confirmation
+function sendLead(data){
+  return Promise.allSettled([ sendFireberry(data), sendGoogleForm(data) ]);
 }
 const leadForm = document.getElementById('leadForm');
 const leadDone = document.getElementById('formDone');
