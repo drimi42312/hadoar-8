@@ -5,7 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Hadoar 8 — Tel Aviv-Jaffa</title>
 <meta name="description" content="Twenty-eight private residences, fully designed, in Tel Aviv-Jaffa's first post office. Architecture by Yaniv Pardo. Interiors by Yaron Eldad. A LVNT — Gabso Group development." />
-<link rel="icon" type="image/png" href="assets/favicon/L'VNT logo.png" />
+<link rel="icon" href="assets/favicon/favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png" />
+<link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png" />
 <link rel="preload" as="image" href="assets/renders/exterioir-1-hero.jpg" fetchpriority="high">
 <link rel="preload" as="video" href="assets/video/seedance2_Video_20260527_111348.mp4" type="video/mp4">
 <link rel="preload" as="font" type="font/woff2" href="assets/פונטים לבנט/Saans-Light.woff2" crossorigin>
@@ -1010,6 +1013,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
           <option>2 rooms</option>
           <option>3 rooms</option>
           <option>4 rooms</option>
+          <option>4.5 rooms</option>
           <option>5 rooms+</option>
           <option>Penthouse / roof</option>
           <option selected>Open to all options</option>
@@ -1082,7 +1086,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
       <div class="lw-row">
         <select name="rooms" aria-label="Number of rooms">
           <option value="" disabled selected>Rooms</option>
-          <option>2 rooms</option><option>3 rooms</option><option>4 rooms</option><option>5 rooms+</option><option>Penthouse / roof</option><option>Open to all</option>
+          <option>2 rooms</option><option>3 rooms</option><option>4 rooms</option><option>4.5 rooms</option><option>5 rooms+</option><option>Penthouse / roof</option><option>Open to all</option>
         </select>
         <select name="budget" aria-label="Budget">
           <option value="" disabled selected>Budget</option>
@@ -1205,7 +1209,7 @@ const FB_CONF = {
   categorycode: "148",        // פרויקט: הדואר 8 ת"א
   originatingleadcode: "11",  // מקור הגעה: אתר
   accounttypecode: "8",       // סוג לקוח: לקוח
-  returnpath: "https://drimi42312.github.io/hadoar-8/"
+  returnpath: "https://lvnt.co.il/hadoar8/"
 };
 // form label -> pcfsystemfield16 (מס' חדרים) picklist value
 const FB_ROOMS = { "2 rooms":"4", "3 rooms":"6", "4 rooms":"8", "4.5 rooms":"9", "5 rooms+":"10" };
