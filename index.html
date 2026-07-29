@@ -39,8 +39,8 @@
   --ink:#2A2520;
   --ink-soft:#5C544B;
   --mute:#8A8378;
-  --sea:#7CA7B6;
-  --sea-deep:#4F7E91;
+  --sea:#FF3B0D;
+  --sea-deep:#FF3B0D;
   --line:rgba(42,37,32,.10);
   --line-2:rgba(42,37,32,.18);
   --serif:'Saans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -88,7 +88,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,0) 35%,rgba(0,0,0,.05) 60%,rgba(0,0,0,.55) 100%)}
 .hero-content{position:relative;z-index:2;height:100%;max-width:1480px;margin:0 auto;padding:0 44px 90px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
 .hero h1{color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:clamp(56px,8.4vw,128px);font-weight:300;line-height:.95;letter-spacing:-.01em}
-.hero h1 .num{font-style:italic;color:#cee0e6}
+.hero h1 .num{font-style:italic;color:#FF3B0D}
 .hero h1 .small{display:block;font-size:.13em;letter-spacing:.4em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:24px;font-style:normal;font-family:var(--sans);font-weight:400}
 .hero-sub{margin-top:24px;color:rgba(255,255,255,.82);font-size:15px;font-weight:300;max-width:48ch}
 .hero-sub em{font-style:italic;color:#e6efe8}
@@ -160,7 +160,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 #lvnt h2 em, #lvnt p em{color:var(--ink)}
 .lvnt-mark{display:flex;flex-direction:column;align-items:flex-start;gap:10px;margin-bottom:34px}
 .lvnt-logo{width:clamp(210px,24vw,300px);height:auto;display:block}
-.lvnt-co{font-size:clamp(17px,1.7vw,22px);letter-spacing:.26em;text-transform:uppercase;color:#FF3C0C;font-weight:700}
+.lvnt-co{font-size:clamp(17px,1.7vw,22px);letter-spacing:.26em;text-transform:uppercase;color:#FF3B0D;font-weight:700}
 
 /* METRIC BADGES (capsule + label bar) */
 .metrics{margin-top:40px;display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
@@ -177,8 +177,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .quote-section{padding:140px 0;background:var(--paper);position:relative}
 .quote-section.dark{background:#322E27;color:#fff;margin:28px 0}
 .quote-section.dark .bigquote{color:#f4ecdf}
-.quote-section.dark .bigquote em{color:#cee0e6}
-.quote-section.dark .bigquote .qmark{color:#cee0e6;opacity:.6}
+.quote-section.dark .bigquote em{color:#FF3B0D}
+.quote-section.dark .bigquote .qmark{color:#FF3B0D;opacity:.6}
 .quote-section.dark .quote-attr{color:rgba(255,255,255,.55)}
 /* Jaffa split — image left, quote right */
 .quote-section.jaffa-split{padding:0;overflow:hidden}
@@ -192,8 +192,8 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .quote-section.copper{background-color:#3a3a35;background-image:linear-gradient(180deg,rgba(15,15,12,.55) 0%,rgba(15,15,12,.35) 50%,rgba(15,15,12,.65) 100%),url('assets/renders/ox-copper.jpg');background-size:cover;background-position:center;color:#fff;margin:28px 0}
 .quote-section.copper .wrap{position:relative;z-index:2}
 .quote-section.copper .bigquote{color:#f4ecdf}
-.quote-section.copper .bigquote em{color:#cee0e6}
-.quote-section.copper .bigquote .qmark{color:#cee0e6;opacity:.7}
+.quote-section.copper .bigquote em{color:#FF3B0D}
+.quote-section.copper .bigquote .qmark{color:#FF3B0D;opacity:.7}
 .quote-section.copper .quote-attr{color:rgba(255,255,255,.6)}
 .bigquote{font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(28px,3.4vw,52px);line-height:1.18;color:var(--ink);max-width:24ch;margin:0 auto;text-align:center;position:relative}
 .bigquote em{font-style:italic;color:var(--sea-deep)}
@@ -206,20 +206,20 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .specs{padding:160px 0;background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .specs-head{max-width:880px;margin:0 auto 70px;text-align:center;padding:0 44px}
 .specs-head h2{font-size:clamp(34px,4.2vw,60px);line-height:1.08}
-.specs-head h2 em{font-style:italic;color:var(--sea-deep)}
+.specs-head h2 em{font-style:italic;color:#FF3B0D}
 .specs-head p{margin-top:20px;color:var(--ink-soft);font-size:16px;max-width:54ch;margin-left:auto;margin-right:auto}
 .specs-cols{max-width:1160px;margin:0 auto;padding:0 44px;display:grid;grid-template-columns:1fr 1fr;gap:56px}
 .spec-group-title{font-family:var(--serif);font-size:clamp(26px,2.8vw,34px);font-weight:300;line-height:1.1;letter-spacing:-.01em;margin-bottom:20px}
-.spec-group-title em{font-style:italic;color:var(--sea-deep)}
+.spec-group-title em{font-style:italic;color:#FF3B0D}
 .spec-list{list-style:none}
 .spec-list li{display:flex;gap:14px;align-items:flex-start;padding:13px 0;border-top:1px solid var(--line);font-size:15px;line-height:1.5;color:var(--ink-soft);font-weight:300}
 .spec-list li:first-child{border-top:none}
 .spec-list li.spec-hidden{display:none}
 .spec-list li strong{font-weight:500;color:var(--ink)}
-.spec-ico{flex:none;width:34px;height:34px;border-radius:9px;background:rgba(79,126,145,.10);display:flex;align-items:center;justify-content:center;color:var(--sea-deep)}
+.spec-ico{flex:none;width:34px;height:34px;border-radius:9px;background:rgba(255,59,13,.10);display:flex;align-items:center;justify-content:center;color:#FF3B0D}
 .spec-ico svg{width:18px;height:18px;display:block}
 .spec-txt{padding-top:6px}
-.spec-more{margin-top:16px;background:none;border:none;padding:6px 0;font-family:var(--sans);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--sea-deep);font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
+.spec-more{margin-top:16px;background:none;border:none;padding:6px 0;font-family:var(--sans);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:#FF3B0D;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:7px}
 .spec-more svg{width:15px;height:15px;transition:transform .25s}
 .spec-more.open svg{transform:rotate(180deg)}
 @media(max-width:820px){.specs-cols{grid-template-columns:1fr;gap:44px}}
@@ -239,10 +239,10 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .ncard::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,rgba(0,0,0,.65) 100%);pointer-events:none}
 .ncard-cap{position:absolute;left:22px;right:22px;bottom:22px;z-index:2;color:#fff}
 .ncard-name{font-family:var(--serif);font-size:22px;font-weight:400;line-height:1.1;letter-spacing:.005em}
-.ncard-name em{font-style:italic;color:#cee0e6}
+.ncard-name em{font-style:italic;color:#FF3B0D}
 .ncard-meta{margin-top:6px;font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.78)}
 .walk-badge{position:absolute;top:16px;right:16px;z-index:3;display:inline-flex;align-items:center;gap:8px;background:rgba(15,15,12,.55);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);color:#fff;padding:8px 12px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;font-weight:500;border:1px solid rgba(255,255,255,.18)}
-.walk-badge svg{width:11px;height:14px;color:#cee0e6}
+.walk-badge svg{width:11px;height:14px;color:#FF3B0D}
 @media(max-width:900px){.nearby-grid{grid-template-columns:repeat(2,1fr)}}
 
 /* FULL BLEED */
@@ -252,7 +252,7 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .fullbleed::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.6) 100%)}
 .fullbleed-cap{position:absolute;left:44px;right:44px;bottom:54px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;color:#fff;gap:30px}
 .fullbleed-cap .ttl{font-family:var(--serif);font-size:clamp(28px,3vw,44px);font-weight:300;line-height:1.08;max-width:18ch}
-.fullbleed-cap .ttl em{font-style:italic;color:#cee0e6}
+.fullbleed-cap .ttl em{font-style:italic;color:#FF3B0D}
 .fullbleed-cap .meta{font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:rgba(255,255,255,.7);text-align:right}
 @media(max-width:700px){.fullbleed-cap{flex-direction:column;align-items:flex-start}.fullbleed-cap .meta{text-align:left}}
 
@@ -365,22 +365,22 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 
 /* CONTACT */
 .contact{padding:200px 0;background:var(--ink);color:var(--paper);position:relative;overflow:hidden}
-.contact::before{content:"";position:absolute;top:-30%;right:-15%;width:60%;height:160%;background:radial-gradient(ellipse at center,rgba(124,167,182,.18) 0%,transparent 65%);pointer-events:none}
+.contact::before{content:"";position:absolute;top:-30%;right:-15%;width:60%;height:160%;background:radial-gradient(ellipse at center,rgba(255,59,13,.18) 0%,transparent 65%);pointer-events:none}
 .contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:120px;align-items:start;position:relative;z-index:1}
-.contact .eyebrow .label{color:#cee0e6}
-.contact .eyebrow .bar{background:#cee0e6}
+.contact .eyebrow .label{color:#FF3B0D}
+.contact .eyebrow .bar{background:#FF3B0D}
 .contact h2{font-size:clamp(40px,5vw,80px);color:var(--paper);max-width:12ch}
-.contact h2 em{font-style:italic;color:#cee0e6}
+.contact h2 em{font-style:italic;color:#FF3B0D}
 .contact .lead{color:rgba(250,247,241,.72);max-width:46ch;margin-top:32px}
 .contact .info{margin-top:60px;display:flex;flex-direction:column}
 .contact .row{display:flex;justify-content:space-between;padding:18px 0;border-bottom:1px solid rgba(250,247,241,.14);font-size:14px}
 .contact .row .k{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(250,247,241,.5);align-self:center}
 .contact .row .v{font-family:var(--serif);font-size:18px;color:var(--paper);text-decoration:none;transition:color .3s}
-a.contact-link,.contact .row a.v:hover{color:#cee0e6}
+a.contact-link,.contact .row a.v:hover{color:#FF3B0D}
 form{display:flex;flex-direction:column}
 form label{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(250,247,241,.5);margin-top:18px}
 form input,form select,form textarea{background:transparent;color:var(--paper);border:0;border-bottom:1px solid rgba(250,247,241,.18);padding:10px 0;font-family:var(--sans);font-size:15px;font-weight:300;outline:none;transition:border-color .3s}
-form input:focus,form select:focus,form textarea:focus{border-bottom-color:#cee0e6}
+form input:focus,form select:focus,form textarea:focus{border-bottom-color:#FF3B0D}
 form textarea{resize:vertical;min-height:60px}
 form option{background:var(--ink);color:var(--paper)}
 form button{margin-top:36px;align-self:flex-start;background:transparent;color:var(--paper);border:1px solid var(--paper);padding:18px 38px;font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:400;cursor:pointer;transition:all .3s}
@@ -416,14 +416,14 @@ form button:disabled{opacity:.6;cursor:default}
 .lw-sub{margin-top:7px;font-size:13px;line-height:1.6;color:rgba(250,247,241,.6)}
 .lw-form{display:flex;flex-direction:column;gap:10px;margin-top:18px}
 .lw-form input,.lw-form select{width:100%;background:rgba(250,247,241,.06);border:1px solid rgba(250,247,241,.2);border-radius:10px;color:var(--paper,#FAF7F1);padding:12px 13px;font-size:14px;font-family:inherit;font-weight:400;outline:none;transition:border-color .2s,background .2s}
-.lw-form input:focus,.lw-form select:focus{border-color:#cee0e6;background:rgba(250,247,241,.1)}
+.lw-form input:focus,.lw-form select:focus{border-color:#FF3B0D;background:rgba(250,247,241,.1)}
 .lw-form input::placeholder{color:rgba(250,247,241,.45)}
-.lw-form select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23cee0e6' stroke-width='1.4' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
+.lw-form select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23FF3B0D' stroke-width='1.4' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 12px center;padding-right:32px}
 .lw-form option{background:#2A2520;color:#FAF7F1}
 .lw-note{font-size:12px;color:rgba(250,247,241,.5);margin:-2px 0 0;text-align:start}
 .lw-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 .lw-submit{margin-top:4px;background:var(--paper,#FAF7F1);color:var(--ink,#2A2520);border:0;border-radius:10px;padding:14px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:background .25s,color .25s}
-.lw-submit:hover{background:#4F7E91;color:#fff}
+.lw-submit:hover{background:#FF3B0D;color:#fff}
 .lw-submit:disabled{opacity:.6;cursor:default}
 .lw-done{text-align:center;padding:12px 6px 4px}
 .lw-done-ico{width:46px;height:46px;margin:0 auto 12px;border-radius:50%;border:1.5px solid #8fd0b0;display:flex;align-items:center;justify-content:center;color:#8fd0b0}
@@ -435,12 +435,12 @@ form button:disabled{opacity:.6;cursor:default}
 /* FOOTER */
 footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-top:1px solid rgba(250,247,241,.1)}
 .foot{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:48px;align-items:start}
-.foot h4{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#cee0e6;font-weight:400;margin-bottom:18px}
+.foot h4{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#FF3B0D;font-weight:400;margin-bottom:18px}
 .foot a,.foot p{font-size:13px;line-height:1.7;color:rgba(250,247,241,.65);font-weight:300}
 .foot a{display:block;transition:color .25s}
 .foot a:hover{color:var(--paper)}
 .foot-mark{font-family:var(--serif);font-size:24px;letter-spacing:.18em;color:var(--paper)}
-.foot-mark .num{font-style:italic;color:#cee0e6}
+.foot-mark .num{font-style:italic;color:#FF3B0D}
 .foot-bot{max-width:1280px;margin:60px auto 0;padding-top:24px;border-top:1px solid rgba(250,247,241,.1);display:flex;justify-content:space-between;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:rgba(250,247,241,.4)}
 @media(max-width:900px){.foot{grid-template-columns:1fr 1fr;gap:30px}.foot-bot{flex-direction:column;gap:14px}footer{padding:48px 22px 30px}}
 </style>
@@ -534,8 +534,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
 <section class="fullbleed">
   <div class="fullbleed-img" style="background-image:url('assets/renders/lobby2.webp');background-position:center"></div>
   <div class="fullbleed-cap">
-    <div class="ttl fade">Out to the<br/><em>boulevard</em>.</div>
-    <div class="meta fade" data-d="2">Lobby stair · Cor-Ten<br/>Travertine throughout</div>
+    <div class="meta fade" data-d="2">Lobby stair · Corten<br/>Travertine throughout</div>
   </div>
 </section>
 
@@ -543,26 +542,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
 <section class="fullbleed">
   <div class="fullbleed-img" style="background-image:url('assets/renders/coridor.webp');background-position:center"></div>
   <div class="fullbleed-cap">
-    <div class="ttl fade">Floors three<br/>and <em>above</em>.</div>
-    <div class="meta fade" data-d="2">Residential corridor<br/>Brass sconces · Travertine</div>
-  </div>
-</section>
-
-<!-- LIVING -->
-<section id="interiors">
-  <div class="split reverse">
-    <div class="split-img fade"><img src="assets/renders/apt%20interioirs2.webp?v=20260706c" alt="Living and dining — stainless kitchen, oak floor" loading="lazy" /></div>
-    <div class="split-text">
-      <div class="eyebrow fade"><span class="bar"></span><span class="label">The Living Room</span></div>
-      <h2 class="fade" data-d="1">Stainless kitchens.<br/>Oak <em>everywhere</em>.</h2>
-      <p class="fade" data-d="2">An open kitchen in stainless steel and oak, a dining table under a soft pendant, and the city beyond the window.</p>
-      <ul>
-        <li class="fade" data-d="2"><span>Kitchen</span><span>Italian stainless</span></li>
-        <li class="fade" data-d="2"><span>Floor</span><span>Smoked oak</span></li>
-        <li class="fade" data-d="3"><span>Climate</span><span>VRF system</span></li>
-        <li class="fade" data-d="3"><span>Smart Home</span><span>Smart-ready wiring</span></li>
-      </ul>
-    </div>
+    <div class="meta fade" data-d="2">Residential corridor</div>
   </div>
 </section>
 
@@ -581,7 +561,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
 </section>
 
 <!-- SPECIFICATIONS — selected by Yaron Eldad -->
-<section class="specs">
+<section class="specs" id="interiors">
   <div class="specs-head">
     <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">Specifications · Selected by Yaron Eldad</span></div>
     <h2 class="fade" data-d="1">The technical <em>palette</em>.</h2>
@@ -641,8 +621,8 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
 <section class="gallery" style="padding-top:0">
   <div class="gallery-head">
     <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">The Bathrooms</span></div>
-    <h2 class="fade" data-d="1">Travertine, brass,<br/>and a <em>handheld</em> shower.</h2>
-    <p class="fade" data-d="2">Honed travertine wall-to-wall, brushed-brass fittings, oval mirrors and fluted vanities. Every bathroom is identical in standard, varied in proportion.</p>
+    <h2 class="fade" data-d="1">Travertine-look, brass,<br/>and a <em>handheld</em> shower.</h2>
+    <p class="fade" data-d="2">Floor-to-ceiling travertine-look cladding, brushed-brass TREEMME Rubinetterie, Italy fittings, oval mirrors and fluted vanities. Every bathroom is identical in standard, varied in proportion.</p>
   </div>
   <div class="gal-2">
     <div class="gal-img fade"><img src="assets/renders/wc1.webp" alt="Bathroom 1" loading="lazy" /></div>
@@ -689,7 +669,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
       <path d="M900 60 L900 700" stroke="#5C544B" stroke-width="0.6" fill="none" opacity=".10"/>
 
       <!-- Aerial dashed lines from HADOAR (615,540) to each landmark -->
-      <g stroke="#4F7E91" stroke-width="1" fill="none" opacity=".55" stroke-dasharray="3 5">
+      <g stroke="#FF3B0D" stroke-width="1" fill="none" opacity=".55" stroke-dasharray="3 5">
         <line x1="615" y1="540" x2="485" y2="365"/>
         <line x1="615" y1="540" x2="780" y2="500"/>
         <line x1="615" y1="540" x2="478" y2="610"/>
@@ -754,14 +734,14 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
 
       <!-- HADOAR № 8 — minimal dot + framed label -->
       <g transform="translate(615,540)">
-        <circle cx="0" cy="0" r="14" fill="none" stroke="#4F7E91" stroke-width="0.6" opacity=".35"/>
-        <circle cx="0" cy="0" r="7" fill="#4F7E91"/>
-        <line x1="0" y1="-12" x2="0" y2="-30" stroke="#4F7E91" stroke-width="0.8"/>
+        <circle cx="0" cy="0" r="14" fill="none" stroke="#FF3B0D" stroke-width="0.6" opacity=".35"/>
+        <circle cx="0" cy="0" r="7" fill="#FF3B0D"/>
+        <line x1="0" y1="-12" x2="0" y2="-30" stroke="#FF3B0D" stroke-width="0.8"/>
         <g transform="translate(0,-58)">
           <rect x="-86" y="-22" width="172" height="44" fill="#FAF7F1" stroke="#2A2520" stroke-width="1.2"/>
           <rect x="-82" y="-18" width="164" height="36" fill="none" stroke="#2A2520" stroke-width="0.4" opacity=".4"/>
           <text x="0" y="-1" font-family="Cormorant Garamond, serif" font-size="22" text-anchor="middle" fill="#2A2520" font-weight="500">HADOAR № 8</text>
-          <text x="0" y="14" font-family="Inter,sans-serif" font-size="8" letter-spacing="3" text-anchor="middle" fill="#4F7E91">8 HADOAR ST · TLV-JAFFA</text>
+          <text x="0" y="14" font-family="Inter,sans-serif" font-size="8" letter-spacing="3" text-anchor="middle" fill="#FF3B0D">8 HADOAR ST · TLV-JAFFA</text>
         </g>
       </g>
 
@@ -900,6 +880,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
       </div>
       <div class="chip-row">
         <button class="type-chip" data-type="A" data-rooms="3">A</button>
+        <button class="type-chip" data-type="C" data-rooms="4">C</button>
         <button class="type-chip" data-type="F1" data-rooms="3">F1</button>
         <button class="type-chip" data-type="F2" data-rooms="3">F2</button>
         <button class="type-chip" data-type="F2-2" data-rooms="2">F2-2</button>
@@ -914,21 +895,22 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
     </div>
     <div class="type-display" hidden>
       <div class="plan-frame plan-frame-type">
-        <div class="plan-pic" data-pic="A"><img src="assets/floorplans/apartment_pages_output/v4/page_04.webp?v=20260706c" alt="Type A — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="F1"><img src="assets/floorplans/apartment_pages_output/v4/page_05.webp?v=20260706c" alt="Type F1 — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="F2"><img src="assets/floorplans/apartment_pages_output/v4/page_06.webp?v=20260706c" alt="Type F2 — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="F2-2"><img src="assets/floorplans/apartment_pages_output/v4/page_07.webp?v=20260706c" alt="Type F2-2 — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="L"><img src="assets/floorplans/apartment_pages_output/v4/page_08.webp?v=20260706c" alt="Type L — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="G1"><img src="assets/floorplans/apartment_pages_output/v4/page_09.webp?v=20260706c" alt="Type G1 — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="G2"><img src="assets/floorplans/apartment_pages_output/v4/page_10.webp?v=20260706c" alt="Type G2 — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="G3"><img src="assets/floorplans/apartment_pages_output/v4/page_11.webp?v=20260706c" alt="Type G3 — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="PATIO A"><img src="assets/floorplans/apartment_pages_output/v4/page_12.webp?v=20260706c" alt="Type Patio A — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="PATIO B"><img src="assets/floorplans/apartment_pages_output/v4/page_13.webp?v=20260706c" alt="Type Patio B — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="CL"><img src="assets/floorplans/apartment_pages_output/v4/page_14.webp?v=20260706c" alt="Type CL — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="A"><img src="assets/floorplans/apartment_pages_output/v4/page_05.webp?v=20260726" alt="Type A — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="C"><img src="assets/floorplans/apartment_pages_output/v4/page_06.webp?v=20260726" alt="Type C — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="F1"><img src="assets/floorplans/apartment_pages_output/v4/page_07.webp?v=20260726" alt="Type F1 — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="F2"><img src="assets/floorplans/apartment_pages_output/v4/page_08.webp?v=20260726" alt="Type F2 — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="F2-2"><img src="assets/floorplans/apartment_pages_output/v4/page_09.webp?v=20260726" alt="Type F2-2 — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="L"><img src="assets/floorplans/apartment_pages_output/v4/page_10.webp?v=20260726" alt="Type L — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="G1"><img src="assets/floorplans/apartment_pages_output/v4/page_11.webp?v=20260726" alt="Type G1 — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="G2"><img src="assets/floorplans/apartment_pages_output/v4/page_12.webp?v=20260726" alt="Type G2 — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="G3"><img src="assets/floorplans/apartment_pages_output/v4/page_13.webp?v=20260726" alt="Type G3 — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="PATIO A"><img src="assets/floorplans/apartment_pages_output/v4/page_14.webp?v=20260726" alt="Type Patio A — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="PATIO B"><img src="assets/floorplans/apartment_pages_output/v4/page_15.webp?v=20260726" alt="Type Patio B — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="CL"><img src="assets/floorplans/apartment_pages_output/v4/page_16.webp?v=20260726" alt="Type CL — apartment plan" loading="lazy" /></div>
       </div>
     </div>
     <div class="plans-download fade">
-      <a class="plans-download-btn" href="assets/floorplans/HADOAR_TLV_Plans_Booklet.pdf?v=20260721" download="HADOAR_TLV_Plans_Booklet.pdf">
+      <a class="plans-download-btn" href="assets/floorplans/HADOAR_TLV_Plans_Booklet.pdf?v=20260726" download="HADOAR_TLV_Plans_Booklet.pdf">
         <span class="dl-arrow" aria-hidden="true">↓</span>
         <span class="dl-label">Download project plans · PDF</span>
       </a>
