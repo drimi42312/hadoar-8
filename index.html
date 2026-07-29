@@ -388,6 +388,13 @@ form button:hover{background:var(--sea-deep);border-color:var(--sea-deep);letter
 form .opt{text-transform:none;letter-spacing:0;opacity:.6}
 form .formnote{margin-top:14px;font-size:12px;letter-spacing:.02em;text-transform:none;color:rgba(250,247,241,.5)}
 form button:disabled{opacity:.6;cursor:default}
+.consent-row{display:flex;gap:11px;align-items:flex-start;margin-top:22px;cursor:pointer;font-size:12.5px;line-height:1.5;letter-spacing:normal;text-transform:none;font-weight:300;color:rgba(250,247,241,.62)}
+.consent-row input[type="checkbox"]{-webkit-appearance:none;appearance:none;flex:none;width:17px;height:17px;min-width:17px;padding:0;margin:1px 0 0;border:1px solid rgba(250,247,241,.4);border-radius:4px;background:transparent;cursor:pointer;position:relative;transition:background .2s,border-color .2s}
+.consent-row input[type="checkbox"]:checked{background:#FF3B0D;border-color:#FF3B0D}
+.consent-row input[type="checkbox"]:checked::after{content:"";position:absolute;left:5px;top:1px;width:5px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.consent-row input[type="checkbox"]:focus-visible{outline:2px solid #FF3B0D;outline-offset:2px}
+.consent-row.invalid input[type="checkbox"]{border-color:#FF3B0D;box-shadow:0 0 0 3px rgba(255,59,13,.2)}
+.lw-form .consent-row{margin-top:2px;font-size:11.5px}
 .form-done{padding:20px 0}
 .form-done .ico{width:54px;height:54px;border-radius:50%;border:1.5px solid #8fd0b0;display:flex;align-items:center;justify-content:center;color:#8fd0b0;margin-bottom:22px}
 .form-done h3{font-family:var(--serif);font-style:italic;font-weight:300;font-size:30px;color:var(--paper)}
@@ -1008,6 +1015,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
           <option>₪7M+</option>
           <option selected>Undecided</option>
         </select>
+        <label class="consent-row"><input type="checkbox" name="consent" value="yes" required /><span>I agree to be contacted by L'VNT regarding this project, including details and marketing communications.</span></label>
         <button type="submit">Leave your details</button>
       </form>
       <div class="form-done fade" id="formDone" hidden>
@@ -1075,6 +1083,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
           <option>Up to ₪3.5M</option><option>₪3.5–5M</option><option>₪5–7M</option><option>₪7M+</option><option>Undecided</option>
         </select>
       </div>
+      <label class="consent-row"><input type="checkbox" name="consent" value="yes" required /><span>I agree to be contacted, including marketing communications.</span></label>
       <button type="submit" class="lw-submit">Leave your details</button>
     </form>
     <div class="lw-done" id="lwDone" hidden>
@@ -1202,10 +1211,13 @@ function sendFireberry(data){
   if (data.email) body.append("emailaddress1", data.email);
   const rooms = FB_ROOMS[data.rooms];
   if (rooms) body.append("pcfsystemfield16", rooms);
+  // marketing consent -> email-valid field (1=yes / 2=no)
+  body.append("isvalidforemailcode", data.consent ? "1" : "2");
   // budget has no matching CRM picklist for this price band — keep it as a note
   const note = [
     data.budget ? `Budget: ${data.budget}` : "",
     (data.rooms && !rooms) ? `Rooms: ${data.rooms}` : "",
+    `Marketing consent: ${data.consent ? "yes" : "no"}`,
     `Source: ${SRC[data.source] || data.source || "אתר"}`
   ].filter(Boolean).join(" | ");
   body.append("description", note);
@@ -1231,8 +1243,11 @@ leadForm.addEventListener('submit', async (e) => {
   e.preventDefault();
   const btn = leadForm.querySelector('button');
   const data = Object.fromEntries(new FormData(leadForm).entries());
-  if (!data.name || (!data.phone && !data.email)) {
-    leadForm.querySelector(!data.name ? '[name=name]' : '[name=phone]').focus();
+  if (!data.name || (!data.phone && !data.email) || !data.consent) {
+    const sel = !data.name ? '[name=name]' : (!data.phone && !data.email) ? '[name=phone]' : '[name=consent]';
+    const node = leadForm.querySelector(sel);
+    if (sel === '[name=consent]') node.closest('.consent-row').classList.add('invalid');
+    node.focus();
     return;
   }
   btn.disabled = true; btn.textContent = 'Sending…';
@@ -1241,6 +1256,9 @@ leadForm.addEventListener('submit', async (e) => {
   leadDone.hidden = false;
   leadDone.classList.add('in');
 });
+// clear consent error once ticked
+document.querySelectorAll('.consent-row input').forEach(c =>
+  c.addEventListener('change', () => c.closest('.consent-row').classList.remove('invalid')));
 
 // ---- Floating lead widget ----
 (function(){
@@ -1261,7 +1279,13 @@ leadForm.addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = wForm.querySelector('.lw-submit');
     const data = Object.fromEntries(new FormData(wForm).entries());
-    if (!data.name || (!data.phone && !data.email)) { wForm.querySelector(!data.name ? '[name=name]' : '[name=phone]').focus(); return; }
+    if (!data.name || (!data.phone && !data.email) || !data.consent) {
+      const sel = !data.name ? '[name=name]' : (!data.phone && !data.email) ? '[name=phone]' : '[name=consent]';
+      const node = wForm.querySelector(sel);
+      if (sel === '[name=consent]') node.closest('.consent-row').classList.add('invalid');
+      node.focus();
+      return;
+    }
     btn.disabled = true; btn.textContent = 'Sending…';
     try { await sendLead({ ...data, source:'floating-widget' }); } catch (err) { /* still confirm to the user */ }
     wForm.hidden = true; wDone.hidden = false;
