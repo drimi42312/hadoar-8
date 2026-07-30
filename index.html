@@ -9,7 +9,7 @@
 <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32.png" />
 <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16.png" />
 <link rel="apple-touch-icon" href="assets/favicon/apple-touch-icon.png" />
-<link rel="preload" as="image" href="assets/renders/exterioir-1-hero.jpg" fetchpriority="high">
+<link rel="preload" as="image" href="assets/renders/exterioir-1-hero.jpg?v=20260729" fetchpriority="high">
 <link rel="preload" as="video" href="assets/video/seedance2_Video_20260527_111348.mp4" type="video/mp4">
 <link rel="preload" as="font" type="font/woff2" href="assets/פונטים לבנט/Saans-Light.woff2" crossorigin>
 <style>
@@ -52,6 +52,16 @@ body{font-family:var(--sans);background:var(--paper);color:var(--ink);font-size:
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--sea);color:#fff}
+.sticky-cursor{position:fixed;top:0;left:0;width:15px;height:15px;border-radius:50%;background:#FF3B0D;pointer-events:none;z-index:99999;transform:translate(-50%,-50%);transition:width .28s cubic-bezier(.2,.8,.2,1),height .28s cubic-bezier(.2,.8,.2,1),background .28s;will-change:transform}
+.sticky-cursor.is-hover{width:56px;height:56px;background:rgba(255,59,13,.2);border:1px solid rgba(255,59,13,.55)}
+html.cursor-hidden .sticky-cursor{opacity:0}
+.stamp-badge{position:fixed;top:100px;right:30px;width:clamp(92px,9vw,138px);z-index:40;opacity:0;transform:translateY(-8px) rotate(-3deg);transition:opacity .5s ease,transform .5s ease;pointer-events:none}
+.stamp-badge.show{opacity:1;transform:translateY(0) rotate(-3deg)}
+.stamp-badge img{width:100%;height:auto;display:block;transition:opacity .3s ease;filter:drop-shadow(0 12px 26px rgba(0,0,0,.2))}
+.stamp-badge.swap img{opacity:0}
+@media(max-width:760px){.stamp-badge{top:70px;right:12px;width:70px}}
+html.has-cursor,html.has-cursor *{cursor:none!important}
+@media(pointer:coarse){.sticky-cursor{display:none}html.has-cursor,html.has-cursor *{cursor:auto!important}}
 
 /* Type */
 .serif{font-family:var(--serif);font-weight:300}
@@ -82,10 +92,10 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 
 /* HERO */
 .hero{position:relative;height:100vh;min-height:680px;overflow:hidden;background:#0c0c0a}
-.hero-bg{position:absolute;inset:-2%;background-image:url('assets/renders/exterioir-1-hero.jpg');background-size:cover;background-position:center 55%;filter:brightness(.78) saturate(.95);transform:scale(1.06);animation:slowZoom 22s ease-out forwards;overflow:hidden}
+.hero-bg{position:absolute;inset:-2%;background-image:url('assets/renders/exterioir-1-hero.jpg?v=20260729');background-size:cover;background-position:center 55%;filter:brightness(.92) saturate(.97);transform:scale(1.06);animation:slowZoom 22s ease-out forwards;overflow:hidden}
 .hero-bg .hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 55%;display:block}
 @keyframes slowZoom{from{transform:scale(1.14)}to{transform:scale(1.02)}}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.25) 0%,rgba(0,0,0,0) 35%,rgba(0,0,0,.05) 60%,rgba(0,0,0,.55) 100%)}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.16) 0%,rgba(0,0,0,0) 38%,rgba(0,0,0,.02) 62%,rgba(0,0,0,.38) 100%)}
 .hero-content{position:relative;z-index:2;height:100%;max-width:1480px;margin:0 auto;padding:0 44px 90px;display:flex;flex-direction:column;justify-content:flex-end;color:#fff}
 .hero h1{color:#fff;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:clamp(56px,8.4vw,128px);font-weight:300;line-height:.95;letter-spacing:-.01em}
 .hero h1 .num{font-style:italic;color:#FF3B0D}
@@ -182,14 +192,13 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .quote-section.dark .quote-attr{color:rgba(255,255,255,.55)}
 /* Jaffa split — image left, quote right */
 .quote-section.jaffa-split{padding:0;overflow:hidden}
-.jaffa-grid{display:grid;grid-template-columns:1fr 1fr;align-items:stretch;min-height:560px}
-.jaffa-img{position:relative;overflow:hidden;background:#1a1814;min-height:560px}
-.jaffa-img img{width:100%;height:100%;object-fit:cover;object-position:center;display:block;transform:scale(1.04);transition:transform 14s ease-out}
-.jaffa-img.in img{transform:scale(1)}
-.jaffa-text{padding:90px 70px;display:flex;flex-direction:column;justify-content:center;gap:24px}
-.quote-section.jaffa-split .bigquote{max-width:38ch;margin:0}
-@media(max-width:900px){.jaffa-grid{grid-template-columns:1fr}.jaffa-img{min-height:auto;aspect-ratio:3/2}.jaffa-text{padding:60px 28px}}
-.quote-section.copper{background-color:#3a3a35;background-image:linear-gradient(180deg,rgba(15,15,12,.55) 0%,rgba(15,15,12,.35) 50%,rgba(15,15,12,.65) 100%),url('assets/renders/ox-copper.jpg');background-size:cover;background-position:center;color:#fff;margin:28px 0}
+.jaffa-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;min-height:auto}
+.jaffa-img{position:relative;overflow:hidden;background:#322E27}
+.jaffa-img img{width:100%;height:auto;display:block}
+.jaffa-text{padding:70px 70px;display:flex;flex-direction:column;justify-content:center;gap:22px}
+.quote-section.long.jaffa-split .bigquote{max-width:44ch;margin:0;font-size:clamp(15px,1.5vw,21px);line-height:1.55;text-align:left}
+@media(max-width:900px){.jaffa-grid{grid-template-columns:1fr}.jaffa-text{padding:50px 28px}}
+.quote-section.copper{background-color:#3a3a35;background-image:linear-gradient(180deg,rgba(15,15,12,.55) 0%,rgba(15,15,12,.35) 50%,rgba(15,15,12,.65) 100%),url('assets/renders/ox-copper.jpg?v=20260729');background-size:cover;background-position:center;color:#fff;margin:28px 0}
 .quote-section.copper .wrap{position:relative;z-index:2}
 .quote-section.copper .bigquote{color:#f4ecdf}
 .quote-section.copper .bigquote em{color:#FF3B0D}
@@ -250,6 +259,28 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .fullbleed-img{position:absolute;inset:0;background-size:cover;background-position:center;transform:scale(1.06);transition:transform 14s ease-out}
 .fullbleed.in .fullbleed-img{transform:scale(1)}
 .fullbleed::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.6) 100%)}
+.corridors-pin{background:#fff;position:relative;height:240vh}
+.cp-sticky{position:sticky;top:0;height:100vh;display:flex;align-items:center;overflow:hidden}
+.cp-grid{width:100%;max-width:1480px;margin:0 auto;padding:0 44px;display:grid;grid-template-columns:1fr 1.05fr;gap:64px;align-items:center}
+.cp-title{font-family:var(--serif);font-size:clamp(34px,4.4vw,64px);font-weight:300;line-height:1.05;letter-spacing:-.01em;margin-top:26px}
+.cp-title em{font-style:italic;color:var(--sea-deep)}
+.cp-steps{margin-top:44px}
+.cp-step{padding:22px 0;border-top:1px solid var(--line);opacity:.32;transition:opacity .55s ease}
+.cp-step.is-on{opacity:1}
+.cp-num{font-family:var(--sans);font-size:11px;letter-spacing:.3em;color:var(--sea-deep);font-weight:600}
+.cp-name{display:block;font-family:var(--serif);font-size:23px;font-weight:400;margin-top:8px}
+.cp-desc{display:block;font-size:14px;line-height:1.55;color:var(--ink-soft);margin-top:8px;max-width:36ch}
+.cp-media{position:relative;height:78vh;aspect-ratio:3/4;justify-self:center;overflow:hidden;background:var(--paper-2);box-shadow:0 40px 90px -50px rgba(0,0,0,.45)}
+.cp-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.cp-img[data-img="1"]{opacity:0}
+@media(max-width:900px){
+  .corridors-pin{height:auto}
+  .cp-sticky{position:static;height:auto;display:block;padding:70px 0}
+  .cp-grid{grid-template-columns:1fr;gap:30px;padding:0 24px}
+  .cp-step{opacity:1}
+  .cp-media{height:auto;aspect-ratio:auto;display:flex;flex-direction:column;gap:12px;background:transparent;box-shadow:none;max-width:460px;margin:0 auto;width:100%}
+  .cp-img{position:relative;inset:auto;opacity:1!important;aspect-ratio:3/4;box-shadow:0 20px 50px -30px rgba(0,0,0,.4)}
+}
 .fullbleed-cap{position:absolute;left:44px;right:44px;bottom:54px;z-index:2;display:flex;justify-content:space-between;align-items:flex-end;color:#fff;gap:30px}
 .fullbleed-cap .ttl{font-family:var(--serif);font-size:clamp(28px,3vw,44px);font-weight:300;line-height:1.08;max-width:18ch}
 .fullbleed-cap .ttl em{font-style:italic;color:#FF3B0D}
@@ -270,12 +301,31 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 @media(max-width:900px){.fullbleed-split{grid-template-columns:1fr;min-height:auto}.fullbleed-split .fbs-text{padding:70px 30px 50px;order:2}.fullbleed-split .fbs-img{aspect-ratio:3/4;min-height:auto;order:1}}
 
 /* GALLERY GRID (bedrooms / bathrooms) */
+.interiors-list{padding:150px 44px;background:var(--paper);position:relative;overflow:hidden}
+.il-head{max-width:1200px;margin:0 auto}
+.il-head h2{font-size:clamp(40px,5.2vw,84px);line-height:1.04}
+.il-head h2 em{font-style:italic;color:var(--sea-deep)}
+.il-head p{margin-top:20px;color:var(--ink-soft);font-size:16px;max-width:52ch}
+.il-items{max-width:1200px;margin:56px auto 0;list-style:none}
+.il-item{position:relative;display:flex;align-items:baseline;justify-content:space-between;gap:24px;padding:34px 6px;border-top:1px solid var(--line);transition:padding-left .45s cubic-bezier(.2,.8,.2,1)}
+.il-item:last-child{border-bottom:1px solid var(--line)}
+.il-name{font-family:var(--serif);font-size:clamp(28px,4.6vw,62px);font-weight:300;line-height:1;transition:color .35s ease}
+.il-meta{font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute);white-space:nowrap}
+.il-inline{display:none}
+.il-float{position:fixed;top:0;left:0;width:clamp(420px,40vw,620px);aspect-ratio:16/10;pointer-events:none;z-index:60;opacity:0;transform:translate(-50%,-50%) scale(.86);transition:opacity .35s ease,transform .55s cubic-bezier(.2,.8,.2,1);overflow:hidden;box-shadow:0 40px 80px -34px rgba(0,0,0,.55)}
+.il-float.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.il-float img{width:100%;height:100%;object-fit:cover;display:block}
+@media(hover:hover) and (pointer:fine){.il-item{cursor:pointer}.il-item:hover{padding-left:26px}.il-item:hover .il-name{color:var(--sea-deep)}}
+@media(hover:none),(pointer:coarse),(max-width:760px){.il-float{display:none}.interiors-list{padding:90px 24px}.il-item{flex-wrap:wrap}.il-inline{display:block;width:100%;margin-top:18px;aspect-ratio:16/10;object-fit:cover}}
 .gallery{padding:120px 0}
 .gallery-head{max-width:760px;margin:0 auto 70px;text-align:center}
 .gallery-head h2{font-size:clamp(34px,4.2vw,60px)}
 .gallery-head h2 em{font-style:italic;color:var(--sea-deep)}
 .gallery-head p{margin-top:20px;color:var(--ink-soft);font-size:16px}
 .gal-2{display:grid;grid-template-columns:1fr 1fr;gap:8px;max-width:1480px;margin:0 auto;padding:0 44px}
+.gal-1{margin:0 auto;padding:0 44px}
+.gal-1 .gal-img{aspect-ratio:auto;overflow:visible;background:transparent}
+.gal-1 .gal-img img{width:100%;height:auto;object-fit:contain;transform:none}
 .gal-img{aspect-ratio:5/4;overflow:hidden;background:#222}
 .gal-img img{width:100%;height:100%;object-fit:cover;transform:scale(1.05);transition:transform 1.5s cubic-bezier(.2,.8,.2,1)}
 .gal-img.in img{transform:scale(1)}
@@ -318,8 +368,6 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .room-btn.active{background:var(--sea-deep);color:var(--paper);border-color:var(--sea-deep)}
 .plan-frame-type{padding:0;border:none;background:transparent;min-height:0}
 .plan-frame-type img{display:block;width:100%;height:auto;border:1px solid var(--line);background:var(--paper)}
-.north-fix{position:absolute;left:7.9%;top:64.4%;width:6.2%;aspect-ratio:1/1;transform:translate(-50%,-50%);background:#fff;display:flex;align-items:center;justify-content:center;pointer-events:none;z-index:2}
-.north-fix img{width:100%;height:auto;display:block}
 .plans-download{margin-top:56px;display:flex;justify-content:center}
 .plans-download-btn{display:inline-flex;align-items:center;gap:14px;background:var(--ink);color:var(--paper);padding:18px 32px;font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:500;text-decoration:none;border:1px solid var(--ink);transition:background .25s,color .25s}
 .plans-download-btn:hover{background:var(--paper);color:var(--ink)}
@@ -336,9 +384,14 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 @media(max-width:900px){.loc-head{grid-template-columns:1fr;gap:24px}}
 @media(max-width:700px){.location{padding:90px 0}.loc-head{margin-bottom:40px}}
 
+.loc-aerial{max-width:1280px;margin:0 auto 22px;padding:0 44px}
+.loc-aerial figure{margin:0;position:relative;overflow:hidden;border:1px solid var(--line)}
+.loc-aerial img{display:block;width:100%;height:auto}
+.loc-aerial figcaption{position:absolute;left:0;bottom:0;padding:14px 18px;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:#fff;background:linear-gradient(180deg,transparent,rgba(15,15,12,.55));width:100%}
+@media(max-width:700px){.loc-aerial{padding:0}.loc-aerial figure{border-left:none;border-right:none}}
 .illmap-wrap{max-width:1280px;margin:0 auto;padding:0 44px;position:relative}
-.illmap{width:100%;height:auto;background:linear-gradient(180deg,#F2EDE2 0%, #E8DECF 100%);border:1px solid var(--line);display:block}
-@media(max-width:700px){.illmap-wrap{padding:0}.illmap{border-left:none;border-right:none}}
+.illmap,.illmap-photo{width:100%;height:auto;display:block;border:1px solid var(--line)}
+@media(max-width:700px){.illmap-wrap{padding:0}.illmap,.illmap-photo{border-left:none;border-right:none}}
 .poi-grid{margin-top:50px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--line);max-width:1280px;margin-left:auto;margin-right:auto;padding:0 44px}
 .poi{padding:24px 22px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:6px}
 .poi:last-child{border-right:none}
@@ -463,184 +516,32 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
     <span class="num">№ 8</span>
   </a>
   <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#interiors">Interiors</a></li>
-    <li><a href="#plans">Plans</a></li>
     <li><a href="#location">Location</a></li>
-    <li><a href="#lvnt">L'VNT</a></li>
-    <li><a href="#team">Design Leads</a></li>
+    <li><a href="#building">The Building</a></li>
+    <li><a href="#public">Public Spaces</a></li>
+    <li><a href="#apartments">Apartments</a></li>
+    <li><a href="#team">Team</a></li>
   </ul>
   <a href="#contact" class="cta">Private Viewing</a>
 </nav>
 
+<!-- Per-section stamp (fixed top-right, swaps as you scroll) -->
+<div class="stamp-badge" aria-hidden="true"><img src="assets/stamps/stamp-building.webp?v=20260730" alt="" /></div>
+
 <!-- HERO -->
-<section class="hero" id="top">
+<section class="hero" id="top" data-stamp="building">
   <div class="hero-bg">
-    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/renders/exterioir-1-hero.jpg" aria-hidden="true">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto" poster="assets/renders/exterioir-1-hero.jpg?v=20260729" aria-hidden="true">
       <source src="assets/video/seedance2_Video_20260527_111348.mp4" type="video/mp4">
     </video>
   </div>
   <div class="hero-base">
-    <a class="hero-scroll" href="#about" aria-label="Scroll to about section"><span>Scroll</span><span class="line"></span></a>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="intro section" id="about">
-  <div class="wrap">
-    <div class="intro-grid">
-      <div class="eyebrow fade"><span class="bar"></span><span class="label">About the project</span></div>
-      <h2 class="fade" data-d="1">Twenty-eight private residences, <em>fully designed — to the last detail</em>. Four minutes from the sea, between Neve Tzedek and old Jaffa.</h2>
-      <div class="intro-meta fade" data-d="3">
-        <div><span class="v"><em>28</em></span><span class="k">Residences</span></div>
-        <div><span class="v">3 + roof</span><span class="k">Floors</span></div>
-        <div><span class="v">60–185 sqm</span><span class="k">Range</span></div>
-        <div><span class="v">250 m</span><span class="k">To the sea</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ARCHITECTURE -->
-<section class="split">
-  <div class="split-img fade"><img src="assets/renders/exterioir%202.webp?v=2026-05-27" alt="Hadoar 8 exterior at dusk" loading="lazy" /></div>
-  <div class="split-text">
-    <div class="eyebrow fade"><span class="bar"></span><span class="label">Architecture · Yaniv Pardo</span></div>
-    <h2 class="fade" data-d="1">A dialogue between<br/><em>old</em> and new.</h2>
-    <p class="fade" data-d="2">The complex sits at the heart of the developing Hadoar quarter — an intimate, quiet pocket between the coastline and the renewing Jerusalem Boulevard, framed by restored Ottoman and British-Mandate buildings.</p>
-    <p class="fade" data-d="2">A preserved commercial façade holds the historic street; behind it, three sculpted volumes open through twin patios toward the inner courtyard, the sea, old Jaffa, and the Tel Aviv skyline.</p>
-    <ul>
-      <li class="fade" data-d="2"><span>Architect</span><span>Yaniv Pardo</span></li>
-      <li class="fade" data-d="2"><span>Interiors</span><span>Yaron Eldad</span></li>
-      <li class="fade" data-d="3"><span>Façade</span><span>Restored heritage front</span></li>
-      <li class="fade" data-d="3"><span>Cladding</span><span>Monolithic copper</span></li>
-    </ul>
-  </div>
-</section>
-
-<!-- PARDO QUOTE / COPPER LIGHTHOUSE -->
-<section class="quote-section copper">
-  <div class="wrap">
-    <blockquote class="bigquote fade">
-      <span class="qmark">“</span>
-      The monolithic copper cladding that unifies the volumes gives the building a presence of its own — recalling, from afar, a <em>lighthouse</em> looking out toward the port of Jaffa.
-    </blockquote>
-    <div class="quote-attr fade" data-d="1">— Yaniv Pardo · Architect</div>
-  </div>
-</section>
-
-<!-- LOBBY (split — portrait image fully visible) -->
-<section class="fullbleed-split">
-  <div class="fbs-text">
-    <div class="fbs-eyebrow fade">The Lobby</div>
-    <h2 class="fbs-ttl fade" data-d="1">Through the arches,<br/>into a <em>quiet</em> city.</h2>
-    <div class="fbs-meta fade" data-d="2">Patinated copper · Travertine<br/>Brass detailing throughout</div>
-  </div>
-  <div class="fbs-img"><img src="assets/renders/lobby.webp?v=20260706d" alt="Hadoar 8 lobby — patinated copper and travertine" loading="lazy" /></div>
-</section>
-
-<!-- LOBBY STAIR (full bleed) -->
-<section class="fullbleed">
-  <div class="fullbleed-img" style="background-image:url('assets/renders/lobby2.webp');background-position:center"></div>
-  <div class="fullbleed-cap">
-    <div class="meta fade" data-d="2">Lobby stair · Corten<br/>Travertine throughout</div>
-  </div>
-</section>
-
-<!-- CORRIDOR (full bleed) -->
-<section class="fullbleed">
-  <div class="fullbleed-img" style="background-image:url('assets/renders/coridor.webp');background-position:center"></div>
-  <div class="fullbleed-cap">
-    <div class="meta fade" data-d="2">Residential corridor</div>
-  </div>
-</section>
-
-<!-- ELDAD QUOTE / DESIGN PHILOSOPHY -->
-<section class="quote-section long dark jaffa-split">
-  <div class="jaffa-grid">
-    <div class="jaffa-img fade"><img src="assets/renders/apt%20interioirs.webp?v=20260706d" alt="Interior — by Yaron Eldad" loading="lazy" /></div>
-    <div class="jaffa-text">
-      <blockquote class="bigquote fade">
-        <span class="qmark">“</span>
-        Jaffa is a city you experience through <em>passages</em> — not as one open plane, but as a sequence of alleys, arches and thresholds. You move from ancient stone to contemporary life in a few steps. The city is built in <em>layers</em>: histories, faiths and architectural language laid one upon another, raw and refined. And at its core, Jaffa is a city of <em>connection</em> — once one of the world's oldest port cities, always a meeting point.
-      </blockquote>
-      <div class="quote-attr fade" data-d="1">— Yaron Eldad · Interior Designer</div>
-    </div>
-  </div>
-</section>
-
-<!-- SPECIFICATIONS — selected by Yaron Eldad -->
-<section class="specs" id="interiors">
-  <div class="specs-head">
-    <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">Specifications · Selected by Yaron Eldad</span></div>
-    <h2 class="fade" data-d="1">The technical <em>palette</em>.</h2>
-    <p class="fade" data-d="2">Every fixture, every surface, every piece of hardware was chosen by the designer's studio. No standard substitutions. No optional upgrades.</p>
-  </div>
-  <div class="specs-cols">
-    <div class="spec-group fade">
-      <h3 class="spec-group-title">The <em>Apartments</em></h3>
-      <ul class="spec-list">
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" /><path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg></span><span class="spec-txt"><strong>Interiors &amp; materials</strong> selected by designer-architect Yaron Eldad</span></li>
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 3v12h-5c-.023 -3.681 .184 -7.406 5 -12zm0 12v6h-1v-3m-10 -14v17m-3 -17v3a3 3 0 1 0 6 0v-3" /></svg></span><span class="spec-txt"><strong>Kitchens</strong> in a metallic finish, imported</span></li>
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16a1 1 0 0 1 1 1v3a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-3a1 1 0 0 1 1 -1z" /><path d="M6 12v-7a2 2 0 0 1 2 -2h3v2.25" /><path d="M4 21l1 -1.5" /><path d="M20 21l-1 -1.5" /></svg></span><span class="spec-txt"><strong>Sanitaryware</strong> by TREEMME Rubinetterie, Italy</span></li>
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 8.71l-5.333 -4.148a2.666 2.666 0 0 0 -3.274 0l-5.334 4.148a2.665 2.665 0 0 0 -1.029 2.105v7.2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-7.2c0 -.823 -.38 -1.6 -1.03 -2.105" /><path d="M16 15c-2.21 1.333 -5.792 1.333 -8 0" /></svg></span><span class="spec-txt"><strong>Smart-home</strong> electrical system</span></li>
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 16a3 3 0 0 1 -3 3" /><path d="M16 16a3 3 0 0 0 3 3" /><path d="M12 16v4" /><path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M7 13v-3a1 1 0 0 1 1 -1h8a1 1 0 0 1 1 1v3" /></svg></span><span class="spec-txt"><strong>Daikin VRF</strong> air-conditioning with designed vents</span></li>
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l-8 4l8 4l8 -4l-8 -4" /><path d="M4 12l8 4l8 -4" /><path d="M4 16l8 4l8 -4" /></svg></span><span class="spec-txt"><strong>Three-layer parquet</strong> throughout — excl. wet rooms</span></li>
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-3.866 0 -7 3.272 -7 7v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1 -1v-10c0 -3.728 -3.134 -7 -7 -7z" /><path d="M5 13l14 0" /><path d="M12 3l0 18" /></svg></span><span class="spec-txt"><strong>Electric</strong> sliding curtains</span></li>
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M4 12l16 0" /><path d="M12 4l0 16" /></svg></span><span class="spec-txt"><strong>Aluminium profiles</strong> — triplex / insulated glazing</span></li>
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 12v.01" /><path d="M3 21h18" /><path d="M6 21v-16a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v16" /></svg></span><span class="spec-txt"><strong>Zero-line interior doors</strong>, 2.30 m high</span></li>
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 12v.01" /><path d="M3 21h18" /><path d="M5 21v-16a2 2 0 0 1 2 -2h6m4 10.5v7.5" /><path d="M21 7h-7m3 -3l-3 3l3 3" /></svg></span><span class="spec-txt"><strong>Designed</strong> entrance door</span></li>
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7" /><path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3" /><path d="M9.7 17l4.6 0" /></svg></span><span class="spec-txt"><strong>Lighting</strong> designed by the interior designer</span></li>
-      </ul>
-      <button class="spec-more" type="button"><span class="spec-more-label">Show more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6l6 -6" /></svg></button>
-    </div>
-    <div class="spec-group fade">
-      <h3 class="spec-group-title">The <em>Building</em></h3>
-      <ul class="spec-list">
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l18 0" /><path d="M5 21v-14l8 -4v18" /><path d="M19 21v-10l-6 -4" /><path d="M9 9l0 .01" /><path d="M9 12l0 .01" /><path d="M9 15l0 .01" /><path d="M9 18l0 .01" /></svg></span><span class="spec-txt"><strong>Copper-finish</strong> exterior cladding</span></li>
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11a2 2 0 0 1 2 2v2h10v-2a2 2 0 1 1 4 0v4a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-4a2 2 0 0 1 2 -2z" /><path d="M5 11v-5a3 3 0 0 1 3 -3h8a3 3 0 0 1 3 3v5" /><path d="M6 19v2" /><path d="M18 19v2" /></svg></span><span class="spec-txt"><strong>Lobby by Yaron Eldad</strong> — natural stone, corten in artisan frames, imported lighting</span></li>
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a10 10 0 1 0 20 0" /><path d="M12 19a10 10 0 0 1 10 -10" /><path d="M2 9a10 10 0 0 1 10 10" /><path d="M12 4a9.7 9.7 0 0 1 2.99 7.5" /><path d="M9.01 11.5a9.7 9.7 0 0 1 2.99 -7.5" /></svg></span><span class="spec-txt"><strong>Landscaped courtyard</strong> with covered bicycle parking</span></li>
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-3.866 0 -7 3.272 -7 7v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1 -1v-10c0 -3.728 -3.134 -7 -7 -7z" /><path d="M5 13l14 0" /><path d="M12 3l0 18" /></svg></span><span class="spec-txt"><strong>Minimal-profile</strong> windows</span></li>
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21v-4a4 4 0 1 1 4 4h-4" /><path d="M21 3a16 16 0 0 0 -12.8 10.2" /><path d="M21 3a16 16 0 0 1 -10.2 12.8" /><path d="M10.6 9a9 9 0 0 1 4.4 4.4" /></svg></span><span class="spec-txt"><strong>Coloured stucco</strong> plaster</span></li>
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v4h16v-4z" /><path d="M6 16v4h4v-4m0 -4v-6l-2 -2l-2 2v6" /><path d="M14 16v4h4v-4m0 -4v-6l-2 -2l-2 2v6" /></svg></span><span class="spec-txt"><strong>Artisan-frame</strong> railings</span></li>
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4m0 1a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1z" /><path d="M10 10l2 -2l2 2" /><path d="M10 14l2 2l2 -2" /></svg></span><span class="spec-txt"><strong>Mitsubishi MRL</strong> elevators</span></li>
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 21v-6.5a3.5 3.5 0 0 0 -7 0v6.5h18v-6a4 4 0 0 0 -4 -4h-10.5" /><path d="M12 11v-8h4l2 2l-2 2h-4" /><path d="M6 15h1" /></svg></span><span class="spec-txt"><strong>Artisan-crafted</strong> mailboxes</span></li>
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M12 8l0 .01" /><path d="M8 12l0 .01" /><path d="M12 12l0 .01" /><path d="M16 12l0 .01" /><path d="M12 16l0 .01" /></svg></span><span class="spec-txt"><strong>Ground-floor</strong> ironwork frames</span></li>
-        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 7l-1 1" /><path d="M14 11h1a2 2 0 0 1 2 2v3a1.5 1.5 0 0 0 3 0v-7l-3 -3" /><path d="M4 20v-14a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v14" /><path d="M9 11.5l-1.5 2.5h3l-1.5 2.5" /><path d="M3 20l12 0" /><path d="M4 8l10 0" /></svg></span><span class="spec-txt"><strong>Robotic parking</strong> by Electra — covered entrance, EV-charging ready</span></li>
-      </ul>
-      <button class="spec-more" type="button"><span class="spec-more-label">Show more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6l6 -6" /></svg></button>
-    </div>
-  </div>
-</section>
-
-<!-- BEDROOMS GALLERY -->
-<section class="gallery">
-  <div class="gallery-head">
-    <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">The Bedrooms</span></div>
-    <h2 class="fade" data-d="1">Where the city <em>quiets</em>.</h2>
-    <p class="fade" data-d="2">Oak floors and copper detailing. Each bedroom is finished by Yaron Eldad's studio.</p>
-  </div>
-  <div class="gal-2">
-    <div class="gal-img fade"><img src="assets/renders/bedroom.webp" alt="Master bedroom" loading="lazy" /></div>
-    <div class="gal-img fade" data-d="1"><img src="assets/renders/bedroom2.webp" alt="Bedroom 2" loading="lazy" /></div>
-  </div>
-</section>
-
-<!-- BATHROOMS GALLERY -->
-<section class="gallery" style="padding-top:0">
-  <div class="gallery-head">
-    <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">The Bathrooms</span></div>
-    <h2 class="fade" data-d="1">Travertine-look, brass,<br/>and a <em>handheld</em> shower.</h2>
-    <p class="fade" data-d="2">Floor-to-ceiling travertine-look cladding, brushed-brass TREEMME Rubinetterie, Italy fittings, oval mirrors and fluted vanities. Every bathroom is identical in standard, varied in proportion.</p>
-  </div>
-  <div class="gal-2">
-    <div class="gal-img fade"><img src="assets/renders/wc1.webp" alt="Bathroom 1" loading="lazy" /></div>
-    <div class="gal-img fade" data-d="1"><img src="assets/renders/wc2.webp" alt="Bathroom 2" loading="lazy" /></div>
+    <a class="hero-scroll" href="#location" aria-label="Scroll to next section"><span>Scroll</span><span class="line"></span></a>
   </div>
 </section>
 
 <!-- LOCATION -->
-<section class="location" id="location">
+<section class="location" id="location" data-stamp="location">
   <div class="loc-head">
     <div>
       <div class="eyebrow fade"><span class="bar"></span><span class="label">Location</span></div>
@@ -649,120 +550,15 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
     <p class="fade" data-d="2">250 metres in a straight line from the Mediterranean — a four-minute walk to the sea. Between Neve Tzedek's lanes and Jaffa's clock tower; HaMesila Park half a kilometre away.</p>
   </div>
 
+  <div class="loc-aerial fade">
+    <figure>
+      <img src="assets/renders/birdeye.webp?v=20260729" alt="Aerial view — Hadoar 8 between Jaffa's old city and the Mediterranean" loading="lazy" />
+      <figcaption>Jaffa to the sea · 250 m from the Mediterranean</figcaption>
+    </figure>
+  </div>
+
   <div class="illmap-wrap fade">
-    <svg class="illmap" viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg" aria-label="Hadoar 8 location map">
-      <defs>
-        <pattern id="dots" x="0" y="0" width="14" height="14" patternUnits="userSpaceOnUse">
-          <circle cx="2" cy="2" r="0.6" fill="#5C544B" opacity=".22"/>
-        </pattern>
-        <pattern id="seaWaves" x="0" y="0" width="60" height="14" patternUnits="userSpaceOnUse">
-          <path d="M0 7 Q15 0 30 7 T60 7" stroke="#7CA7B6" stroke-width="0.7" fill="none" opacity=".55"/>
-        </pattern>
-      </defs>
-
-      <!-- Land base -->
-      <rect width="1200" height="720" fill="url(#dots)"/>
-
-      <!-- Sea -->
-      <path d="M0 0 L0 720 L460 720 Q430 540 470 380 Q510 220 430 60 Q380 0 0 0 Z" fill="#bcd6df"/>
-      <rect x="0" y="0" width="460" height="720" fill="url(#seaWaves)" opacity=".7"/>
-      <text x="160" y="200" font-family="Cormorant Garamond, serif" font-style="italic" font-size="56" fill="#3d6a7d" opacity=".9">Mediterranean</text>
-
-      <!-- Coast wave detail -->
-      <path d="M440 80 Q460 240 420 400 Q470 560 440 720" stroke="#3d6a7d" stroke-width="1" fill="none" opacity=".55"/>
-
-      <!-- Subtle street grid -->
-      <path d="M460 460 L1180 460" stroke="#5C544B" stroke-width="0.6" fill="none" opacity=".12"/>
-      <path d="M460 290 L1180 290" stroke="#5C544B" stroke-width="0.6" fill="none" opacity=".12"/>
-      <path d="M700 60 L700 700" stroke="#5C544B" stroke-width="0.6" fill="none" opacity=".10"/>
-      <path d="M900 60 L900 700" stroke="#5C544B" stroke-width="0.6" fill="none" opacity=".10"/>
-
-      <!-- Aerial dashed lines from HADOAR (615,540) to each landmark -->
-      <g stroke="#FF3B0D" stroke-width="1" fill="none" opacity=".55" stroke-dasharray="3 5">
-        <line x1="615" y1="540" x2="485" y2="365"/>
-        <line x1="615" y1="540" x2="780" y2="500"/>
-        <line x1="615" y1="540" x2="478" y2="610"/>
-        <line x1="615" y1="540" x2="490" y2="660"/>
-        <line x1="615" y1="540" x2="495" y2="450"/>
-        <line x1="615" y1="540" x2="850" y2="400"/>
-        <line x1="615" y1="540" x2="445" y2="540"/>
-        <line x1="615" y1="540" x2="1040" y2="180"/>
-      </g>
-
-      <!-- HaMesila Park -->
-      <ellipse cx="830" cy="500" rx="110" ry="40" fill="#A7B89A" opacity=".4"/>
-      <text x="788" y="503" font-family="Cormorant Garamond, serif" font-style="italic" font-size="20" fill="#4d5c44">HaMesila Park</text>
-
-      <!-- Charles Clore Park (long green strip running N→S along coast) -->
-      <g>
-        <path d="M448 290 Q450 400 458 510 Q448 575 470 600 L520 600 L520 290 Z" fill="#A7B89A" opacity=".55" stroke="#7d9070" stroke-width="0.6"/>
-        <circle cx="490" cy="340" r="1.8" fill="#5d7a4f" opacity=".5"/>
-        <circle cx="478" cy="430" r="1.8" fill="#5d7a4f" opacity=".5"/>
-        <circle cx="500" cy="500" r="1.8" fill="#5d7a4f" opacity=".5"/>
-        <circle cx="485" cy="560" r="1.8" fill="#5d7a4f" opacity=".5"/>
-        <text x="468" y="445" font-family="Cormorant Garamond, serif" font-size="13" fill="#3a4f2c">Charles</text>
-        <text x="468" y="460" font-family="Cormorant Garamond, serif" font-size="13" fill="#3a4f2c">Clore Park</text>
-      </g>
-
-      <!-- Alma Beach (on coast) -->
-      <g transform="translate(485,365)">
-        <path d="M-20 8 Q-10 -2 0 8 Q10 -2 20 8" stroke="#3d6a7d" stroke-width="1.6" fill="none"/>
-        <path d="M-25 18 Q-12 8 0 18 Q12 8 25 18" stroke="#3d6a7d" stroke-width="1.1" fill="none" opacity=".55"/>
-        <text x="20" y="0" font-family="Cormorant Garamond, serif" font-style="italic" font-size="20" fill="#2A2520">Alma Beach</text>
-      </g>
-
-      <!-- Setai Hotel (coastal building) -->
-      <g transform="translate(478,610)">
-        <rect x="-9" y="-18" width="18" height="18" fill="#FAF7F1" stroke="#2A2520" stroke-width="0.9"/>
-        <line x1="-9" y1="-12" x2="9" y2="-12" stroke="#2A2520" stroke-width="0.4" opacity=".5"/>
-        <line x1="-9" y1="-6" x2="9" y2="-6" stroke="#2A2520" stroke-width="0.4" opacity=".5"/>
-        <line x1="-3" y1="-18" x2="-3" y2="0" stroke="#2A2520" stroke-width="0.4" opacity=".5"/>
-        <line x1="3" y1="-18" x2="3" y2="0" stroke="#2A2520" stroke-width="0.4" opacity=".5"/>
-        <text x="14" y="-4" font-family="Cormorant Garamond, serif" font-style="italic" font-size="18" fill="#2A2520">Setai Hotel</text>
-      </g>
-
-      <!-- Jaffa Clock Tower -->
-      <g transform="translate(490,660)">
-        <rect x="-7" y="-30" width="14" height="30" fill="none" stroke="#5C544B" stroke-width="1"/>
-        <circle cx="0" cy="-22" r="4" fill="none" stroke="#5C544B" stroke-width="1"/>
-        <path d="M-10 0 L10 0 L8 6 L-8 6 Z" fill="#5C544B" opacity=".6"/>
-        <text x="14" y="-4" font-family="Cormorant Garamond, serif" font-style="italic" font-size="18" fill="#2A2520">Clock Tower</text>
-      </g>
-
-      <!-- Neve Tzedek (NE) -->
-      <g transform="translate(870,400)">
-        <path d="M-20 0 L-10 -16 L0 0 Z M-2 0 L8 -20 L18 0 Z M16 0 L26 -14 L36 0 Z" fill="none" stroke="#5C544B" stroke-width="1" opacity=".6"/>
-        <text x="-12" y="22" font-family="Cormorant Garamond, serif" font-style="italic" font-size="20" fill="#2A2520">Neve Tzedek</text>
-      </g>
-
-      <!-- Rothschild -->
-      <g transform="translate(1050,170)">
-        <circle cx="0" cy="0" r="3" fill="#5C544B" opacity=".5"/>
-        <text x="-30" y="22" font-family="Cormorant Garamond, serif" font-style="italic" font-size="18" fill="#2A2520">Rothschild</text>
-      </g>
-
-      <!-- HADOAR № 8 — minimal dot + framed label -->
-      <g transform="translate(615,540)">
-        <circle cx="0" cy="0" r="14" fill="none" stroke="#FF3B0D" stroke-width="0.6" opacity=".35"/>
-        <circle cx="0" cy="0" r="7" fill="#FF3B0D"/>
-        <line x1="0" y1="-12" x2="0" y2="-30" stroke="#FF3B0D" stroke-width="0.8"/>
-        <g transform="translate(0,-58)">
-          <rect x="-86" y="-22" width="172" height="44" fill="#FAF7F1" stroke="#2A2520" stroke-width="1.2"/>
-          <rect x="-82" y="-18" width="164" height="36" fill="none" stroke="#2A2520" stroke-width="0.4" opacity=".4"/>
-          <text x="0" y="-1" font-family="Cormorant Garamond, serif" font-size="22" text-anchor="middle" fill="#2A2520" font-weight="500">HADOAR № 8</text>
-          <text x="0" y="14" font-family="Inter,sans-serif" font-size="8" letter-spacing="3" text-anchor="middle" fill="#FF3B0D">8 HADOAR ST · TLV-JAFFA</text>
-        </g>
-      </g>
-
-      <!-- Scale -->
-      <g transform="translate(60,680)">
-        <line x1="0" y1="0" x2="80" y2="0" stroke="#5C544B" stroke-width="1"/>
-        <line x1="0" y1="-3" x2="0" y2="3" stroke="#5C544B" stroke-width="1"/>
-        <line x1="80" y1="-3" x2="80" y2="3" stroke="#5C544B" stroke-width="1"/>
-        <text x="0" y="18" font-family="Inter,sans-serif" font-size="9" letter-spacing="2" fill="#5C544B">500 M · APPROX</text>
-      </g>
-      <text x="1140" y="694" font-family="Inter,sans-serif" font-size="9" letter-spacing="3" text-anchor="end" fill="#5C544B">A FEW MINUTES FROM EVERYWHERE</text>
-    </svg>
+    <img class="illmap-photo" src="assets/locations/hadoar-map.webp?v=20260730" alt="Hadoar 8 location map — Jaffa to the sea" loading="lazy" />
 
     <!-- Reusable walker icon for POI grid below -->
     <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -784,7 +580,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
 </section>
 
 <!-- PLACES NEARBY -->
-<section class="nearby" id="nearby">
+<section class="nearby" id="nearby" data-stamp="location">
   <div class="nearby-head">
     <div>
       <div class="eyebrow fade"><span class="bar"></span><span class="label">Places nearby</span></div>
@@ -860,8 +656,180 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
   </div>
 </section>
 
+<!-- ABOUT -->
+<section class="intro section" id="building" data-stamp="building">
+  <div class="wrap">
+    <div class="intro-grid">
+      <div class="eyebrow fade"><span class="bar"></span><span class="label">About the project</span></div>
+      <h2 class="fade" data-d="1">Twenty-eight private residences, <em>fully designed — to the last detail</em>. Four minutes from the sea, between Neve Tzedek and old Jaffa.</h2>
+      <div class="intro-meta fade" data-d="3">
+        <div><span class="v"><em>28</em></span><span class="k">Residences</span></div>
+        <div><span class="v">3 + roof</span><span class="k">Floors</span></div>
+        <div><span class="v">60–185 sqm</span><span class="k">Range</span></div>
+        <div><span class="v">250 m</span><span class="k">To the sea</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHITECTURE -->
+<section class="split" data-stamp="building">
+  <div class="split-img fade"><img src="assets/renders/exterioir%202.webp?v=20260729" alt="Hadoar 8 exterior at dusk" loading="lazy" /></div>
+  <div class="split-text">
+    <div class="eyebrow fade"><span class="bar"></span><span class="label">Architecture · Yaniv Pardo</span></div>
+    <h2 class="fade" data-d="1">A dialogue between<br/><em>old</em> and new.</h2>
+    <p class="fade" data-d="2">The complex sits at the heart of the developing Hadoar quarter — an intimate, quiet pocket between the coastline and the renewing Jerusalem Boulevard, framed by restored Ottoman and British-Mandate buildings.</p>
+    <p class="fade" data-d="2">A preserved commercial façade holds the historic street; behind it, three sculpted volumes open through twin patios toward the inner courtyard, the sea, old Jaffa, and the Tel Aviv skyline.</p>
+    <ul>
+      <li class="fade" data-d="2"><span>Architect</span><span>Yaniv Pardo</span></li>
+      <li class="fade" data-d="2"><span>Interiors</span><span>Yaron Eldad</span></li>
+      <li class="fade" data-d="3"><span>Façade</span><span>Restored heritage front</span></li>
+      <li class="fade" data-d="3"><span>Cladding</span><span>Monolithic copper</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- PARDO QUOTE / COPPER LIGHTHOUSE -->
+<section class="quote-section copper" data-stamp="building">
+  <div class="wrap">
+    <blockquote class="bigquote fade">
+      <span class="qmark">“</span>
+      The monolithic copper cladding that unifies the volumes gives the building a presence of its own — recalling, from afar, a <em>lighthouse</em> looking out toward the port of Jaffa.
+    </blockquote>
+    <div class="quote-attr fade" data-d="1">— Yaniv Pardo · Architect</div>
+  </div>
+</section>
+
+<!-- LOBBY (split — portrait image fully visible) -->
+<section class="fullbleed-split" id="public" data-stamp="lobby">
+  <div class="fbs-text">
+    <div class="fbs-eyebrow fade">The Lobby</div>
+    <h2 class="fbs-ttl fade" data-d="1">Through the arches,<br/>into a <em>quiet</em> city.</h2>
+    <div class="fbs-meta fade" data-d="2">Patinated copper · Travertine<br/>Brass detailing throughout</div>
+  </div>
+  <div class="fbs-img"><img src="assets/renders/lobby.webp?v=20260729" alt="Hadoar 8 lobby — patinated copper and travertine" loading="lazy" /></div>
+</section>
+
+<!-- CORRIDORS — pinned split; image swaps on scroll -->
+<section class="corridors-pin" id="corridors" data-stamp="lobby">
+  <div class="cp-sticky">
+    <div class="cp-grid">
+      <div class="cp-text">
+        <div class="eyebrow fade"><span class="bar"></span><span class="label">The Corridors</span></div>
+        <h2 class="cp-title fade" data-d="1">Arrival, in <em>corten</em><br/>and travertine.</h2>
+        <div class="cp-steps fade" data-d="2">
+          <div class="cp-step is-on" data-step="0">
+            <span class="cp-num">01</span>
+            <span class="cp-name">Residential corridor</span>
+            <span class="cp-desc">Stone underfoot, oak-toned walls, quiet light down the length.</span>
+          </div>
+          <div class="cp-step" data-step="1">
+            <span class="cp-num">02</span>
+            <span class="cp-name">Lift lobby · Corten</span>
+            <span class="cp-desc">A patinated corten wall, and the floor number glowing.</span>
+          </div>
+        </div>
+      </div>
+      <div class="cp-media">
+        <img class="cp-img" data-img="0" src="assets/renders/coridor.webp?v=20260729" alt="Residential corridor" loading="lazy" />
+        <img class="cp-img" data-img="1" src="assets/renders/corridor2.webp?v=20260729" alt="Lift lobby — Corten and travertine" loading="lazy" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ELDAD QUOTE / DESIGN PHILOSOPHY -->
+<section class="quote-section long dark jaffa-split" id="apartments" data-stamp="apartments">
+  <div class="jaffa-grid">
+    <div class="jaffa-img fade"><img src="assets/renders/apt%20interioirs.webp?v=20260729" alt="Interior — by Yaron Eldad" loading="lazy" /></div>
+    <div class="jaffa-text">
+      <blockquote class="bigquote fade">
+        <span class="qmark">“</span>
+        Jaffa is a city you experience through <em>passages</em> — not as one open plane, but as a sequence of alleys, arches and thresholds. You move from ancient stone to contemporary life in a few steps. The city is built in <em>layers</em>: histories, faiths and architectural language laid one upon another, raw and refined. And at its core, Jaffa is a city of <em>connection</em> — once one of the world's oldest port cities, always a meeting point.
+      </blockquote>
+      <div class="quote-attr fade" data-d="1">— Yaron Eldad · Interior Designer</div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIFICATIONS — selected by Yaron Eldad -->
+<section class="specs" id="interiors" data-stamp="apartments">
+  <div class="specs-head">
+    <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">Specifications · Selected by Yaron Eldad</span></div>
+    <h2 class="fade" data-d="1">The technical <em>palette</em>.</h2>
+    <p class="fade" data-d="2">Every fixture, every surface, every piece of hardware was chosen by the designer's studio. No standard substitutions. No optional upgrades.</p>
+  </div>
+  <div class="specs-cols">
+    <div class="spec-group fade">
+      <h3 class="spec-group-title">The <em>Apartments</em></h3>
+      <ul class="spec-list">
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21a9 9 0 0 1 0 -18c4.97 0 9 3.582 9 8c0 1.06 -.474 2.078 -1.318 2.828c-.844 .75 -1.989 1.172 -3.182 1.172h-2.5a2 2 0 0 0 -1 3.75a1.3 1.3 0 0 1 -1 2.25" /><path d="M8.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M12.5 7.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /><path d="M16.5 10.5m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" /></svg></span><span class="spec-txt"><strong>Interiors &amp; materials</strong> selected by designer-architect Yaron Eldad</span></li>
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 3v12h-5c-.023 -3.681 .184 -7.406 5 -12zm0 12v6h-1v-3m-10 -14v17m-3 -17v3a3 3 0 1 0 6 0v-3" /></svg></span><span class="spec-txt"><strong>Kitchens</strong> in a metallic finish, imported</span></li>
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12h16a1 1 0 0 1 1 1v3a4 4 0 0 1 -4 4h-10a4 4 0 0 1 -4 -4v-3a1 1 0 0 1 1 -1z" /><path d="M6 12v-7a2 2 0 0 1 2 -2h3v2.25" /><path d="M4 21l1 -1.5" /><path d="M20 21l-1 -1.5" /></svg></span><span class="spec-txt"><strong>Sanitaryware</strong> by TREEMME Rubinetterie, Italy</span></li>
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 8.71l-5.333 -4.148a2.666 2.666 0 0 0 -3.274 0l-5.334 4.148a2.665 2.665 0 0 0 -1.029 2.105v7.2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-7.2c0 -.823 -.38 -1.6 -1.03 -2.105" /><path d="M16 15c-2.21 1.333 -5.792 1.333 -8 0" /></svg></span><span class="spec-txt"><strong>Smart-home</strong> electrical system</span></li>
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 16a3 3 0 0 1 -3 3" /><path d="M16 16a3 3 0 0 0 3 3" /><path d="M12 16v4" /><path d="M3 5m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v4a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z" /><path d="M7 13v-3a1 1 0 0 1 1 -1h8a1 1 0 0 1 1 1v3" /></svg></span><span class="spec-txt"><strong>Daikin VRF</strong> air-conditioning with designed vents</span></li>
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4l-8 4l8 4l8 -4l-8 -4" /><path d="M4 12l8 4l8 -4" /><path d="M4 16l8 4l8 -4" /></svg></span><span class="spec-txt"><strong>Three-layer parquet</strong> throughout — excl. wet rooms</span></li>
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-3.866 0 -7 3.272 -7 7v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1 -1v-10c0 -3.728 -3.134 -7 -7 -7z" /><path d="M5 13l14 0" /><path d="M12 3l0 18" /></svg></span><span class="spec-txt"><strong>Electric</strong> sliding curtains</span></li>
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M4 12l16 0" /><path d="M12 4l0 16" /></svg></span><span class="spec-txt"><strong>Aluminium profiles</strong> — triplex / insulated glazing</span></li>
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 12v.01" /><path d="M3 21h18" /><path d="M6 21v-16a2 2 0 0 1 2 -2h8a2 2 0 0 1 2 2v16" /></svg></span><span class="spec-txt"><strong>Zero-line interior doors</strong>, 2.30 m high</span></li>
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 12v.01" /><path d="M3 21h18" /><path d="M5 21v-16a2 2 0 0 1 2 -2h6m4 10.5v7.5" /><path d="M21 7h-7m3 -3l-3 3l3 3" /></svg></span><span class="spec-txt"><strong>Designed</strong> entrance door</span></li>
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h1m8 -9v1m8 8h1m-15.4 -6.4l.7 .7m12.1 -.7l-.7 .7" /><path d="M9 16a5 5 0 1 1 6 0a3.5 3.5 0 0 0 -1 3a2 2 0 0 1 -4 0a3.5 3.5 0 0 0 -1 -3" /><path d="M9.7 17l4.6 0" /></svg></span><span class="spec-txt"><strong>Lighting</strong> designed by the interior designer</span></li>
+      </ul>
+      <button class="spec-more" type="button"><span class="spec-more-label">Show more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6l6 -6" /></svg></button>
+    </div>
+    <div class="spec-group fade">
+      <h3 class="spec-group-title">The <em>Building</em></h3>
+      <ul class="spec-list">
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l18 0" /><path d="M5 21v-14l8 -4v18" /><path d="M19 21v-10l-6 -4" /><path d="M9 9l0 .01" /><path d="M9 12l0 .01" /><path d="M9 15l0 .01" /><path d="M9 18l0 .01" /></svg></span><span class="spec-txt"><strong>Copper-finish</strong> exterior cladding</span></li>
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 11a2 2 0 0 1 2 2v2h10v-2a2 2 0 1 1 4 0v4a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-4a2 2 0 0 1 2 -2z" /><path d="M5 11v-5a3 3 0 0 1 3 -3h8a3 3 0 0 1 3 3v5" /><path d="M6 19v2" /><path d="M18 19v2" /></svg></span><span class="spec-txt"><strong>Lobby by Yaron Eldad</strong> — natural stone, corten in artisan frames, imported lighting</span></li>
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9a10 10 0 1 0 20 0" /><path d="M12 19a10 10 0 0 1 10 -10" /><path d="M2 9a10 10 0 0 1 10 10" /><path d="M12 4a9.7 9.7 0 0 1 2.99 7.5" /><path d="M9.01 11.5a9.7 9.7 0 0 1 2.99 -7.5" /></svg></span><span class="spec-txt"><strong>Landscaped courtyard</strong> with covered bicycle parking</span></li>
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3c-3.866 0 -7 3.272 -7 7v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1 -1v-10c0 -3.728 -3.134 -7 -7 -7z" /><path d="M5 13l14 0" /><path d="M12 3l0 18" /></svg></span><span class="spec-txt"><strong>Minimal-profile</strong> windows</span></li>
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21v-4a4 4 0 1 1 4 4h-4" /><path d="M21 3a16 16 0 0 0 -12.8 10.2" /><path d="M21 3a16 16 0 0 1 -10.2 12.8" /><path d="M10.6 9a9 9 0 0 1 4.4 4.4" /></svg></span><span class="spec-txt"><strong>Coloured stucco</strong> plaster</span></li>
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12v4h16v-4z" /><path d="M6 16v4h4v-4m0 -4v-6l-2 -2l-2 2v6" /><path d="M14 16v4h4v-4m0 -4v-6l-2 -2l-2 2v6" /></svg></span><span class="spec-txt"><strong>Artisan-frame</strong> railings</span></li>
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 4m0 1a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v14a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1z" /><path d="M10 10l2 -2l2 2" /><path d="M10 14l2 2l2 -2" /></svg></span><span class="spec-txt"><strong>Mitsubishi MRL</strong> elevators</span></li>
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 21v-6.5a3.5 3.5 0 0 0 -7 0v6.5h18v-6a4 4 0 0 0 -4 -4h-10.5" /><path d="M12 11v-8h4l2 2l-2 2h-4" /><path d="M6 15h1" /></svg></span><span class="spec-txt"><strong>Artisan-crafted</strong> mailboxes</span></li>
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M12 8l0 .01" /><path d="M8 12l0 .01" /><path d="M12 12l0 .01" /><path d="M16 12l0 .01" /><path d="M12 16l0 .01" /></svg></span><span class="spec-txt"><strong>Ground-floor</strong> ironwork frames</span></li>
+        <li><span class="spec-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 7l-1 1" /><path d="M14 11h1a2 2 0 0 1 2 2v3a1.5 1.5 0 0 0 3 0v-7l-3 -3" /><path d="M4 20v-14a2 2 0 0 1 2 -2h6a2 2 0 0 1 2 2v14" /><path d="M9 11.5l-1.5 2.5h3l-1.5 2.5" /><path d="M3 20l12 0" /><path d="M4 8l10 0" /></svg></span><span class="spec-txt"><strong>Robotic parking</strong> by Electra — covered entrance, EV-charging ready</span></li>
+      </ul>
+      <button class="spec-more" type="button"><span class="spec-more-label">Show more</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6l6 -6" /></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- INTERIORS — floating image gallery: hover a name, the render follows the cursor -->
+<section class="interiors-list" data-stamp="apartments">
+  <div class="il-head">
+    <div class="eyebrow fade"><span class="bar"></span><span class="label">The Interiors</span></div>
+    <h2 class="fade" data-d="1">Room by <em>room</em>.</h2>
+    <p class="fade" data-d="2">Every surface finished by Yaron Eldad's studio — oak, stainless, travertine-look and brushed brass.</p>
+  </div>
+  <ul class="il-items fade" data-d="2">
+    <li class="il-item" data-img="assets/renders/apt%20interioirs.webp?v=20260730">
+      <span class="il-name">The Living Room</span>
+      <span class="il-meta">Lounge &amp; dining</span>
+      <img class="il-inline" src="assets/renders/apt%20interioirs.webp?v=20260730" alt="The living room" loading="lazy" />
+    </li>
+    <li class="il-item" data-img="assets/renders/apt%20interioirs2.webp?v=20260730">
+      <span class="il-name">Kitchen &amp; Dining</span>
+      <span class="il-meta">Stainless &amp; oak</span>
+      <img class="il-inline" src="assets/renders/apt%20interioirs2.webp?v=20260730" alt="Kitchen and dining" loading="lazy" />
+    </li>
+    <li class="il-item" data-img="assets/renders/bedroom.webp?v=20260730">
+      <span class="il-name">Master Bedroom</span>
+      <span class="il-meta">Oak &amp; copper</span>
+      <img class="il-inline" src="assets/renders/bedroom.webp?v=20260730" alt="Master bedroom" loading="lazy" />
+    </li>
+    <li class="il-item" data-img="assets/renders/bedroom2.webp?v=20260730">
+      <span class="il-name">Second Bedroom</span>
+      <span class="il-meta">Oak &amp; wardrobe</span>
+      <img class="il-inline" src="assets/renders/bedroom2.webp?v=20260730" alt="Second bedroom" loading="lazy" />
+    </li>
+  </ul>
+  <div class="il-float" aria-hidden="true"><img alt="" /></div>
+</section>
+
 <!-- FLOOR PLANS -->
-<section class="plans" id="plans">
+<section class="plans" id="plans" data-stamp="apartments">
   <div class="plans-head">
     <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">Floor Plans · Yaniv Pardo Architects</span></div>
     <h2 class="fade" data-d="1">Three plates.<br/>No two residences <em>alike</em>.</h2>
@@ -904,19 +872,18 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
     </div>
     <div class="type-display" hidden>
       <div class="plan-frame plan-frame-type">
-        <div class="plan-pic" data-pic="A"><img src="assets/floorplans/apartment_pages_output/v4/page_05.webp?v=20260726" alt="Type A — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="C"><img src="assets/floorplans/apartment_pages_output/v4/page_06.webp?v=20260726" alt="Type C — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="F1"><img src="assets/floorplans/apartment_pages_output/v4/page_07.webp?v=20260726" alt="Type F1 — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="F2"><img src="assets/floorplans/apartment_pages_output/v4/page_08.webp?v=20260726" alt="Type F2 — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="F2-2"><img src="assets/floorplans/apartment_pages_output/v4/page_09.webp?v=20260726" alt="Type F2-2 — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="L"><img src="assets/floorplans/apartment_pages_output/v4/page_10.webp?v=20260726" alt="Type L — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="G1"><img src="assets/floorplans/apartment_pages_output/v4/page_11.webp?v=20260726" alt="Type G1 — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="G2"><img src="assets/floorplans/apartment_pages_output/v4/page_12.webp?v=20260726" alt="Type G2 — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="G3"><img src="assets/floorplans/apartment_pages_output/v4/page_13.webp?v=20260726" alt="Type G3 — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="PATIO A"><img src="assets/floorplans/apartment_pages_output/v4/page_14.webp?v=20260726" alt="Type Patio A — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="PATIO B"><img src="assets/floorplans/apartment_pages_output/v4/page_15.webp?v=20260726" alt="Type Patio B — apartment plan" loading="lazy" /></div>
-        <div class="plan-pic" data-pic="CL"><img src="assets/floorplans/apartment_pages_output/v4/page_16.webp?v=20260726" alt="Type CL — apartment plan" loading="lazy" /></div>
-        <div class="north-fix"><img src="assets/floorplans/north-compass.png?v=20260729" alt="North — צפון" /></div>
+        <div class="plan-pic" data-pic="A"><img src="assets/floorplans/apartment_pages_output/v4/page_04.webp?v=20260730" alt="Type A — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="C"><img src="assets/floorplans/apartment_pages_output/v4/type-c.webp?v=20260730" alt="Type C — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="F1"><img src="assets/floorplans/apartment_pages_output/v4/page_05.webp?v=20260730" alt="Type F1 — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="F2"><img src="assets/floorplans/apartment_pages_output/v4/page_06.webp?v=20260730" alt="Type F2 — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="F2-2"><img src="assets/floorplans/apartment_pages_output/v4/page_07.webp?v=20260730" alt="Type F2-2 — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="L"><img src="assets/floorplans/apartment_pages_output/v4/page_08.webp?v=20260730" alt="Type L — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="G1"><img src="assets/floorplans/apartment_pages_output/v4/page_09.webp?v=20260730" alt="Type G1 — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="G2"><img src="assets/floorplans/apartment_pages_output/v4/page_10.webp?v=20260730" alt="Type G2 — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="G3"><img src="assets/floorplans/apartment_pages_output/v4/page_11.webp?v=20260730" alt="Type G3 — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="PATIO A"><img src="assets/floorplans/apartment_pages_output/v4/page_12.webp?v=20260730" alt="Type Patio A — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="PATIO B"><img src="assets/floorplans/apartment_pages_output/v4/page_13.webp?v=20260730" alt="Type Patio B — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic" data-pic="CL"><img src="assets/floorplans/apartment_pages_output/v4/page_14.webp?v=20260730" alt="Type CL — apartment plan" loading="lazy" /></div>
       </div>
     </div>
     <div class="plans-download fade">
@@ -1040,10 +1007,10 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
     </div>
     <div>
       <h4>Project</h4>
-      <a href="#about">About</a>
-      <a href="#interiors">Interiors</a>
-      <a href="#plans">Floor Plans</a>
       <a href="#location">Location</a>
+      <a href="#building">The Building</a>
+      <a href="#public">Public Spaces</a>
+      <a href="#apartments">Apartments</a>
       <a href="#team">Team</a>
     </div>
     <div>
@@ -1179,19 +1146,105 @@ document.querySelectorAll('.spec-group').forEach(g => {
   apply();
 });
 
-// Hero parallax
+// Hero parallax + corridors pin-crossfade (vanilla — position:sticky does the pinning)
 const heroBg = document.querySelector('.hero-bg');
-let t = false;
-window.addEventListener('scroll', () => {
-  if (!t) {
-    requestAnimationFrame(() => {
-      const y = window.scrollY;
-      if (y < window.innerHeight && heroBg) heroBg.style.transform = `scale(1.02) translate3d(0,${y*0.22}px,0)`;
-      t = false;
-    });
-    t = true;
+const cpWrap = document.querySelector('.corridors-pin');
+const cpImg2 = cpWrap && cpWrap.querySelector('.cp-img[data-img="1"]');
+const cpSteps = cpWrap ? [...cpWrap.querySelectorAll('.cp-step')] : [];
+const cpDesktop = () => window.matchMedia('(min-width:901px)').matches;
+function frame(){
+  const y = window.scrollY, vh = window.innerHeight;
+  if (y < vh && heroBg) heroBg.style.transform = `scale(1.02) translate3d(0,${y*0.22}px,0)`;
+  if (cpWrap && cpImg2 && cpDesktop()){
+    const total = cpWrap.offsetHeight - vh;
+    const p = total > 0 ? Math.max(0, Math.min(1, -cpWrap.getBoundingClientRect().top / total)) : 0;
+    cpImg2.style.opacity = Math.max(0, Math.min(1, (p - 0.34) / 0.32));  // crossfade around the middle
+    const active = p > 0.5 ? 1 : 0;
+    cpSteps.forEach((s, i) => s.classList.toggle('is-on', i === active));
   }
-}, { passive: true });
+}
+let t = false;
+window.addEventListener('scroll', () => { if (!t) { requestAnimationFrame(() => { frame(); t = false; }); t = true; } }, { passive: true });
+window.addEventListener('resize', frame);
+frame();
+
+// Sticky cursor — brand-colour dot that trails the mouse and sticks to interactive elements
+(function stickyCursor(){
+  if (window.matchMedia('(pointer:coarse)').matches) return;   // touch → skip
+  const cur = document.createElement('div');
+  cur.className = 'sticky-cursor';
+  document.body.appendChild(cur);
+  document.documentElement.classList.add('has-cursor');        // hides native cursor via CSS
+  let mx = innerWidth/2, my = innerHeight/2, cx = mx, cy = my, stick = null;
+  addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, { passive: true });
+  document.querySelectorAll('a, button, .type-chip, .room-btn, .plan-tab, input, select, textarea, label.consent-row').forEach(el => {
+    el.addEventListener('mouseenter', () => { stick = el; cur.classList.add('is-hover'); });
+    el.addEventListener('mouseleave', () => { stick = null; cur.classList.remove('is-hover'); });
+  });
+  (function loop(){
+    let tx = mx, ty = my;
+    if (stick) { const r = stick.getBoundingClientRect(); tx = r.left + r.width/2; ty = r.top + r.height/2; }
+    cx += (tx - cx) * 0.18; cy += (ty - cy) * 0.18;
+    cur.style.transform = `translate(${cx.toFixed(1)}px,${cy.toFixed(1)}px) translate(-50%,-50%)`;
+    requestAnimationFrame(loop);
+  })();
+})();
+
+// Floating image gallery — hover a room name, its render trails the cursor (desktop only)
+(function floatingGallery(){
+  const sec = document.querySelector('.interiors-list');
+  if (!sec) return;
+  if (window.matchMedia('(hover:none), (pointer:coarse)').matches) return;  // mobile → CSS shows inline images
+  const float = sec.querySelector('.il-float');
+  const fimg = float.querySelector('img');
+  const items = [...sec.querySelectorAll('.il-item')];
+  let tx = innerWidth/2, ty = innerHeight/2, fx = tx, fy = ty;
+  addEventListener('mousemove', e => { tx = e.clientX; ty = e.clientY; }, { passive: true });
+  items.forEach(li => {
+    li.addEventListener('mouseenter', () => {
+      if (fimg.getAttribute('src') !== li.dataset.img) fimg.src = li.dataset.img;
+      float.classList.add('on');
+      document.documentElement.classList.add('cursor-hidden');
+    });
+    li.addEventListener('mouseleave', () => {
+      float.classList.remove('on');
+      document.documentElement.classList.remove('cursor-hidden');
+    });
+  });
+  (function loop(){
+    fx += (tx - fx) * 0.12; fy += (ty - fy) * 0.12;
+    float.style.left = fx.toFixed(1) + 'px';
+    float.style.top = fy.toFixed(1) + 'px';
+    requestAnimationFrame(loop);
+  })();
+})();
+
+// Per-section stamp — swaps the fixed top-right badge as each section scrolls in
+(function sectionStamps(){
+  const badge = document.querySelector('.stamp-badge');
+  if (!badge) return;
+  const img = badge.querySelector('img');
+  const V = '?v=20260730';
+  const map = {
+    building: 'assets/stamps/stamp-building.webp' + V,
+    lobby: 'assets/stamps/stamp-lobby.webp' + V,
+    apartments: 'assets/stamps/stamp-apartments.webp' + V,
+    location: 'assets/stamps/stamp-location.webp' + V
+  };
+  const sections = [...document.querySelectorAll('[data-stamp]')];
+  let cur = 'building';
+  badge.classList.add('show');
+  const setStamp = (s) => {
+    if (s === cur || !map[s]) return;
+    cur = s;
+    badge.classList.add('swap');
+    setTimeout(() => { img.src = map[s]; badge.classList.remove('swap'); }, 200);
+  };
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) setStamp(e.target.dataset.stamp); });
+  }, { rootMargin: '-24% 0px -66% 0px', threshold: 0 });
+  sections.forEach(s => io.observe(s));
+})();
 
 // ---- Lead delivery ----
 const SRC = { "index-en":"אתר (אנגלית)", "lead-page":"דף הליד", "floating-widget":"ווידג׳ט צף" };
