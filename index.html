@@ -128,16 +128,18 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .fade[data-d="3"]{transition-delay:.34s}
 
 /* INTRO */
-.intro{padding:200px 0 140px}
+.intro{padding:120px 0 130px}
 .intro-grid{max-width:1080px;margin:0 auto}
 .intro h2{font-size:clamp(36px,4.6vw,72px);max-width:18ch;line-height:1.04}
 .intro h2 em{font-style:italic;color:var(--sea-deep)}
 .intro p{font-size:17px;line-height:1.65;color:var(--ink-soft);max-width:60ch;margin-top:22px}
-.intro-meta{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;margin-top:64px;padding-top:30px;border-top:1px solid var(--line)}
+.intro-meta{position:relative;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;padding-top:38px;border-top:1px solid var(--line)}
+.intro-meta::before{content:"";position:absolute;top:-6px;left:0;width:12px;height:12px;border-radius:50%;background:#FF3B0D}
 .intro-meta .v{font-family:var(--serif);font-size:24px;font-weight:400;display:block}
-.intro-meta .v em{font-style:italic;color:var(--sea-deep)}
+.intro-meta .v em{font-style:italic;color:#FF3B0D}
 .intro-meta .k{display:block;font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--mute);margin-top:4px}
-@media(max-width:700px){.intro-meta{grid-template-columns:repeat(2,1fr);gap:24px}}
+.intro-statement{margin-top:74px}
+@media(max-width:700px){.intro-meta{grid-template-columns:repeat(2,1fr);gap:24px}.intro-statement{margin-top:56px}}
 
 /* PROMISE BANNER */
 .promise{padding:120px 44px;background:var(--paper-2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
@@ -550,13 +552,15 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
 <section class="intro section" id="building" data-stamp="building">
   <div class="wrap">
     <div class="intro-grid">
-      <div class="eyebrow fade"><span class="bar"></span><span class="label">About the project</span></div>
-      <h2 class="fade" data-d="1">Twenty-eight private residences, <em>fully designed — to the last detail</em>. Four minutes from the sea, between Neve Tzedek and old Jaffa.</h2>
-      <div class="intro-meta fade" data-d="3">
+      <div class="intro-meta fade" data-d="1">
         <div><span class="v"><em>28</em></span><span class="k">Residences</span></div>
         <div><span class="v">3 + roof</span><span class="k">Floors</span></div>
         <div><span class="v">60–185 sqm</span><span class="k">Range</span></div>
         <div><span class="v">250 m</span><span class="k">To the sea</span></div>
+      </div>
+      <div class="intro-statement">
+        <div class="eyebrow fade" data-d="2"><span class="bar"></span><span class="label">About the project</span></div>
+        <h2 class="fade" data-d="3">Twenty-eight private residences, <em>fully designed — to the last detail</em>. Four minutes from the sea, between Neve Tzedek and old Jaffa.</h2>
       </div>
     </div>
   </div>
