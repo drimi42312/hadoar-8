@@ -315,8 +315,9 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .il-float{position:fixed;top:0;left:0;width:clamp(420px,40vw,620px);aspect-ratio:16/10;pointer-events:none;z-index:60;opacity:0;transform:translate(-50%,-50%) scale(.86);transition:opacity .35s ease,transform .55s cubic-bezier(.2,.8,.2,1);overflow:hidden;box-shadow:0 40px 80px -34px rgba(0,0,0,.55)}
 .il-float.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
 .il-float img{width:100%;height:100%;object-fit:cover;display:block}
+.il-float.portrait{aspect-ratio:3/4;width:clamp(300px,26vw,430px)}
 @media(hover:hover) and (pointer:fine){.il-item{cursor:pointer}.il-item:hover{padding-left:26px}.il-item:hover .il-name{color:var(--sea-deep)}}
-@media(hover:none),(pointer:coarse),(max-width:760px){.il-float{display:none}.interiors-list{padding:90px 24px}.il-item{flex-wrap:wrap}.il-inline{display:block;width:100%;margin-top:18px;aspect-ratio:16/10;object-fit:cover}}
+@media(hover:none),(pointer:coarse),(max-width:760px){.il-float{display:none}.interiors-list{padding:90px 24px}.il-item{flex-wrap:wrap}.il-inline{display:block;width:100%;margin-top:18px;aspect-ratio:16/10;object-fit:cover}.il-inline-portrait{aspect-ratio:3/4;width:auto;max-width:340px;margin-left:auto;margin-right:auto}}
 .gallery{padding:120px 0}
 .gallery-head{max-width:760px;margin:0 auto 70px;text-align:center}
 .gallery-head h2{font-size:clamp(34px,4.2vw,60px)}
@@ -824,15 +825,10 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
       <span class="il-meta">Oak &amp; wardrobe</span>
       <img class="il-inline" src="assets/renders/bedroom2.webp?v=20260730" alt="Second bedroom" loading="lazy" />
     </li>
-    <li class="il-item" data-img="assets/renders/wc1.webp?v=20260731">
+    <li class="il-item" data-img="assets/renders/wc1.webp?v=20260731" data-fit="portrait">
       <span class="il-name">The Bathroom</span>
       <span class="il-meta">Travertine &amp; brass</span>
-      <img class="il-inline" src="assets/renders/wc1.webp?v=20260731" alt="The bathroom" loading="lazy" />
-    </li>
-    <li class="il-item" data-img="assets/renders/wc2.webp?v=20260731">
-      <span class="il-name">The En-Suite</span>
-      <span class="il-meta">Stone &amp; matte black</span>
-      <img class="il-inline" src="assets/renders/wc2.webp?v=20260731" alt="The en-suite bathroom" loading="lazy" />
+      <img class="il-inline il-inline-portrait" src="assets/renders/wc1.webp?v=20260731" alt="The bathroom" loading="lazy" />
     </li>
   </ul>
   <div class="il-float" aria-hidden="true"><img alt="" /></div>
@@ -1195,6 +1191,7 @@ frame();
   items.forEach(li => {
     li.addEventListener('mouseenter', () => {
       if (fimg.getAttribute('src') !== li.dataset.img) fimg.src = li.dataset.img;
+      float.classList.toggle('portrait', li.dataset.fit === 'portrait');
       float.classList.add('on');
       document.documentElement.classList.add('cursor-hidden');
     });
