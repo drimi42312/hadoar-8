@@ -824,6 +824,16 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
       <span class="il-meta">Oak &amp; wardrobe</span>
       <img class="il-inline" src="assets/renders/bedroom2.webp?v=20260730" alt="Second bedroom" loading="lazy" />
     </li>
+    <li class="il-item" data-img="assets/renders/wc1.webp?v=20260731">
+      <span class="il-name">The Bathroom</span>
+      <span class="il-meta">Travertine &amp; brass</span>
+      <img class="il-inline" src="assets/renders/wc1.webp?v=20260731" alt="The bathroom" loading="lazy" />
+    </li>
+    <li class="il-item" data-img="assets/renders/wc2.webp?v=20260731">
+      <span class="il-name">The En-Suite</span>
+      <span class="il-meta">Stone &amp; matte black</span>
+      <img class="il-inline" src="assets/renders/wc2.webp?v=20260731" alt="The en-suite bathroom" loading="lazy" />
+    </li>
   </ul>
   <div class="il-float" aria-hidden="true"><img alt="" /></div>
 </section>
@@ -831,21 +841,11 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
 <!-- FLOOR PLANS -->
 <section class="plans" id="plans" data-stamp="apartments">
   <div class="plans-head">
-    <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">Floor Plans · Yaniv Pardo Architects</span></div>
-    <h2 class="fade" data-d="1">Three plates.<br/>No two residences <em>alike</em>.</h2>
-    <p class="fade" data-d="2">A first floor that meets the boulevard, with a second and third above it. Switch between the three plates below, or pick a specific apartment type to see its plan.</p>
-  </div>
-  <div class="plan-tabs fade">
-    <button class="plan-tab active" data-tab="first">First Floor</button>
-    <button class="plan-tab" data-tab="second">Second Floor</button>
-    <button class="plan-tab" data-tab="third">Third Floor</button>
+    <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">Apartment Plans · Yaniv Pardo Architects</span></div>
+    <h2 class="fade" data-d="1">Twelve types.<br/>No two residences <em>alike</em>.</h2>
+    <p class="fade" data-d="2">Filter by number of rooms, then pick an apartment type to see its plan. The full plans booklet is available to download below.</p>
   </div>
   <div class="plan-stage fade" data-d="1">
-    <div class="plan-frame">
-      <div class="plan-pic show" data-pic="first"><img src="assets/floorplans/floor%20plans/1st-floor.webp?v=20260706d" alt="First floor plan — Yaniv Pardo Architects" loading="lazy" /></div>
-      <div class="plan-pic" data-pic="second"><img src="assets/floorplans/floor%20plans/2nd-floor.webp?v=20260706d" alt="Second floor plan — Yaniv Pardo Architects" loading="lazy" /></div>
-      <div class="plan-pic" data-pic="third"><img src="assets/floorplans/floor%20plans/3rd-floor.webp?v=20260706d" alt="Third floor plan — Yaniv Pardo Architects" loading="lazy" /></div>
-    </div>
     <div class="type-chips">
       <span class="type-eyebrow">Filter apartments by number of rooms</span>
       <div class="room-filter">
@@ -856,7 +856,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
         <button class="room-btn" data-rooms="4.5">4.5 Rooms</button>
       </div>
       <div class="chip-row">
-        <button class="type-chip" data-type="A" data-rooms="3">A</button>
+        <button class="type-chip active" data-type="A" data-rooms="3">A</button>
         <button class="type-chip" data-type="C" data-rooms="4">C</button>
         <button class="type-chip" data-type="F1" data-rooms="3">F1</button>
         <button class="type-chip" data-type="F2" data-rooms="3">F2</button>
@@ -870,9 +870,9 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
         <button class="type-chip" data-type="CL" data-rooms="4">CL</button>
       </div>
     </div>
-    <div class="type-display" hidden>
+    <div class="type-display">
       <div class="plan-frame plan-frame-type">
-        <div class="plan-pic" data-pic="A"><img src="assets/floorplans/plans/type-a.webp?v=20260730" alt="Type A — apartment plan" loading="lazy" /></div>
+        <div class="plan-pic show" data-pic="A"><img src="assets/floorplans/plans/type-a.webp?v=20260730" alt="Type A — apartment plan" loading="lazy" /></div>
         <div class="plan-pic" data-pic="C"><img src="assets/floorplans/plans/type-c.webp?v=20260730" alt="Type C — apartment plan" loading="lazy" /></div>
         <div class="plan-pic" data-pic="F1"><img src="assets/floorplans/plans/type-f1.webp?v=20260730" alt="Type F1 — apartment plan" loading="lazy" /></div>
         <div class="plan-pic" data-pic="F2"><img src="assets/floorplans/plans/type-f2.webp?v=20260730" alt="Type F2 — apartment plan" loading="lazy" /></div>
@@ -887,7 +887,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
       </div>
     </div>
     <div class="plans-download fade">
-      <a class="plans-download-btn" href="assets/floorplans/HADOAR_TLV_Plans_Booklet.pdf?v=20260726" download="HADOAR_TLV_Plans_Booklet.pdf">
+      <a class="plans-download-btn" href="assets/floorplans/HADOAR_TLV_Plans_Booklet.pdf?v=20260731" download="HADOAR_TLV_Plans_Booklet.pdf">
         <span class="dl-arrow" aria-hidden="true">↓</span>
         <span class="dl-label">Download project plans · PDF</span>
       </a>
@@ -1096,37 +1096,29 @@ window.addEventListener('resize', checkFades);
 window.addEventListener('load', checkFades);
 setInterval(checkFades, 250);
 
-// Floor plan tabs
+// Apartment-type plans — pick a type to show its plan
 const typeDisplay = document.querySelector('.type-display');
-document.querySelectorAll('.plan-tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    const t = tab.dataset.tab;
-    document.querySelectorAll('.plan-tab').forEach(b => b.classList.toggle('active', b === tab));
-    document.querySelectorAll('.plan-frame:not(.type-display .plan-frame) .plan-pic').forEach(p => p.classList.toggle('show', p.dataset.pic === t));
-  });
-});
+function selectType(chip, scroll){
+  const t = chip.dataset.type;
+  document.querySelectorAll('.type-chip').forEach(c => c.classList.toggle('active', c === chip));
+  typeDisplay.querySelectorAll('.plan-pic').forEach(p => p.classList.toggle('show', p.dataset.pic === t));
+  if (scroll) typeDisplay.scrollIntoView({behavior:'smooth', block:'center'});
+}
 document.querySelectorAll('.type-chip').forEach(chip => {
-  chip.addEventListener('click', () => {
-    const t = chip.dataset.type;
-    document.querySelectorAll('.type-chip').forEach(c => c.classList.toggle('active', c === chip));
-    typeDisplay.querySelectorAll('.plan-pic').forEach(p => p.classList.toggle('show', p.dataset.pic === t));
-    typeDisplay.hidden = false;
-    typeDisplay.scrollIntoView({behavior:'smooth', block:'center'});
-  });
+  chip.addEventListener('click', () => selectType(chip, true));
 });
-// Room-count filter
+// Room-count filter — keep a plan visible by falling back to the first matching type
 document.querySelectorAll('.room-btn').forEach(btn => {
   btn.addEventListener('click', () => {
     const r = btn.dataset.rooms;
     document.querySelectorAll('.room-btn').forEach(b => b.classList.toggle('active', b === btn));
-    document.querySelectorAll('.type-chip').forEach(chip => {
-      const match = r === 'all' || chip.dataset.rooms === r;
-      chip.hidden = !match;
-      if (!match && chip.classList.contains('active')) {
-        chip.classList.remove('active');
-        typeDisplay.hidden = true;
-      }
-    });
+    const chips = [...document.querySelectorAll('.type-chip')];
+    chips.forEach(chip => { chip.hidden = !(r === 'all' || chip.dataset.rooms === r); });
+    const active = chips.find(c => c.classList.contains('active'));
+    if (!active || active.hidden) {
+      const first = chips.find(c => !c.hidden);
+      if (first) selectType(first, false);
+    }
   });
 });
 
