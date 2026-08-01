@@ -56,7 +56,7 @@ a{color:inherit;text-decoration:none}
 .sticky-cursor.is-hover{width:56px;height:56px;background:rgba(255,59,13,.2);border:1px solid rgba(255,59,13,.55)}
 html.cursor-hidden .sticky-cursor{opacity:0}
 .stamp-badge{position:fixed;top:100px;right:30px;width:clamp(92px,9vw,138px);z-index:40;opacity:0;transform:translateY(-8px) rotate(-3deg);transition:opacity .5s ease,transform .5s ease;pointer-events:none}
-.stamp-badge.show{opacity:1;transform:translateY(0) rotate(-3deg)}
+.stamp-badge.show{opacity:.42;transform:translateY(0) rotate(-3deg)}
 .stamp-badge img{width:100%;height:auto;display:block;transition:opacity .3s ease;filter:drop-shadow(0 12px 26px rgba(0,0,0,.2))}
 .stamp-badge.swap img{opacity:0}
 @media(max-width:760px){.stamp-badge{top:70px;right:12px;width:70px}}
@@ -379,6 +379,10 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .plan-empty{text-align:center;color:var(--mute);font-size:13px;letter-spacing:.02em;padding:60px 0}
 .plan-frame-type{padding:0;border:none;background:transparent;min-height:0}
 .plan-frame-type img{display:block;width:100%;height:auto;border:1px solid var(--line);background:var(--paper)}
+.type-cta{display:flex;justify-content:center;margin-top:24px}
+.type-cta-btn{display:inline-flex;align-items:center;gap:12px;background:#FF3B0D;color:#fff;border:1px solid #FF3B0D;padding:16px 32px;font-family:var(--sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;cursor:pointer;transition:background .25s,color .25s}
+.type-cta-btn:hover{background:transparent;color:#FF3B0D}
+@media(min-width:901px){.plan-frame-type img{width:auto;max-width:100%;max-height:72vh;margin:0 auto}}
 .plans-download{margin-top:56px;display:flex;justify-content:center}
 .plans-download-btn{display:inline-flex;align-items:center;gap:14px;background:var(--ink);color:var(--paper);padding:18px 32px;font-family:var(--sans);font-size:11px;letter-spacing:.32em;text-transform:uppercase;font-weight:500;text-decoration:none;border:1px solid var(--ink);transition:background .25s,color .25s}
 .plans-download-btn:hover{background:var(--paper);color:var(--ink)}
@@ -465,8 +469,11 @@ form button:disabled{opacity:.6;cursor:default}
 .form-done .ico{width:54px;height:54px;border-radius:50%;border:1.5px solid #8fd0b0;display:flex;align-items:center;justify-content:center;color:#8fd0b0;margin-bottom:22px}
 .form-done h3{font-family:var(--serif);font-style:italic;font-weight:300;font-size:30px;color:var(--paper)}
 .form-done p{margin-top:14px;color:rgba(250,247,241,.72);font-size:15px;line-height:1.7;max-width:42ch}
-.form-done .wa-inline{display:inline-flex;align-items:center;gap:10px;margin-top:26px;background:#25D366;color:#0b3d24;padding:15px 30px;border-radius:999px;font-family:var(--sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;transition:filter .25s}
+.form-done-actions{display:flex;flex-wrap:wrap;align-items:center;gap:18px;margin-top:26px}
+.form-done .wa-inline{display:inline-flex;align-items:center;gap:10px;background:#25D366;color:#0b3d24;padding:15px 30px;border-radius:999px;font-family:var(--sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;transition:filter .25s}
 .form-done .wa-inline:hover{filter:brightness(.95)}
+.done-close{background:transparent;border:none;color:rgba(250,247,241,.6);font-family:var(--sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;font-weight:500;cursor:pointer;transition:color .2s;padding:6px 4px}
+.done-close:hover{color:var(--paper)}
 @media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:60px}}
 
 /* Floating lead widget */
@@ -866,6 +873,9 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
         <div class="plan-pic" data-pic="PATIO B"><img src="assets/floorplans/plans/type-patio-b.webp?v=20260730" alt="Type Patio B — apartment plan" loading="lazy" /></div>
         <div class="plan-pic" data-pic="CL"><img src="assets/floorplans/plans/type-cl.webp?v=20260730" alt="Type CL — apartment plan" loading="lazy" /></div>
       </div>
+      <div class="type-cta">
+        <button type="button" class="type-cta-btn" id="typeCta">Get back to me about this apartment</button>
+      </div>
     </div>
     <div class="plans-download fade">
       <a class="plans-download-btn" href="assets/floorplans/HADOAR_TLV_Plans_Booklet.pdf?v=20260731" download="HADOAR_TLV_Plans_Booklet.pdf">
@@ -876,7 +886,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
   </div>
 </section>
 <!-- L'VNT — DEVELOPER -->
-<section class="split reverse" id="lvnt">
+<section class="split reverse" id="lvnt" data-stamp="none">
   <div class="split-img fade"><img src="assets/team/צוות%20LVNT.webp" alt="L'VNT — the team" loading="lazy" /></div>
   <div class="split-text">
     <div class="lvnt-mark fade">
@@ -896,7 +906,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
   </div>
 </section>
 <!-- TEAM -->
-<section class="team" id="team">
+<section class="team" id="team" data-stamp="none">
   <div class="team-head">
     <div class="eyebrow fade"><span class="bar"></span><span class="label">Design Leads</span></div>
     <h2 class="fade" data-d="1">The architect,<br/>the <em>interior designer</em>.</h2>
@@ -922,7 +932,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
   </div>
 </section>
 <!-- CONTACT -->
-<section class="contact" id="contact">
+<section class="contact" id="contact" data-stamp="none">
   <div class="wrap-wide">
     <div class="contact-grid">
       <div>
@@ -970,7 +980,10 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
         <div class="ico"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></div>
         <h3>Thank you — we have your details</h3>
         <p>We'll be in touch shortly to arrange a private viewing. In a hurry? Message us on WhatsApp.</p>
-        <a class="wa-inline" href="https://wa.me/972544897633" target="_blank" rel="noopener">Open WhatsApp</a>
+        <div class="form-done-actions">
+          <a class="wa-inline" href="https://wa.me/972544897633" target="_blank" rel="noopener">Open WhatsApp</a>
+          <button type="button" class="done-close" id="formDoneClose">Close</button>
+        </div>
       </div>
     </div>
   </div>
@@ -1124,6 +1137,16 @@ document.querySelectorAll('.side-btn').forEach(btn => {
     applyFilters();
   });
 });
+// CTA under the plan — tag the chosen type and jump to the contact form
+const typeCta = document.getElementById('typeCta');
+if (typeCta){
+  typeCta.addEventListener('click', () => {
+    const active = document.querySelector('.type-chip.active');
+    window.leadInterest = active ? ('Type ' + active.dataset.type) : '';
+    document.getElementById('contact').scrollIntoView({behavior:'smooth', block:'start'});
+    setTimeout(() => { const n = document.querySelector('#leadForm [name=name]'); if (n) n.focus({preventScroll:true}); }, 600);
+  });
+}
 
 // Specifications — show more / less (3 shown per group)
 document.querySelectorAll('.spec-group').forEach(g => {
@@ -1228,18 +1251,28 @@ frame();
     location: 'assets/stamps/stamp-location.webp' + V
   };
   const sections = [...document.querySelectorAll('[data-stamp]')];
-  let cur = 'building';
+  let cur = null;
   badge.classList.add('show');
-  const setStamp = (s) => {
-    if (s === cur || !map[s]) return;
+  const apply = (s) => {
+    if (s === cur) return;
     cur = s;
+    if (!map[s]) { badge.classList.remove('show'); return; }   // LVNT / team / contact — no stamp
+    if (!badge.classList.contains('show')) badge.classList.add('show');
     badge.classList.add('swap');
     setTimeout(() => { img.src = map[s]; badge.classList.remove('swap'); }, 200);
   };
-  const io = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) setStamp(e.target.dataset.stamp); });
-  }, { rootMargin: '-24% 0px -66% 0px', threshold: 0 });
-  sections.forEach(s => io.observe(s));
+  // Scroll-driven: the active section is the last one whose top has passed the 30% line.
+  // Deterministic at every boundary — no thin-band ambiguity.
+  const update = () => {
+    const line = window.innerHeight * 0.30;
+    let active = sections[0];
+    for (const s of sections){ if (s.getBoundingClientRect().top <= line) active = s; else break; }
+    apply(active.dataset.stamp);
+  };
+  let ticking = false;
+  addEventListener('scroll', () => { if (!ticking){ requestAnimationFrame(() => { update(); ticking = false; }); ticking = true; } }, { passive:true });
+  addEventListener('resize', update);
+  update();
 })();
 
 // ---- Lead delivery ----
@@ -1267,6 +1300,7 @@ function sendFireberry(data){
   body.append("isvalidforemailcode", data.consent ? "1" : "2");
   // budget has no matching CRM picklist for this price band — keep it as a note
   const note = [
+    data.interest ? `Interested in: ${data.interest}` : "",
     data.budget ? `Budget: ${data.budget}` : "",
     (data.rooms && !rooms) ? `Rooms: ${data.rooms}` : "",
     `Marketing consent: ${data.consent ? "yes" : "no"}`,
@@ -1303,11 +1337,22 @@ leadForm.addEventListener('submit', async (e) => {
     return;
   }
   btn.disabled = true; btn.textContent = 'Sending…';
-  try { await sendLead({ ...data, source:'index-en' }); } catch (err) { /* still confirm to the user */ }
+  try { await sendLead({ ...data, source:'index-en', interest: window.leadInterest || '' }); } catch (err) { /* still confirm to the user */ }
+  window.leadInterest = '';
   leadForm.hidden = true;
   leadDone.hidden = false;
   leadDone.classList.add('in');
 });
+// success state — "Close" restores the form
+const formDoneClose = document.getElementById('formDoneClose');
+if (formDoneClose){
+  formDoneClose.addEventListener('click', () => {
+    leadDone.hidden = true; leadDone.classList.remove('in');
+    leadForm.reset();
+    const b = leadForm.querySelector('button'); b.disabled = false; b.textContent = 'Leave your details';
+    leadForm.hidden = false;
+  });
+}
 // clear consent error once ticked
 document.querySelectorAll('.consent-row input').forEach(c =>
   c.addEventListener('change', () => c.closest('.consent-row').classList.remove('invalid')));
