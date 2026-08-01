@@ -56,7 +56,8 @@ a{color:inherit;text-decoration:none}
 .sticky-cursor.is-hover{width:56px;height:56px;background:rgba(255,59,13,.2);border:1px solid rgba(255,59,13,.55)}
 html.cursor-hidden .sticky-cursor{opacity:0}
 .stamp-badge{position:fixed;top:100px;right:30px;width:clamp(92px,9vw,138px);z-index:40;opacity:0;transform:translateY(-8px) rotate(-3deg);transition:opacity .5s ease,transform .5s ease;pointer-events:none}
-.stamp-badge.show{opacity:.42;transform:translateY(0) rotate(-3deg)}
+.stamp-badge.show{opacity:1;transform:translateY(0) rotate(-3deg)}
+.stamp-badge.show.dim{opacity:.32}
 .stamp-badge img{width:100%;height:auto;display:block;transition:opacity .3s ease;filter:drop-shadow(0 12px 26px rgba(0,0,0,.2))}
 .stamp-badge.swap img{opacity:0}
 @media(max-width:760px){.stamp-badge{top:70px;right:12px;width:70px}}
@@ -366,7 +367,13 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .type-display{margin-top:40px}
 .type-display[hidden]{display:none}
 .type-chips .type-eyebrow{display:block;font-size:10px;letter-spacing:.32em;text-transform:uppercase;color:var(--mute);margin-bottom:20px;text-align:center}
+.chip-cue{display:flex;align-items:center;justify-content:center;gap:10px;margin:-8px 0 18px;color:#FF3B0D;font-family:var(--sans);font-size:12px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.cue-arrow{display:inline-block;font-size:15px;animation:cueBounce 1.5s ease-in-out infinite}
+@keyframes cueBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
 .chip-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip-row.cue-pulse .type-chip:not(.active){animation:chipPulse 1.3s ease-in-out 2}
+@keyframes chipPulse{0%,100%{box-shadow:0 0 0 0 rgba(255,59,13,0)}50%{box-shadow:0 0 0 3px rgba(255,59,13,.16)}}
+@media(prefers-reduced-motion:reduce){.cue-arrow,.chip-row.cue-pulse .type-chip{animation:none}}
 .type-chip{background:var(--paper);border:1px solid var(--line);padding:12px 22px;font-family:var(--sans);font-size:11px;letter-spacing:.28em;text-transform:uppercase;color:var(--ink-soft);cursor:pointer;font-weight:500;transition:background .25s,color .25s,border-color .25s}
 .type-chip:hover:not(.active){border-color:var(--ink);color:var(--ink)}
 .type-chip.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
@@ -823,8 +830,8 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
 <section class="plans" id="plans" data-stamp="apartments">
   <div class="plans-head">
     <div class="eyebrow fade" style="justify-content:center"><span class="bar"></span><span class="label">Apartment Plans · Yaniv Pardo Architects</span></div>
-    <h2 class="fade" data-d="1">Twelve types.<br/>No two residences <em>alike</em>.</h2>
-    <p class="fade" data-d="2">Filter by number of rooms, then pick an apartment type to see its plan. The full plans booklet is available to download below.</p>
+    <h2 class="fade" data-d="1">Choose your <em>apartment</em>.</h2>
+    <p class="fade" data-d="2">Twelve types, no two alike. Filter by number of rooms, then tap a type below to see its plan — or download the full plans booklet.</p>
   </div>
   <div class="plan-stage fade" data-d="1">
     <div class="type-chips">
@@ -836,25 +843,21 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
         <button class="room-btn" data-rooms="4">4 Rooms</button>
         <button class="room-btn" data-rooms="4.5">4.5 Rooms</button>
       </div>
-      <span class="type-eyebrow">Aspect</span>
-      <div class="side-filter">
-        <button class="side-btn active" data-side="all">All</button>
-        <button class="side-btn" data-side="garden">Garden side</button>
-        <button class="side-btn" data-side="street">Street side</button>
-      </div>
+      <span class="type-eyebrow">Apartment type</span>
+      <div class="chip-cue"><span>Tap a type to view its floor plan</span><span class="cue-arrow" aria-hidden="true">↓</span></div>
       <div class="chip-row">
-        <button class="type-chip active" data-type="A" data-rooms="3" data-side="garden street">A</button>
-        <button class="type-chip" data-type="C" data-rooms="4" data-side="street">C</button>
-        <button class="type-chip" data-type="F1" data-rooms="3" data-side="street">F1</button>
-        <button class="type-chip" data-type="F2" data-rooms="3" data-side="street">F2</button>
-        <button class="type-chip" data-type="F2-2" data-rooms="2" data-side="street">F2-2</button>
-        <button class="type-chip" data-type="G1" data-rooms="2" data-side="garden">G1</button>
-        <button class="type-chip" data-type="G2" data-rooms="2" data-side="garden">G2</button>
-        <button class="type-chip" data-type="G3" data-rooms="3" data-side="garden">G3</button>
-        <button class="type-chip" data-type="L" data-rooms="4.5" data-side="street">L</button>
-        <button class="type-chip" data-type="PATIO A" data-rooms="3" data-side="street">Patio A</button>
-        <button class="type-chip" data-type="PATIO B" data-rooms="3" data-side="street">Patio B</button>
-        <button class="type-chip" data-type="CL" data-rooms="4" data-side="street">CL</button>
+        <button class="type-chip active" data-type="A" data-rooms="3">A</button>
+        <button class="type-chip" data-type="C" data-rooms="4">C</button>
+        <button class="type-chip" data-type="F1" data-rooms="3">F1</button>
+        <button class="type-chip" data-type="F2" data-rooms="3">F2</button>
+        <button class="type-chip" data-type="F2-2" data-rooms="2">F2-2</button>
+        <button class="type-chip" data-type="G1" data-rooms="2">G1</button>
+        <button class="type-chip" data-type="G2" data-rooms="2">G2</button>
+        <button class="type-chip" data-type="G3" data-rooms="3">G3</button>
+        <button class="type-chip" data-type="L" data-rooms="4.5">L</button>
+        <button class="type-chip" data-type="PATIO A" data-rooms="3">Patio A</button>
+        <button class="type-chip" data-type="PATIO B" data-rooms="3">Patio B</button>
+        <button class="type-chip" data-type="CL" data-rooms="4">CL</button>
       </div>
       <div class="plan-empty" hidden>No apartments match these filters.</div>
     </div>
@@ -1098,16 +1101,14 @@ function selectType(chip, scroll){
 document.querySelectorAll('.type-chip').forEach(chip => {
   chip.addEventListener('click', () => selectType(chip, true));
 });
-// Filters — rooms + aspect (garden/street) combine; a plan stays visible when possible
-let fRooms = 'all', fSide = 'all';
+// Room-count filter — keep a plan visible by falling back to the first matching type
+let fRooms = 'all';
 const planEmpty = document.querySelector('.plan-empty');
 function applyFilters(){
   const chips = [...document.querySelectorAll('.type-chip')];
   let anyVisible = false;
   chips.forEach(chip => {
-    const roomOk = fRooms === 'all' || chip.dataset.rooms === fRooms;
-    const sideOk = fSide === 'all' || (chip.dataset.side || '').split(' ').includes(fSide);
-    chip.hidden = !(roomOk && sideOk);
+    chip.hidden = !(fRooms === 'all' || chip.dataset.rooms === fRooms);
     if (!chip.hidden) anyVisible = true;
   });
   if (!anyVisible){
@@ -1130,13 +1131,14 @@ document.querySelectorAll('.room-btn').forEach(btn => {
     applyFilters();
   });
 });
-document.querySelectorAll('.side-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    fSide = btn.dataset.side;
-    document.querySelectorAll('.side-btn').forEach(b => b.classList.toggle('active', b === btn));
-    applyFilters();
-  });
-});
+// One-time attention pulse on the type chips when the section first scrolls into view
+const chipRow = document.querySelector('.chip-row');
+if (chipRow){
+  const cueIO = new IntersectionObserver((es, obs) => {
+    es.forEach(e => { if (e.isIntersecting){ chipRow.classList.add('cue-pulse'); obs.disconnect(); } });
+  }, { threshold: 0.6 });
+  cueIO.observe(chipRow);
+}
 // CTA under the plan — tag the chosen type and jump to the contact form
 const typeCta = document.getElementById('typeCta');
 if (typeCta){
@@ -1263,11 +1265,19 @@ frame();
   };
   // Scroll-driven: the active section is the last one whose top has passed the 30% line.
   // Deterministic at every boundary — no thin-band ambiguity.
+  const plan = document.querySelector('.plan-frame-type');
   const update = () => {
     const line = window.innerHeight * 0.30;
     let active = sections[0];
     for (const s of sections){ if (s.getBoundingClientRect().top <= line) active = s; else break; }
     apply(active.dataset.stamp);
+    // Only fade the stamp when it actually overlaps the apartment plan behind it
+    let over = false;
+    if (plan && badge.classList.contains('show')){
+      const b = badge.getBoundingClientRect(), p = plan.getBoundingClientRect();
+      over = !(b.right < p.left || b.left > p.right || b.bottom < p.top || b.top > p.bottom);
+    }
+    badge.classList.toggle('dim', over);
   };
   let ticking = false;
   addEventListener('scroll', () => { if (!ticking){ requestAnimationFrame(() => { update(); ticking = false; }); ticking = true; } }, { passive:true });
