@@ -378,11 +378,15 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;letter-spacing:-.005em;line-he
 .type-chip:hover:not(.active){border-color:var(--ink);color:var(--ink)}
 .type-chip.active{background:var(--ink);color:var(--paper);border-color:var(--ink)}
 .type-chip[hidden]{display:none}
-.room-filter,.side-filter{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:26px}
-.room-btn,.side-btn{background:transparent;border:1px solid var(--line);border-radius:999px;padding:9px 20px;font-family:var(--sans);font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--mute);cursor:pointer;font-weight:500;transition:background .25s,color .25s,border-color .25s}
-.room-btn:hover:not(.active),.side-btn:hover:not(.active){border-color:var(--ink);color:var(--ink)}
-.room-btn.active,.side-btn.active{background:var(--sea-deep);color:var(--paper);border-color:var(--sea-deep)}
-.room-filter+.type-eyebrow{margin-top:4px}
+.filter-step{margin-bottom:38px}
+.step-head{display:flex;align-items:center;justify-content:center;gap:12px;margin-bottom:12px}
+.step-num{display:inline-flex;align-items:center;justify-content:center;width:27px;height:27px;border-radius:50%;background:#FF3B0D;color:#fff;font-family:var(--sans);font-size:13px;font-weight:600;flex:none}
+.step-title{font-family:var(--serif);font-size:23px;font-weight:400;color:var(--ink)}
+.room-filter{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.room-btn{background:var(--paper);border:1.5px solid rgba(42,37,32,.25);border-radius:12px;padding:15px 28px;font-family:var(--sans);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink);cursor:pointer;font-weight:600;box-shadow:0 1px 0 rgba(42,37,32,.06),0 10px 20px -16px rgba(42,37,32,.55);transition:transform .2s,border-color .2s,background .2s,color .2s,box-shadow .2s}
+.room-btn:hover:not(.active){border-color:#FF3B0D;color:#FF3B0D;transform:translateY(-2px);box-shadow:0 12px 24px -14px rgba(255,59,13,.6)}
+.room-btn.active{background:#FF3B0D;color:#fff;border-color:#FF3B0D;box-shadow:0 10px 22px -10px rgba(255,59,13,.55)}
+@media(max-width:700px){.room-btn{padding:13px 20px;font-size:11px}.step-title{font-size:20px}}
 .plan-empty{text-align:center;color:var(--mute);font-size:13px;letter-spacing:.02em;padding:60px 0}
 .plan-frame-type{padding:0;border:none;background:transparent;min-height:0}
 .plan-frame-type img{display:block;width:100%;height:auto;border:1px solid var(--line);background:var(--paper)}
@@ -835,17 +839,21 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
   </div>
   <div class="plan-stage fade" data-d="1">
     <div class="type-chips">
-      <span class="type-eyebrow">Rooms</span>
-      <div class="room-filter">
-        <button class="room-btn active" data-rooms="all">All</button>
-        <button class="room-btn" data-rooms="2">2 Rooms</button>
-        <button class="room-btn" data-rooms="3">3 Rooms</button>
-        <button class="room-btn" data-rooms="4">4 Rooms</button>
-        <button class="room-btn" data-rooms="4.5">4.5 Rooms</button>
+      <div class="filter-step">
+        <div class="step-head"><span class="step-num">1</span><span class="step-title">How many rooms?</span></div>
+        <div class="chip-cue"><span>Tap a number to see matching apartments</span><span class="cue-arrow" aria-hidden="true">↓</span></div>
+        <div class="room-filter">
+          <button class="room-btn active" data-rooms="all">All</button>
+          <button class="room-btn" data-rooms="2">2 rooms</button>
+          <button class="room-btn" data-rooms="3">3 rooms</button>
+          <button class="room-btn" data-rooms="4">4 rooms</button>
+          <button class="room-btn" data-rooms="4.5">4.5 rooms</button>
+        </div>
       </div>
-      <span class="type-eyebrow">Apartment type</span>
-      <div class="chip-cue"><span>Tap a type to view its floor plan</span><span class="cue-arrow" aria-hidden="true">↓</span></div>
-      <div class="chip-row">
+      <div class="filter-step">
+        <div class="step-head"><span class="step-num">2</span><span class="step-title">Pick a type</span></div>
+        <div class="chip-cue"><span>Tap a type to view its floor plan</span><span class="cue-arrow" aria-hidden="true">↓</span></div>
+        <div class="chip-row">
         <button class="type-chip active" data-type="A" data-rooms="3">A</button>
         <button class="type-chip" data-type="C" data-rooms="4">C</button>
         <button class="type-chip" data-type="F1" data-rooms="3">F1</button>
@@ -858,6 +866,7 @@ footer{background:var(--ink);color:var(--paper);padding:60px 44px 36px;border-to
         <button class="type-chip" data-type="PATIO A" data-rooms="3">Patio A</button>
         <button class="type-chip" data-type="PATIO B" data-rooms="3">Patio B</button>
         <button class="type-chip" data-type="CL" data-rooms="4">CL</button>
+        </div>
       </div>
       <div class="plan-empty" hidden>No apartments match these filters.</div>
     </div>
